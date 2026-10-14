@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eikaiwa Log</title>
+<style>
+  :root { color-scheme: light dark; }
+  :root[data-theme="light"] { color-scheme: light; }
+  :root[data-theme="dark"] { color-scheme: dark; }
+  :root {
+    --bg: #ffffff; --fg: #1f2328; --muted: #656d76; --line: #d0d7de; --card: #f6f8fa;
+    --h0: #ebedf0; --h1: #9be9a8; --h2: #40c463; --h3: #30a14e; --h4: #216e39;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0d1117; --fg: #e6edf3; --muted: #8d96a0; --line: #30363d; --card: #161b22;
+      --h0: #161b22; --h1: #0e4429; --h2: #006d32; --h3: #26a641; --h4: #39d353;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0d1117; --fg: #e6edf3; --muted: #8d96a0; --line: #30363d; --card: #161b22;
+    --h0: #161b22; --h1: #0e4429; --h2: #006d32; --h3: #26a641; --h4: #39d353;
+  }
+  body { margin: 0; background: var(--bg); color: var(--fg);
+    font: 15px/1.5 system-ui, -apple-system, "Hiragino Sans", sans-serif; }
+  main { max-width: 760px; margin: 0 auto; padding: 24px 16px 48px; }
+  h1 { font-size: 20px; margin: 0 0 20px; }
+  h2 { font-size: 15px; margin: 28px 0 10px; color: var(--muted); font-weight: 600; }
+  .stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .stat { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 12px; text-align: center; }
+  .stat .v { font-size: 24px; font-weight: 700; }
+  .stat .k { font-size: 12px; color: var(--muted); }
+  .heat-wrap { overflow-x: auto; }
+  .heat { display: grid; grid-auto-flow: column; grid-template-rows: repeat(7, 11px); gap: 3px; width: max-content; }
+  .heat i { width: 11px; height: 11px; border-radius: 2px; background: var(--h0); }
+  .heat i.l1 { background: var(--h1); } .heat i.l2 { background: var(--h2); }
+  .heat i.l3 { background: var(--h3); } .heat i.l4 { background: var(--h4); }
+  .heat i.out { visibility: hidden; }
+  ul { list-style: none; margin: 0; padding: 0; }
+  li { display: flex; gap: 12px; padding: 8px 0; border-bottom: 1px solid var(--line); }
+  li .d { color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  li .m { color: var(--muted); white-space: nowrap; font-variant-numeric: tabular-nums; }
+  li .t { flex: 1; min-width: 0; overflow-wrap: anywhere; }
+  footer { margin-top: 24px; font-size: 12px; color: var(--muted); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Eikaiwa Log</h1>
+
+  <div class="stats">
+    <div class="stat"><div class="v" id="hours">–</div><div class="k">total hours / 合計時間</div></div>
+    <div class="stat"><div class="v" id="count">–</div><div class="k">lessons / レッスン数</div></div>
+  </div>
+
+  <h2>Last 12 months / 直近12か月</h2>
+  <div class="heat-wrap"><div class="heat" id="heat" role="img" aria-label="Lesson minutes per day"></div></div>
+
+  <h2>Recent lessons / 最近のレッスン</h2>
+  <ul id="recent"></ul>
+
+  <footer id="updated"></footer>
+</main>
+
+<script type="module">
+import { todayJst, dayNum, dateFromNum, minutesByDate, totalMinutes } from './stats.js';
+
+const $ = id => document.getElementById(id);
+
+async function main() {
+  const res = await fetch('data/lessons.json', { cache: 'no-cache' });
+  const lessons = await res.json();
+  const today = todayJst();
+
+  $('hours').textContent = (totalMinutes(lessons) / 60).toFixed(1);
+  $('count').textContent = lessons.length;
+
+  // Heatmap: columns are weeks (Sun–Sat), last 53 weeks up to today.
+  const mins = minutesByDate(lessons);
+  const end = dayNum(today);
+  const endDow = new Date(end * 86400000).getUTCDay();
+  const start = end - endDow - 52 * 7;
+  const heat = $('heat');
+  for (let n = start; n <= end + (6 - endDow); n++) {
+    const cell = document.createElement('i');
+    const date = dateFromNum(n);
+    const m = mins.get(date);
+    if (n > end) cell.className = 'out';
+    else if (m != null) cell.className = m >= 75 ? 'l4' : m >= 50 ? 'l3' : m >= 25 ? 'l2' : 'l1';
+    cell.title = `${date}: ${m ?? 0} min`;
+    heat.appendChild(cell);
+  }
+  heat.parentElement.scrollLeft = heat.parentElement.scrollWidth; // show the latest weeks first on narrow screens
+
+  const recent = [...lessons].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 20);
+  for (const l of recent) {
+    const li = document.createElement('li');
+    for (const [cls, text] of [['d', l.date], ['t', l.material_title], ['m', l.duration_min != null ? `${l.duration_min} min` : '']]) {
+      const s = document.createElement('span');
+      s.className = cls;
+      s.textContent = text;
+      li.appendChild(s);
+    }
+    $('recent').appendChild(li);
+  }
+
+  const modified = res.headers.get('Last-Modified');
+  if (modified) $('updated').textContent = `Last updated / 最終更新: ${new Date(modified).toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo' })}`;
+}
+
+main().catch(e => { $('updated').textContent = `Could not load data / データを読み込めません: ${e.message}`; });
+</script>
+</body>
+</html>
