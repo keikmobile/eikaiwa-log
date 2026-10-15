@@ -14,6 +14,9 @@ The raw file has teacher names, so it is never committed.
 書き出すのは `data/summary.json`（合計分数・レッスン数・日ごとの分数・直近20件の日付・教材名・分数）だけ。
 生ファイルは講師名を含むので、コミットしない。
 
+Lessons without a title are counted and shown as "—". A file in an unknown format is rejected.
+教材名のないレッスンも数え、「—」と表示する。不明な形式のファイルは拒否する。
+
 ## Update / 更新
 
 1. Turn on auto-export in the extension, or export the lesson history from the popup (saved to `~/Downloads`)
@@ -24,13 +27,27 @@ The raw file has teacher names, so it is never committed.
 ./publish.sh
 ```
 
+It writes `data/summary.json`, commits it, and pushes to `main` (the live page updates in 1–2 min). If nothing changed, it does nothing.
+`data/summary.json` を書き出し、commit して `main` に push する（1〜2分で公開ページに反映）。変更がなければ何もしない。
+
 ## Setup / 初期設定
 
 1. Create the public repo `eikaiwa-log` on GitHub, then / GitHub で公開リポジトリを作成し:
-   `git remote add origin git@github.com:<user>/eikaiwa-log.git`
+   `git remote add origin https://github.com/<user>/eikaiwa-log.git`
+   (SSH also works if your SSH key is registered on GitHub / SSH 鍵を登録済みなら SSH でも可)
 2. Use your GitHub noreply email in this repo only (Settings → Emails) / このリポジトリだけ noreply アドレスを使う:
    `git config user.email <id>+<user>@users.noreply.github.com`
 3. Settings → Pages → Deploy from branch `main` / root
+4. Node.js 22+ is needed for `publish.sh` and tests / `publish.sh` とテストに Node.js 22 以上が必要
+
+## Preview / プレビュー
+
+```bash
+python3 -m http.server 8767
+```
+
+Open http://localhost:8767/ (opening `index.html` directly fails, because `fetch` does not work from `file://`).
+http://localhost:8767/ を開く（`index.html` を直接開くと `fetch` が動かず失敗する）。
 
 ## Test / テスト
 
