@@ -1,8 +1,8 @@
 {
- "total_min": 143436,
- "count": 5804,
+ "total_min": 143462,
+ "count": 5805,
  "minutes_by_date": {
-  "2026-10-15": 76,
+  "2026-10-15": 102,
   "2026-10-14": 122,
   "2026-10-13": 128,
   "2026-10-12": 50,
@@ -2427,6 +2427,11 @@
  "recent": [
   {
    "date": "2026-10-15",
+   "material_title": "Study Says Smartphone Reminders Could Improve Memory, Not Harm It",
+   "duration_min": 26
+  },
+  {
+   "date": "2026-10-15",
    "material_title": "Is Your Smartphone Stealing Your Memory? Signs to Watch For",
    "duration_min": 26
   },
@@ -2519,11 +2524,6 @@
    "date": "2026-10-10",
    "material_title": "Most People in Japan Still Value Handwriting",
    "duration_min": 25
-  },
-  {
-   "date": "2026-10-09",
-   "material_title": "AI Tools May Help Learn, But Google Wins for Memory",
-   "duration_min": 26
   }
  ]
 }
