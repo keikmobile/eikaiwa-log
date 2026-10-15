@@ -1,7 +1,7 @@
 // Run: node --test
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { todayJst, dayNum, dateFromNum, totalMinutes, minutesByDate, summarize } from './stats.js';
+import { todayJst, dayNum, dateFromNum, totalMinutes, minutesByDate, summarize, lessonsFromHistory } from './stats.js';
 
 const L = (date, duration_min = 25) => ({ date, material_title: 't', material_title_ja: null, duration_min });
 
@@ -29,4 +29,16 @@ test('summarize keeps only public totals and the newest 20', () => {
   assert.equal(s.recent.length, 20);
   assert.equal(s.recent[0].date, '2026-01-25');
   assert.deepEqual(Object.keys(s.recent[0]), ['date', 'material_title', 'duration_min']);
+});
+
+test('lessonsFromHistory drops private fields and keeps untitled lessons', () => {
+  const payload = { schema_version: 1, records: [
+    { timestamp: '2026-10-14T20:30:00', teacher_en: 'Secret', material_title: 'A', duration_min: 25 },
+    { timestamp: '2026-10-15T07:00:00', teacher_en: 'Secret' },
+  ] };
+  const s = summarize(lessonsFromHistory(payload));
+  assert.equal(s.count, 2);
+  assert.equal(s.recent[0].material_title, null);
+  assert.ok(!JSON.stringify(s).includes('Secret'));
+  assert.throws(() => lessonsFromHistory([]), /unknown export format/);
 });

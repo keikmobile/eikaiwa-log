@@ -6,23 +6,23 @@ My public English lesson log. It shows total hours, lesson count, a 12-month hea
 
 ## Data / データ
 
-`publish.sh` reads the file from "📚 教材リストをエクスポート" in the dmm-lesson-tracker extension on your Mac.
-It writes only `data/summary.json` (total minutes, lesson count, minutes per day, last 20 lessons). The raw file is never committed.
+`publish.sh` reads the newest `lesson-history-*.json` (the dmm-lesson-tracker auto-export) on your Mac.
+It writes only `data/summary.json` (total minutes, lesson count, minutes per day, last 20 lessons with date, title and minutes).
+The raw file has teacher names, so it is never committed.
 
-`publish.sh` は dmm-lesson-tracker 拡張機能の「📚 教材リストをエクスポート」のファイルを Mac 上で読む。
-書き出すのは `data/summary.json`（合計分数・レッスン数・日ごとの分数・直近20件）だけ。生ファイルはコミットしない。
+`publish.sh` は Mac 上で最新の `lesson-history-*.json`（dmm-lesson-tracker の自動エクスポート）を読む。
+書き出すのは `data/summary.json`（合計分数・レッスン数・日ごとの分数・直近20件の日付・教材名・分数）だけ。
+生ファイルは講師名を含むので、コミットしない。
 
 ## Update / 更新
 
-1. Popup → 📚 教材リストをエクスポート (saved to `~/Downloads`) / popup でエクスポート
+1. Turn on auto-export in the extension, or export the lesson history from the popup (saved to `~/Downloads`)
+   拡張機能の自動エクスポートをオンにする（または popup から履歴をエクスポート）
 2. Run / 実行:
 
 ```bash
 ./publish.sh
 ```
-
-It only accepts the 4 public fields, so the full history file cannot be published by mistake.
-公開用の4フィールド以外を含むファイルは拒否するので、全履歴を誤って公開することはない。
 
 ## Setup / 初期設定
 

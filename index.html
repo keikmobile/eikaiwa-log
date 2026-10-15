@@ -95,7 +95,7 @@ async function main() {
 
   for (const l of s.recent) {
     const li = document.createElement('li');
-    for (const [cls, text] of [['d', l.date], ['t', l.material_title], ['m', l.duration_min != null ? `${l.duration_min} min` : '']]) {
+    for (const [cls, text] of [['d', l.date], ['t', l.material_title ?? '—'], ['m', l.duration_min != null ? `${l.duration_min} min` : '']]) {
       const s = document.createElement('span');
       s.className = cls;
       s.textContent = text;

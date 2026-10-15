@@ -36,3 +36,13 @@ export function summarize(lessons) {
       .map(({ date, material_title, duration_min }) => ({ date, material_title, duration_min })),
   };
 }
+
+// Lessons from the extension's auto-export ({ schema_version: 1, records }). Same date rule as the extension.
+export function lessonsFromHistory(payload) {
+  if (payload?.schema_version !== 1 || !Array.isArray(payload.records)) throw new Error('unknown export format');
+  return payload.records.map(r => ({
+    date: r.timestamp.slice(0, 10),
+    material_title: r.material_title ?? null,
+    duration_min: r.duration_min ?? null,
+  }));
+}
