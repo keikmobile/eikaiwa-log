@@ -64,20 +64,20 @@
 </main>
 
 <script type="module">
-import { todayJst, dayNum, dateFromNum, minutesByDate, totalMinutes } from './stats.js';
+import { todayJst, dayNum, dateFromNum } from './stats.js';
 
 const $ = id => document.getElementById(id);
 
 async function main() {
-  const res = await fetch('data/lessons.json', { cache: 'no-cache' });
-  const lessons = await res.json();
+  const res = await fetch('data/summary.json', { cache: 'no-cache' });
+  const s = await res.json();
   const today = todayJst();
 
-  $('hours').textContent = (totalMinutes(lessons) / 60).toFixed(1);
-  $('count').textContent = lessons.length;
+  $('hours').textContent = (s.total_min / 60).toFixed(1);
+  $('count').textContent = s.count;
 
   // Heatmap: columns are weeks (Sun–Sat), last 53 weeks up to today.
-  const mins = minutesByDate(lessons);
+  const mins = new Map(Object.entries(s.minutes_by_date));
   const end = dayNum(today);
   const endDow = new Date(end * 86400000).getUTCDay();
   const start = end - endDow - 52 * 7;
@@ -93,8 +93,7 @@ async function main() {
   }
   heat.parentElement.scrollLeft = heat.parentElement.scrollWidth; // show the latest weeks first on narrow screens
 
-  const recent = [...lessons].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 20);
-  for (const l of recent) {
+  for (const l of s.recent) {
     const li = document.createElement('li');
     for (const [cls, text] of [['d', l.date], ['t', l.material_title], ['m', l.duration_min != null ? `${l.duration_min} min` : '']]) {
       const s = document.createElement('span');

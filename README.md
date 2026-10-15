@@ -6,11 +6,11 @@ My public English lesson log. It shows total hours, lesson count, a 12-month hea
 
 ## Data / データ
 
-`data/lessons.json` is the file from "📚 教材リストをエクスポート" in the dmm-lesson-tracker extension, unchanged.
-It has only `date`, `material_title`, `material_title_ja`, and `duration_min`. No teacher names, no times of day.
+`publish.sh` reads the file from "📚 教材リストをエクスポート" in the dmm-lesson-tracker extension on your Mac.
+It writes only `data/summary.json` (total minutes, lesson count, minutes per day, last 20 lessons). The raw file is never committed.
 
-`data/lessons.json` は dmm-lesson-tracker 拡張機能の「📚 教材リストをエクスポート」のファイルそのまま。
-含むのは `date`・`material_title`・`material_title_ja`・`duration_min` のみ。講師名・時刻は含まない。
+`publish.sh` は dmm-lesson-tracker 拡張機能の「📚 教材リストをエクスポート」のファイルを Mac 上で読む。
+書き出すのは `data/summary.json`（合計分数・レッスン数・日ごとの分数・直近20件）だけ。生ファイルはコミットしない。
 
 ## Update / 更新
 

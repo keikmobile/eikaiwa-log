@@ -25,3 +25,14 @@ export function minutesByDate(lessons) {
 export function totalMinutes(lessons) {
   return lessons.reduce((s, l) => s + (l.duration_min || 0), 0);
 }
+
+// The only data that gets published. The raw export stays on the local machine.
+export function summarize(lessons) {
+  return {
+    total_min: totalMinutes(lessons),
+    count: lessons.length,
+    minutes_by_date: Object.fromEntries(minutesByDate(lessons)),
+    recent: [...lessons].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 20)
+      .map(({ date, material_title, duration_min }) => ({ date, material_title, duration_min })),
+  };
+}

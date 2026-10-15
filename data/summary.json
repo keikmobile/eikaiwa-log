@@ -1,0 +1,32 @@
+{
+ "total_min": 100,
+ "count": 4,
+ "minutes_by_date": {
+  "2026-09-28": 25,
+  "2026-10-01": 25,
+  "2026-10-02": 50,
+  "2026-10-03": 0
+ },
+ "recent": [
+  {
+   "date": "2026-10-03",
+   "material_title": "Sample: Free Conversation",
+   "duration_min": null
+  },
+  {
+   "date": "2026-10-02",
+   "material_title": "Sample: Daily News",
+   "duration_min": 50
+  },
+  {
+   "date": "2026-10-01",
+   "material_title": "Sample: Daily News",
+   "duration_min": 25
+  },
+  {
+   "date": "2026-09-28",
+   "material_title": "Sample: Talking About Your Weekend",
+   "duration_min": 25
+  }
+ ]
+}

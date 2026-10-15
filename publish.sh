@@ -1,6 +1,6 @@
 #!/bin/sh
-# Copy the newest "教材リストをエクスポート" file from ~/Downloads, then commit and push.
-# 最新の教材リスト JSON を ~/Downloads からコピーし、commit・push する。
+# Summarize the newest "教材リストをエクスポート" file from ~/Downloads, then commit and push.
+# 最新の教材リスト JSON を ~/Downloads から読んで集計し、commit・push する。
 set -eu
 cd "$(dirname "$0")"
 
@@ -19,9 +19,15 @@ if (!Array.isArray(rows)) throw new Error("not an array");
 for (const r of rows) for (const k of Object.keys(r)) if (!ok.has(k)) throw new Error("unexpected field: " + k);
 ' "$src"
 
+# Publish only the summary the page needs. The raw file is never copied into the repo.
+# ページに必要な集計だけを公開。生ファイルはリポジトリにコピーしない。
 mkdir -p data
-cp "$src" data/lessons.json
-git add data/lessons.json
+node --input-type=module -e '
+import { readFileSync, writeFileSync } from "fs";
+import { summarize } from "./stats.js";
+writeFileSync("data/summary.json", JSON.stringify(summarize(JSON.parse(readFileSync(process.argv[1], "utf8"))), null, 1) + "\n");
+' "$src"
+git add data/summary.json
 if git diff --cached --quiet; then
   echo "No changes / 変更なし"
   exit 0
