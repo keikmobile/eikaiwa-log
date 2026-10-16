@@ -4,6 +4,8 @@ My public English lesson log. It shows total hours, lesson count, a 12-month hea
 
 英会話レッスンの公開ログ。合計時間・レッスン数・12か月のヒートマップ・直近20件を表示する。
 
+Live page / 公開ページ: https://keikmobile.github.io/eikaiwa-log/
+
 ## Data / データ
 
 `publish.sh` reads the newest `lesson-history-*.json` (the dmm-lesson-tracker auto-export) on your Mac.
@@ -38,6 +40,8 @@ It writes `data/summary.json`, commits it, and pushes to `main` (the live page u
 2. Use your GitHub noreply email in this repo only (Settings → Emails) / このリポジトリだけ noreply アドレスを使う:
    `git config user.email <id>+<user>@users.noreply.github.com`
 3. Settings → Pages → Deploy from branch `main` / root
+   The page is at `https://<user>.github.io/eikaiwa-log/` (example: https://keikmobile.github.io/eikaiwa-log/)
+   公開 URL は `https://<user>.github.io/eikaiwa-log/`（例：https://keikmobile.github.io/eikaiwa-log/）
 4. Node.js 22+ is needed for `publish.sh` and tests / `publish.sh` とテストに Node.js 22 以上が必要
 
 ## Preview / プレビュー
