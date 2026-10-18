@@ -1,7 +1,9 @@
 {
- "total_min": 143558,
- "count": 5809,
+ "total_min": 143710,
+ "count": 5815,
  "minutes_by_date": {
+  "2026-10-18": 76,
+  "2026-10-17": 76,
   "2026-10-16": 96,
   "2026-10-15": 102,
   "2026-10-14": 122,
@@ -2427,6 +2429,36 @@
  },
  "recent": [
   {
+   "date": "2026-10-18",
+   "material_title": "Can Daily Task Lists Give You a Sense of Control?",
+   "duration_min": 26
+  },
+  {
+   "date": "2026-10-18",
+   "material_title": "Bored at Work? You May Be Feeling 'Rustout'",
+   "duration_min": 25
+  },
+  {
+   "date": "2026-10-18",
+   "material_title": "A 'Good Ear' Makes Language Learning Easier — Study",
+   "duration_min": 25
+  },
+  {
+   "date": "2026-10-17",
+   "material_title": "Can Daily Task Lists Give You a Sense of Control?",
+   "duration_min": 26
+  },
+  {
+   "date": "2026-10-17",
+   "material_title": "59% of Americans Get Their News from Social Media",
+   "duration_min": 25
+  },
+  {
+   "date": "2026-10-17",
+   "material_title": "Huge Study Links Screen Time to Developmental Issues",
+   "duration_min": 25
+  },
+  {
    "date": "2026-10-16",
    "material_title": "Study Says Smartphone Reminders Could Improve Memory, Not Harm It",
    "duration_min": 26
@@ -2495,36 +2527,6 @@
    "date": "2026-10-13",
    "material_title": "An Expert Shares Small Steps for Staying Tidy at Work",
    "duration_min": 26
-  },
-  {
-   "date": "2026-10-13",
-   "material_title": "An Expert Shares Small Steps for Staying Tidy at Work",
-   "duration_min": 26
-  },
-  {
-   "date": "2026-10-13",
-   "material_title": "AI Tools May Help Learn, But Google Wins for Memory",
-   "duration_min": 26
-  },
-  {
-   "date": "2026-10-13",
-   "material_title": "Social Connections Make People More Likely to Protest",
-   "duration_min": 25
-  },
-  {
-   "date": "2026-10-13",
-   "material_title": "Staying in Work Best for Brain Health — Study",
-   "duration_min": 25
-  },
-  {
-   "date": "2026-10-12",
-   "material_title": "Old Books Likely Being Destroyed to Train AI",
-   "duration_min": 25
-  },
-  {
-   "date": "2026-10-12",
-   "material_title": "Old Books Likely Being Destroyed to Train AI",
-   "duration_min": 25
   }
  ]
 }
