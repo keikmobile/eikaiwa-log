@@ -37,11 +37,18 @@ export function summarize(lessons) {
   };
 }
 
-// Lessons from the extension's auto-export ({ schema_version: 1, records }). Same date rule as the extension.
+// DMM counts a lesson that starts up to 25:30 (01:30 the next morning) as the previous day.
+export function lessonDate(r) {
+  const date = r.timestamp.slice(0, 10);
+  if (r.source === 'nativecamp' || r.timestamp.slice(11, 16) > '01:30') return date;
+  return dateFromNum(dayNum(date) - 1);
+}
+
+// Lessons from the extension's auto-export ({ schema_version: 1, records }). timestamp is JST.
 export function lessonsFromHistory(payload) {
   if (payload?.schema_version !== 1 || !Array.isArray(payload.records)) throw new Error('unknown export format');
   return payload.records.map(r => ({
-    date: r.timestamp.slice(0, 10),
+    date: lessonDate(r),
     material_title: r.material_title ?? null,
     duration_min: r.duration_min ?? null,
   }));

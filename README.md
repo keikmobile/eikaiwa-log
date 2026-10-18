@@ -16,6 +16,7 @@ The raw file has teacher names, so it is never committed.
 書き出すのは `data/summary.json`（合計分数・レッスン数・日ごとの分数・直近20件の日付・教材名・分数）だけ。
 生ファイルは講師名を含むので、コミットしない。
 
+DMM lessons that start up to 25:30 (01:30) count as the previous day, like DMM does. / DMM と同じく、25:30（翌1:30）開始までのレッスンは前日扱い。
 Lessons without a title are counted and shown as "—". A file in an unknown format is rejected.
 教材名のないレッスンも数え、「—」と表示する。不明な形式のファイルは拒否する。
 
