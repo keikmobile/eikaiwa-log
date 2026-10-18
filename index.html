@@ -32,6 +32,7 @@
   .stat .v { font-size: 24px; font-weight: 700; }
   .stat .k { font-size: 12px; color: var(--muted); }
   h3 { font-size: 13px; margin: 14px 0 4px; color: var(--muted); font-weight: 600; }
+  summary { margin-top: 14px; font-size: 13px; color: var(--muted); cursor: pointer; }
   .heat-wrap { overflow-x: auto; }
   .heat { display: grid; grid-auto-flow: column; grid-template-rows: repeat(7, 11px); gap: 3px; width: max-content; }
   .heat i { width: 11px; height: 11px; border-radius: 2px; background: var(--h0); }
@@ -57,6 +58,7 @@
 
   <h2>Last 5 years / 直近5年</h2>
   <div id="years"></div>
+  <details id="older"><summary>Show older years / それ以前を表示</summary></details>
 
   <h2>Recent lessons / 最近のレッスン</h2>
   <ul id="recent"></ul>
@@ -77,7 +79,7 @@ async function main() {
   $('hours').textContent = (s.total_min / 60).toFixed(1);
   $('count').textContent = s.count;
 
-  // Heatmap: one row per calendar year, newest first, back to 5 years ago. Columns are weeks (Sun–Sat).
+  // Heatmap: one row per calendar year, newest first, back to 5 years ago. Years before 2 years ago are folded. Columns are weeks (Sun–Sat).
   const mins = new Map(Object.entries(s.minutes_by_date));
   const end = dayNum(today);
   const dow = n => new Date(n * 86400000).getUTCDay();
@@ -102,7 +104,7 @@ async function main() {
       heat.appendChild(cell);
     }
     wrap.appendChild(heat);
-    $('years').append(label, wrap);
+    $(y >= year - 2 ? 'years' : 'older').append(label, wrap);
     if (y === year) wrap.scrollLeft = wrap.scrollWidth; // show the latest weeks first on narrow screens
   }
 
