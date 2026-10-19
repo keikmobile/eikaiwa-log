@@ -1,7 +1,7 @@
 // Run: node --test
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { todayJst, dayNum, dateFromNum, totalMinutes, minutesByDate, summarize, lessonsFromHistory, lessonDate } from './stats.js';
+import { todayJst, dayNum, dateFromNum, totalMinutes, minutesByDate, summarize, lessonsFromHistory, lessonDate, dmmToday, streak } from './stats.js';
 
 const L = (date, duration_min = 25) => ({ date, material_title: 't', material_title_ja: null, duration_min });
 
@@ -48,4 +48,16 @@ test('DMM lessons up to 25:30 belong to the previous day', () => {
   assert.equal(lessonDate({ timestamp: '2026-10-01T00:00:00', source: 'dmm' }), '2026-09-30');
   assert.equal(lessonDate({ timestamp: '2026-10-01T02:00:00' }), '2026-10-01');
   assert.equal(lessonDate({ timestamp: '2026-10-01T00:30:00', source: 'nativecamp' }), '2026-10-01');
+});
+
+test('streak counts back from today, or from yesterday if today is empty', () => {
+  const m = new Map([['2026-10-10', 25], ['2026-10-12', 0], ['2026-10-13', 50], ['2026-10-14', 25]]);
+  assert.deepEqual(streak(m, '2026-10-14'), { days: 3, since: '2026-10-12' });
+  assert.deepEqual(streak(m, '2026-10-15'), { days: 3, since: '2026-10-12' });
+  assert.deepEqual(streak(m, '2026-10-16'), { days: 0, since: null });
+});
+
+test('dmmToday stays on the previous day until 01:30 JST', () => {
+  assert.equal(dmmToday(new Date('2026-10-14T16:20:00Z')), '2026-10-14'); // 01:20 JST on the 15th
+  assert.equal(dmmToday(new Date('2026-10-14T16:40:00Z')), '2026-10-15'); // 01:40 JST
 });

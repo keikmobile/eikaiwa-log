@@ -27,7 +27,7 @@
   main { max-width: 760px; margin: 0 auto; padding: 24px 16px 48px; }
   h1 { font-size: 20px; margin: 0 0 20px; }
   h2 { font-size: 15px; margin: 28px 0 10px; color: var(--muted); font-weight: 600; }
-  .stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
   .stat { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 12px; text-align: center; }
   .stat .v { font-size: 24px; font-weight: 700; }
   .stat .k { font-size: 12px; color: var(--muted); }
@@ -54,6 +54,7 @@
   <div class="stats">
     <div class="stat"><div class="v" id="hours">–</div><div class="k">total hours / 合計時間</div></div>
     <div class="stat"><div class="v" id="count">–</div><div class="k">lessons / レッスン数</div></div>
+    <div class="stat"><div class="v" id="streak">–</div><div class="k">day streak / 連続日数</div><div class="k" id="since"></div></div>
   </div>
 
   <h2>By year / 年ごと</h2>
@@ -67,42 +68,47 @@
 </main>
 
 <script type="module">
-import { todayJst, dayNum, dateFromNum } from './stats.js';
+import { dmmToday, dayNum, dateFromNum, streak } from './stats.js';
 
 const $ = id => document.getElementById(id);
 
 async function main() {
   const res = await fetch('data/summary.json', { cache: 'no-cache' });
   const s = await res.json();
-  const today = todayJst();
+  const today = dmmToday();
 
   $('hours').textContent = (s.total_min / 60).toFixed(1);
   $('count').textContent = s.count;
+  const mins = new Map(Object.entries(s.minutes_by_date));
+  const st = streak(mins, today);
+  $('streak').textContent = st.days;
+  if (st.since) $('since').textContent = `since / 開始 ${st.since}`;
 
   // Heatmap: one row per calendar year, newest first, back to 2017. Years before 2 years ago are folded. Columns are weeks (Sun–Sat).
-  const mins = new Map(Object.entries(s.minutes_by_date));
   const end = dayNum(today);
   const dow = n => new Date(n * 86400000).getUTCDay();
   const year = Number(today.slice(0, 4));
   for (let y = year; y >= 2017; y--) {
     const first = dayNum(`${y}-01-01`), last = Math.min(dayNum(`${y}-12-31`), end);
     const label = document.createElement('h3');
-    label.textContent = y;
     const wrap = document.createElement('div');
     wrap.className = 'heat-wrap';
     const heat = document.createElement('div');
     heat.className = 'heat';
     heat.setAttribute('role', 'img');
     heat.setAttribute('aria-label', `Lesson minutes per day in ${y}`);
+    let yearMin = 0;
     for (let n = first - dow(first); n <= last + 6 - dow(last); n++) {
       const cell = document.createElement('i');
       const date = dateFromNum(n);
       const m = mins.get(date);
+      if (n >= first && n <= last) yearMin += m ?? 0;
       if (n < first || n > last) cell.className = 'out';
       else if (m != null) cell.className = m >= 75 ? 'l4' : m >= 50 ? 'l3' : m >= 25 ? 'l2' : 'l1';
       cell.title = `${date}: ${m ?? 0} min`;
       heat.appendChild(cell);
     }
+    label.textContent = `${y} · ${(yearMin / 60).toFixed(1)} h`;
     wrap.appendChild(heat);
     $(y >= year - 2 ? 'years' : 'older').append(label, wrap);
     if (y === year) wrap.scrollLeft = wrap.scrollWidth; // show the latest weeks first on narrow screens

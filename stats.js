@@ -53,3 +53,18 @@ export function lessonsFromHistory(payload) {
     duration_min: r.duration_min ?? null,
   }));
 }
+
+// DMM's day ends at 25:30, so until 01:30 it is still the previous day.
+export function dmmToday(now = new Date()) {
+  return todayJst(new Date(now.getTime() - 90 * 60000));
+}
+
+// Consecutive lesson days ending today, or yesterday if there is no lesson yet today.
+// mins: Map of date → minutes (a day with 0 minutes still counts).
+export function streak(mins, today) {
+  let end = dayNum(today);
+  if (!mins.has(today)) end--;
+  let days = 0;
+  while (mins.has(dateFromNum(end - days))) days++;
+  return { days, since: days ? dateFromNum(end - days + 1) : null };
+}
