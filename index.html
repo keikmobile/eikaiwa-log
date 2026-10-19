@@ -56,7 +56,7 @@
     <div class="stat"><div class="v" id="count">–</div><div class="k">lessons / レッスン数</div></div>
   </div>
 
-  <h2>Last 5 years / 直近5年</h2>
+  <h2>By year / 年ごと</h2>
   <div id="years"></div>
   <details id="older"><summary>Show older years / それ以前を表示</summary></details>
 
@@ -79,12 +79,12 @@ async function main() {
   $('hours').textContent = (s.total_min / 60).toFixed(1);
   $('count').textContent = s.count;
 
-  // Heatmap: one row per calendar year, newest first, back to 5 years ago. Years before 2 years ago are folded. Columns are weeks (Sun–Sat).
+  // Heatmap: one row per calendar year, newest first, back to 2017. Years before 2 years ago are folded. Columns are weeks (Sun–Sat).
   const mins = new Map(Object.entries(s.minutes_by_date));
   const end = dayNum(today);
   const dow = n => new Date(n * 86400000).getUTCDay();
   const year = Number(today.slice(0, 4));
-  for (let y = year; y >= year - 5; y--) {
+  for (let y = year; y >= 2017; y--) {
     const first = dayNum(`${y}-01-01`), last = Math.min(dayNum(`${y}-12-31`), end);
     const label = document.createElement('h3');
     label.textContent = y;

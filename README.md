@@ -1,8 +1,8 @@
 # eikaiwa-log
 
-My public English lesson log. It shows total hours, lesson count, a heatmap by year (the last 3 years open, 3 older years folded), and the last 20 lessons.
+My public English lesson log. It shows total hours, lesson count, a heatmap by year (the last 3 years open, older years back to 2017 folded), and the last 20 lessons.
 
-英会話レッスンの公開ログ。合計時間・レッスン数・年ごとのヒートマップ（直近3年を表示、それ以前の3年は折りたたみ）・直近20件を表示する。
+英会話レッスンの公開ログ。合計時間・レッスン数・年ごとのヒートマップ（直近3年を表示、2017年までのそれ以前は折りたたみ）・直近20件を表示する。
 
 Live page / 公開ページ: https://keikmobile.github.io/eikaiwa-log/
 
