@@ -61,3 +61,7 @@ test('dmmToday stays on the previous day until 01:30 JST', () => {
   assert.equal(dmmToday(new Date('2026-10-14T16:20:00Z')), '2026-10-14'); // 01:20 JST on the 15th
   assert.equal(dmmToday(new Date('2026-10-14T16:40:00Z')), '2026-10-15'); // 01:40 JST
 });
+
+test('summarize records the export day for the streak', () => {
+  assert.equal(summarize([L('2026-10-18')], '2026-10-18').as_of, '2026-10-18');
+});

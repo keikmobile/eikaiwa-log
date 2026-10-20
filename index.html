@@ -80,7 +80,7 @@ async function main() {
   $('hours').textContent = (s.total_min / 60).toFixed(1);
   $('count').textContent = s.count;
   const mins = new Map(Object.entries(s.minutes_by_date));
-  const st = streak(mins, today);
+  const st = streak(mins, s.as_of ?? today); // as of the export, not the viewer's clock
   $('streak').textContent = st.days;
   if (st.since) $('since').textContent = `since / 開始 ${st.since}`;
 

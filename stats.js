@@ -27,8 +27,10 @@ export function totalMinutes(lessons) {
 }
 
 // The only data that gets published. The raw export stays on the local machine.
-export function summarize(lessons) {
+// asOf: the DMM day of the export, so the streak does not break just because publish.sh has not run yet.
+export function summarize(lessons, asOf) {
   return {
+    as_of: asOf,
     total_min: totalMinutes(lessons),
     count: lessons.length,
     minutes_by_date: Object.fromEntries(minutesByDate(lessons)),
