@@ -84,11 +84,12 @@ async function main() {
   $('streak').textContent = st.days;
   if (st.since) $('since').textContent = `since / 開始 ${st.since}`;
 
-  // Heatmap: one row per calendar year, newest first, back to 2017. Years before 2 years ago are folded. Columns are weeks (Sun–Sat).
+  // Heatmap: one row per calendar year, newest first, back to the year of the first lesson. Years before 2 years ago are folded. Columns are weeks (Sun–Sat).
   const end = dayNum(today);
   const dow = n => new Date(n * 86400000).getUTCDay();
   const year = Number(today.slice(0, 4));
-  for (let y = year; y >= 2017; y--) {
+  const firstYear = Number((Object.keys(s.minutes_by_date).sort()[0] ?? today).slice(0, 4));
+  for (let y = year; y >= firstYear; y--) {
     const first = dayNum(`${y}-01-01`), last = Math.min(dayNum(`${y}-12-31`), end);
     const label = document.createElement('h3');
     const wrap = document.createElement('div');
