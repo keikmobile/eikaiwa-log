@@ -1,8 +1,9 @@
 {
- "as_of": "2026-10-20",
- "total_min": 143914,
- "count": 5823,
+ "as_of": "2026-10-21",
+ "total_min": 143990,
+ "count": 5826,
  "minutes_by_date": {
+  "2026-10-21": 76,
   "2026-10-20": 76,
   "2026-10-19": 102,
   "2026-10-18": 102,
@@ -2442,6 +2443,21 @@
  },
  "recent": [
   {
+   "date": "2026-10-21",
+   "material_title": "Why Workers Do Personal Tasks During Office Hours",
+   "duration_min": 26
+  },
+  {
+   "date": "2026-10-21",
+   "material_title": "Why 'Dopamine Detox' Doesn't Really Work",
+   "duration_min": 25
+  },
+  {
+   "date": "2026-10-21",
+   "material_title": "Procrastination Tops Academic Struggles, Study Finds",
+   "duration_min": 25
+  },
+  {
    "date": "2026-10-20",
    "material_title": "Why Do Unfinished Tasks Make You Feel Constantly Tired?",
    "duration_min": 26
@@ -2525,21 +2541,6 @@
    "date": "2026-10-16",
    "material_title": "Four Reasons to Add Beans to Your Diet",
    "duration_min": 25
-  },
-  {
-   "date": "2026-10-16",
-   "material_title": "Study Says Smartphone Reminders Could Improve Memory, Not Harm It",
-   "duration_min": 20
-  },
-  {
-   "date": "2026-10-15",
-   "material_title": "Study Says Smartphone Reminders Could Improve Memory, Not Harm It",
-   "duration_min": 26
-  },
-  {
-   "date": "2026-10-15",
-   "material_title": "Is Your Smartphone Stealing Your Memory? Signs to Watch For",
-   "duration_min": 26
   }
  ]
 }
