@@ -4,6 +4,13 @@
 set -eu
 cd "$(dirname "$0")"
 
+# Data updates go straight to main. On another branch they would be left out of the page.
+# データ更新は main に直接入れる。別ブランチだと公開ページに反映されない。
+if [ "$(git branch --show-current)" != main ]; then
+  echo "Not on main. Run: git switch main / main ブランチではありません: git switch main" >&2
+  exit 1
+fi
+
 src=$(ls -t "$HOME"/Downloads/lesson-history-*.json 2>/dev/null | head -1 || true)
 if [ -z "$src" ]; then
   echo "No lesson-history-*.json in ~/Downloads / ファイルが見つかりません" >&2
