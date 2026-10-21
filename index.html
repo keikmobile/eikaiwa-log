@@ -76,11 +76,12 @@
 </main>
 
 <script type="module">
-import { dmmToday, dayNum, dateFromNum, streak, periodMinutes } from './stats.js';
-
 const $ = id => document.getElementById(id);
 
 async function main() {
+  // Load stats.js for this exact page version. A cached old stats.js would break the page,
+  // and a failed import here still reaches the error message below.
+  const { dmmToday, dayNum, dateFromNum, streak, periodMinutes } = await import(`./stats.js?v=${encodeURIComponent(document.lastModified)}`);
   const res = await fetch('data/summary.json', { cache: 'no-cache' });
   const s = await res.json();
   const today = dmmToday();
