@@ -70,3 +70,24 @@ export function streak(mins, today) {
   while (mins.has(dateFromNum(end - days))) days++;
   return { days, since: days ? dateFromNum(end - days + 1) : null };
 }
+
+// Minutes this week (Sun–Sat), month and year up to asOf, each paired with the same span of the previous period.
+export function periodMinutes(mins, asOf) {
+  const sum = (from, to) => {
+    let t = 0;
+    for (let n = from; n <= to; n++) t += mins.get(dateFromNum(n)) || 0;
+    return t;
+  };
+  const [y, m, d] = asOf.split('-').map(Number);
+  const end = dayNum(asOf);
+  const week = end - new Date(end * DAY_MS).getUTCDay();
+  const month = dayNum(`${asOf.slice(0, 7)}-01`);
+  const prevMonth = Date.UTC(y, m - 2, 1) / DAY_MS;
+  const year = dayNum(`${y}-01-01`);
+  const prevYear = dayNum(`${y - 1}-01-01`);
+  return {
+    week: [sum(week, end), sum(week - 7, end - 7)],
+    month: [sum(month, end), sum(prevMonth, Math.min(prevMonth + d - 1, month - 1))],
+    year: [sum(year, end), sum(prevYear, Math.min(prevYear + end - year, year - 1))],
+  };
+}

@@ -1,7 +1,7 @@
 // Run: node --test
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { todayJst, dayNum, dateFromNum, totalMinutes, minutesByDate, summarize, lessonsFromHistory, lessonDate, dmmToday, streak } from './stats.js';
+import { todayJst, dayNum, dateFromNum, totalMinutes, minutesByDate, summarize, lessonsFromHistory, lessonDate, dmmToday, streak, periodMinutes } from './stats.js';
 
 const L = (date, duration_min = 25) => ({ date, material_title: 't', material_title_ja: null, duration_min });
 
@@ -64,4 +64,22 @@ test('dmmToday stays on the previous day until 01:30 JST', () => {
 
 test('summarize records the export day for the streak', () => {
   assert.equal(summarize([L('2026-10-18')], '2026-10-18').as_of, '2026-10-18');
+});
+
+test('periodMinutes compares with the same span of the previous period', () => {
+  const m = new Map([
+    ['2026-03-01', 25], ['2026-03-03', 50],            // this week (Sun 3/1 – Tue 3/3) and this month
+    ['2026-02-22', 25], ['2026-02-25', 25],            // last week: only Sun–Tue counts, so 2/25 (Wed) is out
+    ['2026-02-01', 30], ['2026-02-04', 30],            // last month: only days 1–3 count
+    ['2025-01-01', 60], ['2025-03-03', 60], ['2025-03-04', 60], // last year up to the same day of year (62)
+  ]);
+  const p = periodMinutes(m, '2026-03-03');
+  assert.deepEqual(p.week, [75, 25]);
+  assert.deepEqual(p.month, [75, 30]);
+  assert.deepEqual(p.year, [75 + 25 + 25 + 30 + 30, 120]);
+});
+
+test('periodMinutes wraps January back to December', () => {
+  const p = periodMinutes(new Map([['2025-12-31', 25], ['2025-12-01', 10]]), '2026-01-31');
+  assert.deepEqual(p.month, [0, 35]);
 });
