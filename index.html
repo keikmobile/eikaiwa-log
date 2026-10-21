@@ -31,6 +31,7 @@
   .stat { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 12px; text-align: center; }
   .stat .v { font-size: 24px; font-weight: 700; }
   .stat .k { font-size: 12px; color: var(--muted); }
+  .stat .k.up { color: var(--h4); }
   h3 { font-size: 13px; margin: 14px 0 4px; color: var(--muted); font-weight: 600; }
   summary { margin-top: 14px; font-size: 13px; color: var(--muted); cursor: pointer; }
   .heat-wrap { overflow-x: auto; }
@@ -57,6 +58,13 @@
     <div class="stat"><div class="v" id="streak">–</div><div class="k">day streak / 連続日数</div><div class="k" id="since"></div></div>
   </div>
 
+  <h2>Hours / 時間実績</h2>
+  <div class="stats">
+    <div class="stat"><div class="v" id="wk">–</div><div class="k">this week / 今週</div><div class="k" id="wk-d"></div></div>
+    <div class="stat"><div class="v" id="mo">–</div><div class="k">this month / 今月</div><div class="k" id="mo-d"></div></div>
+    <div class="stat"><div class="v" id="yr">–</div><div class="k">this year / 今年</div><div class="k" id="yr-d"></div></div>
+  </div>
+
   <h2>By year / 年ごと</h2>
   <div id="years"></div>
   <details id="older"><summary>Show older years / それ以前を表示</summary></details>
@@ -68,7 +76,7 @@
 </main>
 
 <script type="module">
-import { dmmToday, dayNum, dateFromNum, streak } from './stats.js';
+import { dmmToday, dayNum, dateFromNum, streak, periodMinutes } from './stats.js';
 
 const $ = id => document.getElementById(id);
 
@@ -83,6 +91,14 @@ async function main() {
   const st = streak(mins, s.as_of ?? today); // as of the export, not the viewer's clock
   $('streak').textContent = st.days;
   if (st.since) $('since').textContent = `since / 開始 ${st.since}`;
+
+  const p = periodMinutes(mins, s.as_of ?? today);
+  for (const [id, [cur, prev], vs] of [['wk', p.week, 'last week / 先週比'], ['mo', p.month, 'last month / 先月比'], ['yr', p.year, 'last year / 前年比']]) {
+    const diff = (cur - prev) / 60;
+    $(id).textContent = `${(cur / 60).toFixed(1)} h`;
+    $(id + '-d').textContent = `${diff >= 0 ? '+' : '−'}${Math.abs(diff).toFixed(1)} h vs ${vs}`;
+    $(id + '-d').classList.toggle('up', diff >= 0);
+  }
 
   // Heatmap: one row per calendar year, newest first, back to the year of the first lesson. Years before 2 years ago are folded. Columns are weeks (Sun–Sat).
   const end = dayNum(today);
