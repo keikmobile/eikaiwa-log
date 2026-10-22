@@ -1,9 +1,10 @@
 {
- "as_of": "2026-10-21",
- "total_min": 143990,
- "count": 5826,
+ "as_of": "2026-10-22",
+ "total_min": 144092,
+ "count": 5830,
  "minutes_by_date": {
-  "2026-10-21": 76,
+  "2026-10-22": 76,
+  "2026-10-21": 102,
   "2026-10-20": 76,
   "2026-10-19": 102,
   "2026-10-18": 102,
@@ -2443,6 +2444,26 @@
  },
  "recent": [
   {
+   "date": "2026-10-22",
+   "material_title": "How To-Do Lists Help Us Work Better",
+   "duration_min": 25
+  },
+  {
+   "date": "2026-10-22",
+   "material_title": "Strong Sense of Identity Linked to Mental Well-Being",
+   "duration_min": 25
+  },
+  {
+   "date": "2026-10-22",
+   "material_title": "Why Workers Do Personal Tasks During Office Hours",
+   "duration_min": 26
+  },
+  {
+   "date": "2026-10-21",
+   "material_title": "Why Workers Do Personal Tasks During Office Hours",
+   "duration_min": 26
+  },
+  {
    "date": "2026-10-21",
    "material_title": "Why Workers Do Personal Tasks During Office Hours",
    "duration_min": 26
@@ -2520,26 +2541,6 @@
   {
    "date": "2026-10-17",
    "material_title": "59% of Americans Get Their News from Social Media",
-   "duration_min": 25
-  },
-  {
-   "date": "2026-10-17",
-   "material_title": "Huge Study Links Screen Time to Developmental Issues",
-   "duration_min": 25
-  },
-  {
-   "date": "2026-10-16",
-   "material_title": "Study Says Smartphone Reminders Could Improve Memory, Not Harm It",
-   "duration_min": 26
-  },
-  {
-   "date": "2026-10-16",
-   "material_title": "Bored at Work? You May Be Feeling 'Rustout'",
-   "duration_min": 25
-  },
-  {
-   "date": "2026-10-16",
-   "material_title": "Four Reasons to Add Beans to Your Diet",
    "duration_min": 25
   }
  ]
