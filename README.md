@@ -33,6 +33,15 @@ Lessons without a title are counted and shown as "—". A file in an unknown for
 It writes `data/summary.json`, commits it, and pushes to `main` (the live page updates in 1–2 min). If nothing changed, it does nothing.
 `data/summary.json` を書き出し、commit して `main` に push する（1〜2分で公開ページに反映）。変更がなければ何もしない。
 
+It also writes `data/dwm.json`: Daily News lessons from exactly 1 day, 1 week and 30 days before today (JST), for review. Each item has `label`, `date`, `source` and `title`; `items` is empty when nothing matches.
+`data/dwm.json` も書き出す：今日（JST）からちょうど1日前・1週間前・30日前のデイリーニュース（復習用）。各項目は `label`・`date`・`source`・`title`。該当なしなら `items` は空。
+
+To only write the JSON files without git (works on any branch) / git を使わず JSON だけ書き出す（どのブランチでも可）:
+
+```bash
+./publish.sh -n
+```
+
 ## Setup / 初期設定
 
 1. Create the public repo `eikaiwa-log` on GitHub, then / GitHub で公開リポジトリを作成し:
