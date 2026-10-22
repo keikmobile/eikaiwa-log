@@ -1,7 +1,7 @@
 // Run: node --test
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { todayJst, dayNum, dateFromNum, totalMinutes, minutesByDate, summarize, lessonsFromHistory, lessonDate, dmmToday, streak, periodMinutes } from './stats.js';
+import { todayJst, dayNum, dateFromNum, totalMinutes, minutesByDate, summarize, lessonsFromHistory, lessonDate, dmmToday, streak, periodMinutes, dwmReview } from './stats.js';
 
 const L = (date, duration_min = 25) => ({ date, material_title: 't', material_title_ja: null, duration_min });
 
@@ -82,4 +82,24 @@ test('periodMinutes compares with the same span of the previous period', () => {
 test('periodMinutes wraps January back to December', () => {
   const p = periodMinutes(new Map([['2025-12-31', 25], ['2025-12-01', 10]]), '2026-01-31');
   assert.deepEqual(p.month, [0, 35]);
+});
+
+test('dwmReview picks Daily News from exactly 1, 7 and 30 days ago, oldest first', () => {
+  const DN = 'オリジナル教材 - デイリーニュース';
+  const R = (timestamp, lesson_type = DN, source = 'dmm', material_title = 'T') => ({ timestamp, lesson_type, source, material_title });
+  const records = [
+    R('2026-10-21T08:30:00', DN, 'dmm', null),
+    R('2026-10-20T08:30:00'),
+    R('2026-10-15T23:00:00', 'デイリーニュース', 'nativecamp', 'NC'),
+    R('2026-10-15T07:00:00', 'フリートーク'),
+    R('2026-10-15T06:00:00', null),
+    R('2026-09-22T08:00:00', DN, 'dmm', 'M'),
+    R('2026-09-21T08:00:00'),
+  ];
+  assert.deepEqual(dwmReview(records, '2026-10-22'), [
+    { label: '1ヶ月前', date: '2026-09-22', source: 'dmm', title: 'M' },
+    { label: '1週間前', date: '2026-10-15', source: 'nativecamp', title: 'NC' },
+    { label: '1日前', date: '2026-10-21', source: 'dmm', title: DN },
+  ]);
+  assert.deepEqual(dwmReview([], '2026-10-22'), []);
 });

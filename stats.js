@@ -91,3 +91,19 @@ export function periodMinutes(mins, asOf) {
     year: [sum(year, end), sum(prevYear, Math.min(prevYear + end - year, year - 1))],
   };
 }
+
+// Daily News lessons from exactly 1, 7 and 30 days before today (JST), oldest first. Takes raw export records.
+// The date is timestamp.slice(0, 10), not lessonDate(): the review spec uses the plain JST date.
+export function dwmReview(records, today) {
+  const labels = new Map([[1, '1日前'], [7, '1週間前'], [30, '1ヶ月前']]
+    .map(([n, label]) => [dateFromNum(dayNum(today) - n), label]));
+  return records
+    .filter(r => r.lesson_type?.includes('デイリーニュース') && labels.has(r.timestamp.slice(0, 10)))
+    .sort((a, b) => a.timestamp.localeCompare(b.timestamp))
+    .map(r => ({
+      label: labels.get(r.timestamp.slice(0, 10)),
+      date: r.timestamp.slice(0, 10),
+      source: r.source,
+      title: r.material_title ?? r.lesson_type,
+    }));
+}
