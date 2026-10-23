@@ -1,8 +1,9 @@
 {
- "as_of": "2026-10-22",
- "total_min": 144092,
- "count": 5830,
+ "as_of": "2026-10-23",
+ "total_min": 144168,
+ "count": 5833,
  "minutes_by_date": {
+  "2026-10-23": 76,
   "2026-10-22": 76,
   "2026-10-21": 102,
   "2026-10-20": 76,
@@ -2444,6 +2445,21 @@
  },
  "recent": [
   {
+   "date": "2026-10-23",
+   "material_title": "Is Your Problem Time or Something Else?",
+   "duration_min": 26
+  },
+  {
+   "date": "2026-10-23",
+   "material_title": "Screenshots Are Bad for Your Memory — Here's Why",
+   "duration_min": 25
+  },
+  {
+   "date": "2026-10-23",
+   "material_title": "9% of UK Workers Got No Job Onboarding — Survey",
+   "duration_min": 25
+  },
+  {
    "date": "2026-10-22",
    "material_title": "How To-Do Lists Help Us Work Better",
    "duration_min": 25
@@ -2526,21 +2542,6 @@
   {
    "date": "2026-10-18",
    "material_title": "Bored at Work? You May Be Feeling 'Rustout'",
-   "duration_min": 25
-  },
-  {
-   "date": "2026-10-18",
-   "material_title": "A 'Good Ear' Makes Language Learning Easier — Study",
-   "duration_min": 25
-  },
-  {
-   "date": "2026-10-17",
-   "material_title": "Can Daily Task Lists Give You a Sense of Control?",
-   "duration_min": 26
-  },
-  {
-   "date": "2026-10-17",
-   "material_title": "59% of Americans Get Their News from Social Media",
    "duration_min": 25
   }
  ]
