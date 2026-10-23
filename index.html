@@ -45,6 +45,8 @@
   li .d { color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
   li .m { color: var(--muted); white-space: nowrap; font-variant-numeric: tabular-nums; }
   li .t { flex: 1; min-width: 0; overflow-wrap: anywhere; }
+  #dwm-list .d:first-child { min-width: 4.5em; } /* align the dates */
+  #dwm-asof { margin: 0 0 6px; font-size: 12px; color: var(--muted); }
   footer { margin-top: 24px; font-size: 12px; color: var(--muted); }
 </style>
 </head>
@@ -69,6 +71,12 @@
   <div id="years"></div>
   <details id="older"><summary>Show older years / それ以前を表示</summary></details>
 
+  <section id="dwm" hidden>
+    <h2>Review / 復習 (Day-Week-Month)</h2>
+    <p class="k" id="dwm-asof" hidden></p>
+    <ul id="dwm-list"></ul>
+  </section>
+
   <h2>Recent lessons / 最近のレッスン</h2>
   <ul id="recent"></ul>
 
@@ -78,10 +86,39 @@
 <script type="module">
 const $ = id => document.getElementById(id);
 
+function row(cells) {
+  const li = document.createElement('li');
+  for (const [cls, text] of cells) {
+    const s = document.createElement('span');
+    s.className = cls;
+    s.textContent = text;
+    li.appendChild(s);
+  }
+  return li;
+}
+
+// Daily News to review. Separate from main() so a missing data/dwm.json never breaks the rest of the page.
+async function dwm(todayJst) {
+  const res = await fetch('data/dwm.json', { cache: 'no-cache' });
+  if (!res.ok) return;
+  const d = await res.json();
+  if (!d.items?.length) return; // nothing to review: keep the section hidden
+  for (const it of d.items) {
+    $('dwm-list').appendChild(row([['d', it.label], ['d', it.date], ['t', it.title ?? '—'], ['m', { dmm: 'DMM', nativecamp: 'NC' }[it.source] ?? it.source ?? '']]));
+  }
+  // The list is made by publish.sh, so it is old if publish.sh has not run today.
+  if (d.today !== todayJst()) {
+    $('dwm-asof').textContent = `as of / 時点: ${d.today}`;
+    $('dwm-asof').hidden = false;
+  }
+  $('dwm').hidden = false;
+}
+
 async function main() {
   // Load stats.js for this exact page version. A cached old stats.js would break the page,
   // and a failed import here still reaches the error message below.
-  const { dmmToday, dayNum, dateFromNum, streak, periodMinutes } = await import(`./stats.js?v=${encodeURIComponent(document.lastModified)}`);
+  const { dmmToday, todayJst, dayNum, dateFromNum, streak, periodMinutes } = await import(`./stats.js?v=${encodeURIComponent(document.lastModified)}`);
+  dwm(todayJst).catch(() => {});
   const res = await fetch('data/summary.json', { cache: 'no-cache' });
   const s = await res.json();
   const today = dmmToday();
@@ -133,14 +170,7 @@ async function main() {
   }
 
   for (const l of s.recent) {
-    const li = document.createElement('li');
-    for (const [cls, text] of [['d', l.date], ['t', l.material_title ?? '—'], ['m', l.duration_min != null ? `${l.duration_min} min` : '']]) {
-      const s = document.createElement('span');
-      s.className = cls;
-      s.textContent = text;
-      li.appendChild(s);
-    }
-    $('recent').appendChild(li);
+    $('recent').appendChild(row([['d', l.date], ['t', l.material_title ?? '—'], ['m', l.duration_min != null ? `${l.duration_min} min` : '']]));
   }
 
   const modified = res.headers.get('Last-Modified');
