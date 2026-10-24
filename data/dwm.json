@@ -1,59 +1,71 @@
 {
- "today": "2026-10-23",
+ "today": "2026-10-24",
  "items": [
   {
    "label": "1ヶ月前",
-   "date": "2026-09-23",
+   "date": "2026-09-24",
    "source": "dmm",
-   "title": "Singapore Pays People to Read"
+   "title": "Sleep Trackers May Make You Feel More Tired"
   },
   {
    "label": "1ヶ月前",
-   "date": "2026-09-23",
+   "date": "2026-09-24",
    "source": "dmm",
-   "title": "Mobile Gaming May Hurt Your Neck and Elbows"
+   "title": "Too Much Coffee May Be Bad for Your Bones"
   },
   {
-   "label": "1週間前",
-   "date": "2026-10-16",
+   "label": "1ヶ月前",
+   "date": "2026-09-24",
    "source": "nativecamp",
-   "title": "Study Says Smartphone Reminders Could Improve Memory, Not Harm It"
+   "title": "Why Does AI Save Time but Leave You Tired?"
   },
   {
-   "label": "1週間前",
-   "date": "2026-10-16",
-   "source": "dmm",
-   "title": "Four Reasons to Add Beans to Your Diet"
-  },
-  {
-   "label": "1週間前",
-   "date": "2026-10-16",
-   "source": "dmm",
-   "title": "Bored at Work? You May Be Feeling 'Rustout'"
-  },
-  {
-   "label": "1週間前",
-   "date": "2026-10-16",
+   "label": "1ヶ月前",
+   "date": "2026-09-24",
    "source": "nativecamp",
-   "title": "Study Says Smartphone Reminders Could Improve Memory, Not Harm It"
+   "title": "A Doctor Teaches Meditation for Stress"
+  },
+  {
+   "label": "1ヶ月前",
+   "date": "2026-09-24",
+   "source": "nativecamp",
+   "title": "Cleaning Your House Can Improve Your Mental Health"
+  },
+  {
+   "label": "1週間前",
+   "date": "2026-10-17",
+   "source": "dmm",
+   "title": "Huge Study Links Screen Time to Developmental Issues"
+  },
+  {
+   "label": "1週間前",
+   "date": "2026-10-17",
+   "source": "dmm",
+   "title": "59% of Americans Get Their News from Social Media"
+  },
+  {
+   "label": "1週間前",
+   "date": "2026-10-17",
+   "source": "nativecamp",
+   "title": "Can Daily Task Lists Give You a Sense of Control?"
   },
   {
    "label": "1日前",
-   "date": "2026-10-22",
+   "date": "2026-10-23",
+   "source": "dmm",
+   "title": "9% of UK Workers Got No Job Onboarding — Survey"
+  },
+  {
+   "label": "1日前",
+   "date": "2026-10-23",
+   "source": "dmm",
+   "title": "Screenshots Are Bad for Your Memory — Here's Why"
+  },
+  {
+   "label": "1日前",
+   "date": "2026-10-23",
    "source": "nativecamp",
-   "title": "Why Workers Do Personal Tasks During Office Hours"
-  },
-  {
-   "label": "1日前",
-   "date": "2026-10-22",
-   "source": "dmm",
-   "title": "Strong Sense of Identity Linked to Mental Well-Being"
-  },
-  {
-   "label": "1日前",
-   "date": "2026-10-22",
-   "source": "dmm",
-   "title": "How To-Do Lists Help Us Work Better"
+   "title": "Is Your Problem Time or Something Else?"
   }
  ]
 }

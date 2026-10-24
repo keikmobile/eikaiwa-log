@@ -1,8 +1,9 @@
 {
- "as_of": "2026-10-23",
- "total_min": 144168,
- "count": 5833,
+ "as_of": "2026-10-24",
+ "total_min": 144270,
+ "count": 5837,
  "minutes_by_date": {
+  "2026-10-24": 102,
   "2026-10-23": 76,
   "2026-10-22": 76,
   "2026-10-21": 102,
@@ -2445,6 +2446,26 @@
  },
  "recent": [
   {
+   "date": "2026-10-24",
+   "material_title": "Study Links Screen Time to ADHD Symptoms",
+   "duration_min": 26
+  },
+  {
+   "date": "2026-10-24",
+   "material_title": "Study Links Screen Time to ADHD Symptoms",
+   "duration_min": 26
+  },
+  {
+   "date": "2026-10-24",
+   "material_title": "We Procrastinate Less with Age — Study",
+   "duration_min": 25
+  },
+  {
+   "date": "2026-10-24",
+   "material_title": "Phone Habits May Reveal Stress Levels, Study Says",
+   "duration_min": 25
+  },
+  {
    "date": "2026-10-23",
    "material_title": "Is Your Problem Time or Something Else?",
    "duration_min": 26
@@ -2522,26 +2543,6 @@
   {
    "date": "2026-10-19",
    "material_title": "Procrastination Tops Academic Struggles, Study Finds",
-   "duration_min": 25
-  },
-  {
-   "date": "2026-10-19",
-   "material_title": "Procrastination Tops Academic Struggles, Study Finds",
-   "duration_min": 25
-  },
-  {
-   "date": "2026-10-18",
-   "material_title": "How Deep Understanding Boosts Memory: Lessons from the Theater",
-   "duration_min": 26
-  },
-  {
-   "date": "2026-10-18",
-   "material_title": "Can Daily Task Lists Give You a Sense of Control?",
-   "duration_min": 26
-  },
-  {
-   "date": "2026-10-18",
-   "material_title": "Bored at Work? You May Be Feeling 'Rustout'",
    "duration_min": 25
   }
  ]
