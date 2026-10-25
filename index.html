@@ -46,6 +46,7 @@
   li .m { color: var(--muted); white-space: nowrap; font-variant-numeric: tabular-nums; }
   li .t { flex: 1; min-width: 0; overflow-wrap: anywhere; }
   #dwm-list .d:first-child { min-width: 4.5em; } /* align the dates */
+  #ranking .d { min-width: 1.6em; text-align: right; } /* align the titles */
   #dwm-asof { margin: 0 0 6px; font-size: 12px; color: var(--muted); }
   footer { margin-top: 24px; font-size: 12px; color: var(--muted); }
 </style>
@@ -75,6 +76,14 @@
     <h2>Review / 復習 (Day-Week-Month)</h2>
     <p class="k" id="dwm-asof" hidden></p>
     <ul id="dwm-list"></ul>
+  </section>
+
+  <section id="ranking" hidden>
+    <h2>Top Daily News / よく受けた記事</h2>
+    <h3 id="rank-dmm-h" hidden>DMM</h3>
+    <ul id="rank-dmm"></ul>
+    <h3 id="rank-nativecamp-h" hidden>NC</h3>
+    <ul id="rank-nativecamp"></ul>
   </section>
 
   <h2>Recent lessons / 最近のレッスン</h2>
@@ -114,11 +123,25 @@ async function dwm(todayJst) {
   $('dwm').hidden = false;
 }
 
+// Most-taken Daily News per source. Same as dwm(): a missing data/ranking.json never breaks the page.
+async function ranking() {
+  const res = await fetch('data/ranking.json', { cache: 'no-cache' });
+  if (!res.ok) return;
+  const d = await res.json();
+  for (const src of ['dmm', 'nativecamp']) {
+    if (!d[src]?.length) continue;
+    d[src].forEach((it, i) => $(`rank-${src}`).appendChild(row([['d', `${i + 1}.`], ['t', it.title], ['m', `${it.count}×`]])));
+    $(`rank-${src}-h`).hidden = false;
+    $('ranking').hidden = false;
+  }
+}
+
 async function main() {
   // Load stats.js for this exact page version. A cached old stats.js would break the page,
   // and a failed import here still reaches the error message below.
   const { dmmToday, todayJst, dayNum, dateFromNum, streak, periodMinutes } = await import(`./stats.js?v=${encodeURIComponent(document.lastModified)}`);
   dwm(todayJst).catch(() => {});
+  ranking().catch(() => {});
   const res = await fetch('data/summary.json', { cache: 'no-cache' });
   const s = await res.json();
   const today = dmmToday();

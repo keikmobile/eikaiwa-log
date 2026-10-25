@@ -31,18 +31,20 @@ fi
 mkdir -p data
 node --input-type=module -e '
 import { readFileSync, writeFileSync } from "fs";
-import { lessonsFromHistory, summarize, dmmToday, dwmReview, todayJst } from "./stats.js";
+import { lessonsFromHistory, summarize, dmmToday, dwmReview, topArticles, todayJst } from "./stats.js";
 const payload = JSON.parse(readFileSync(process.argv[1], "utf8"));
 const asOf = dmmToday(new Date(payload.exported_at));
 writeFileSync("data/summary.json", JSON.stringify(summarize(lessonsFromHistory(payload), asOf), null, 1) + "\n");
 const today = todayJst();
 writeFileSync("data/dwm.json", JSON.stringify({ today, items: dwmReview(payload.records, today) }, null, 1) + "\n");
+const top = s => topArticles(payload.records, s);
+writeFileSync("data/ranking.json", JSON.stringify({ dmm: top("dmm"), nativecamp: top("nativecamp") }, null, 1) + "\n");
 ' "$src"
 if [ -n "$nogit" ]; then
-  echo "Wrote data/summary.json and data/dwm.json (no git) / JSON を書き出しました（git なし）: $src"
+  echo "Wrote data/summary.json, data/dwm.json and data/ranking.json (no git) / JSON を書き出しました（git なし）: $src"
   exit 0
 fi
-git add data/summary.json data/dwm.json
+git add data/summary.json data/dwm.json data/ranking.json
 if git diff --cached --quiet; then
   echo "No changes / 変更なし"
   exit 0

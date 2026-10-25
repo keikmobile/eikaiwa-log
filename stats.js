@@ -107,3 +107,15 @@ export function dwmReview(records, today) {
       title: r.material_title ?? r.lesson_type,
     }));
 }
+
+// Daily News titles taken most often for one source, top n. Ties: title order. Lessons without a title are skipped.
+export function topArticles(records, source, n = 15) {
+  const c = new Map();
+  for (const r of records) {
+    if (r.source === source && r.lesson_type?.includes('デイリーニュース') && r.material_title) {
+      c.set(r.material_title, (c.get(r.material_title) || 0) + 1);
+    }
+  }
+  return [...c].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])).slice(0, n)
+    .map(([title, count]) => ({ title, count }));
+}
