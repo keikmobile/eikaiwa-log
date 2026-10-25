@@ -1,7 +1,7 @@
 // Run: node --test
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { todayJst, dayNum, dateFromNum, totalMinutes, minutesByDate, summarize, lessonsFromHistory, lessonDate, dmmToday, streak, periodMinutes, dwmReview } from './stats.js';
+import { todayJst, dayNum, dateFromNum, totalMinutes, minutesByDate, summarize, lessonsFromHistory, lessonDate, dmmToday, streak, periodMinutes, dwmReview, topArticles } from './stats.js';
 
 const L = (date, duration_min = 25) => ({ date, material_title: 't', material_title_ja: null, duration_min });
 
@@ -102,4 +102,14 @@ test('dwmReview picks Daily News from exactly 1, 7 and 30 days ago, oldest first
     { label: '1日前', date: '2026-10-21', source: 'dmm', title: DN },
   ]);
   assert.deepEqual(dwmReview([], '2026-10-22'), []);
+});
+
+test('topArticles counts Daily News per source, most first, ties by title, top n', () => {
+  const R = (source, material_title, lesson_type = 'デイリーニュース') => ({ source, material_title, lesson_type });
+  const records = [
+    R('dmm', 'B'), R('dmm', 'B'), R('dmm', 'A'), R('dmm', 'C'), R('dmm', 'A'), R('dmm', 'Z'),
+    R('dmm', 'X', 'フリートーク'), R('dmm', null), R('nativecamp', 'B'),
+  ];
+  assert.deepEqual(topArticles(records, 'dmm', 3), [{ title: 'A', count: 2 }, { title: 'B', count: 2 }, { title: 'C', count: 1 }]);
+  assert.deepEqual(topArticles(records, 'nativecamp'), [{ title: 'B', count: 1 }]);
 });
