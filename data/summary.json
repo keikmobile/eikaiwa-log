@@ -1,9 +1,11 @@
 {
- "as_of": "2026-10-24",
- "total_min": 144270,
- "count": 5837,
+ "as_of": "2026-10-26",
+ "total_min": 144448,
+ "count": 5844,
  "minutes_by_date": {
-  "2026-10-24": 102,
+  "2026-10-26": 76,
+  "2026-10-25": 76,
+  "2026-10-24": 128,
   "2026-10-23": 76,
   "2026-10-22": 76,
   "2026-10-21": 102,
@@ -2446,6 +2448,41 @@
  },
  "recent": [
   {
+   "date": "2026-10-26",
+   "material_title": "How to Get Better at Living With Uncertainty",
+   "duration_min": 26
+  },
+  {
+   "date": "2026-10-26",
+   "material_title": "Strong Sense of Identity Linked to Mental Well-Being",
+   "duration_min": 25
+  },
+  {
+   "date": "2026-10-26",
+   "material_title": "Procrastination Tops Academic Struggles, Study Finds",
+   "duration_min": 25
+  },
+  {
+   "date": "2026-10-25",
+   "material_title": "How to Get Better at Living With Uncertainty",
+   "duration_min": 26
+  },
+  {
+   "date": "2026-10-25",
+   "material_title": "Norway Seeks Temporary Ban on Smart Glasses",
+   "duration_min": 25
+  },
+  {
+   "date": "2026-10-25",
+   "material_title": "Norway Seeks Temporary Ban on Smart Glasses",
+   "duration_min": 25
+  },
+  {
+   "date": "2026-10-24",
+   "material_title": "How to Get Better at Living With Uncertainty",
+   "duration_min": 26
+  },
+  {
    "date": "2026-10-24",
    "material_title": "Study Links Screen Time to ADHD Symptoms",
    "duration_min": 26
@@ -2508,41 +2545,6 @@
   {
    "date": "2026-10-21",
    "material_title": "Why 'Dopamine Detox' Doesn't Really Work",
-   "duration_min": 25
-  },
-  {
-   "date": "2026-10-21",
-   "material_title": "Procrastination Tops Academic Struggles, Study Finds",
-   "duration_min": 25
-  },
-  {
-   "date": "2026-10-20",
-   "material_title": "Why Do Unfinished Tasks Make You Feel Constantly Tired?",
-   "duration_min": 26
-  },
-  {
-   "date": "2026-10-20",
-   "material_title": "Phone Habits May Reveal Stress Levels, Study Says",
-   "duration_min": 25
-  },
-  {
-   "date": "2026-10-20",
-   "material_title": "Procrastination Tops Academic Struggles, Study Finds",
-   "duration_min": 25
-  },
-  {
-   "date": "2026-10-19",
-   "material_title": "How Deep Understanding Boosts Memory: Lessons from the Theater",
-   "duration_min": 26
-  },
-  {
-   "date": "2026-10-19",
-   "material_title": "How Deep Understanding Boosts Memory: Lessons from the Theater",
-   "duration_min": 26
-  },
-  {
-   "date": "2026-10-19",
-   "material_title": "Procrastination Tops Academic Struggles, Study Finds",
    "duration_min": 25
   }
  ]
