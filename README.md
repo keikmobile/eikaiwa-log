@@ -1,20 +1,28 @@
 # eikaiwa-log
 
-My public English lesson log. It shows total hours, lesson count, the day streak (with its start date), hours this week / month / year (compared with the same span of the previous period), a heatmap by year with hours per year (the last 3 years open, older years back to the first lesson folded), and the last 20 lessons.
+My public English lesson log. It shows total hours, lesson count, the day streak (with its start date), hours this week / month / year (compared with the same span of the previous period), a heatmap by year with hours per year (the last 3 years open, older years back to the first lesson folded), Daily News to review (Day-Week-Month), the top 15 Daily News articles for DMM and NC, and the last 20 lessons.
 
-英会話レッスンの公開ログ。合計時間・レッスン数・連続日数（開始日つき）・今週／今月／今年の時間（前の期間の同じ時点と比較）・年ごとのヒートマップと年間時間（直近3年を表示、最初のレッスンの年までのそれ以前は折りたたみ）・直近20件を表示する。
+英会話レッスンの公開ログ。合計時間・レッスン数・連続日数（開始日つき）・今週／今月／今年の時間（前の期間の同じ時点と比較）・年ごとのヒートマップと年間時間（直近3年を表示、最初のレッスンの年までのそれ以前は折りたたみ）・復習するデイリーニュース（Day-Week-Month）・DMM／NC 別のよく受けた記事トップ15・直近20件を表示する。
 
 Live page / 公開ページ: https://keikmobile.github.io/eikaiwa-log/
 
 ## Data / データ
 
 `publish.sh` reads the newest `lesson-history-*.json` (the dmm-lesson-tracker auto-export) on your Mac.
-It writes only `data/summary.json` (total minutes, lesson count, minutes per day, last 20 lessons with date, title and minutes).
-The raw file has teacher names, so it is never committed.
+It writes only 3 files under `data/`. The raw file has teacher names, so it is never committed.
 
 `publish.sh` は Mac 上で最新の `lesson-history-*.json`（dmm-lesson-tracker の自動エクスポート）を読む。
-書き出すのは `data/summary.json`（合計分数・レッスン数・日ごとの分数・直近20件の日付・教材名・分数）だけ。
-生ファイルは講師名を含むので、コミットしない。
+書き出すのは `data/` の3ファイルだけ。生ファイルは講師名を含むので、コミットしない。
+
+- `data/summary.json`: export day (`as_of`), total minutes, lesson count, minutes per day, last 20 lessons with date, title and minutes.
+  エクスポート日（`as_of`）・合計分数・レッスン数・日ごとの分数・直近20件の日付・教材名・分数。
+- `data/dwm.json`: Daily News lessons from exactly 1 day, 1 week and 30 days before today (JST), for review. Each item has `label`, `date`, `source` and `title` (the lesson type if there is no title); `items` is empty when nothing matches. It uses the plain JST date (no 25:30 rule). If the file is not from today, the page shows "as of".
+  今日（JST）からちょうど1日前・1週間前・30日前のデイリーニュース（復習用）。各項目は `label`・`date`・`source`・`title`（教材名がなければレッスン種別）。該当なしなら `items` は空。日付は JST の日付そのまま（25:30 ルールなし）。今日のファイルでなければページに「as of」を表示する。
+- `data/ranking.json`: the 15 Daily News articles you took most often, for DMM (`dmm`) and NC (`nativecamp`) separately. Each item has `title` and `count`. Lessons without a title are skipped; ties go by title order.
+  受講回数の多いデイリーニュース記事トップ15を DMM（`dmm`）と NC（`nativecamp`）別に。各項目は `title`・`count`。教材名のないレッスンは除外、同数なら教材名順。
+
+The page hides the review and ranking sections when their file is missing or empty.
+復習・ランキングのセクションは、ファイルがないか空なら表示しない。
 
 DMM lessons that start up to 25:30 (01:30) count as the previous day, like DMM does. / DMM と同じく、25:30（翌1:30）開始までのレッスンは前日扱い。
 Lessons without a title are counted and shown as "—". A file in an unknown format is rejected.
@@ -30,14 +38,8 @@ Lessons without a title are counted and shown as "—". A file in an unknown for
 ./publish.sh
 ```
 
-It writes `data/summary.json`, commits it, and pushes to `main` (the live page updates in 1–2 min). If nothing changed, it does nothing.
-`data/summary.json` を書き出し、commit して `main` に push する（1〜2分で公開ページに反映）。変更がなければ何もしない。
-
-It also writes `data/dwm.json`: Daily News lessons from exactly 1 day, 1 week and 30 days before today (JST), for review. Each item has `label`, `date`, `source` and `title`; `items` is empty when nothing matches.
-`data/dwm.json` も書き出す：今日（JST）からちょうど1日前・1週間前・30日前のデイリーニュース（復習用）。各項目は `label`・`date`・`source`・`title`。該当なしなら `items` は空。
-
-It also writes `data/ranking.json`: the 15 Daily News articles you took most often, for DMM (`dmm`) and NC (`nativecamp`) separately. Each item has `title` and `count`.
-`data/ranking.json` も書き出す：受講回数の多いデイリーニュース記事トップ15を DMM（`dmm`）と NC（`nativecamp`）別に。各項目は `title`・`count`。
+It writes the 3 JSON files, commits them, and pushes to `main` (the live page updates in 1–2 min). If nothing changed, it does not commit. It stops if you are not on `main`.
+3つの JSON を書き出し、commit して `main` に push する（1〜2分で公開ページに反映）。変更がなければ commit しない。`main` ブランチでなければ止まる。
 
 To only write the JSON files without git (works on any branch) / git を使わず JSON だけ書き出す（どのブランチでも可）:
 
