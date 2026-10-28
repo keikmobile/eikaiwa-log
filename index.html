@@ -11,16 +11,17 @@
   :root {
     --bg: #ffffff; --fg: #1f2328; --muted: #656d76; --line: #d0d7de; --card: #f6f8fa;
     --h0: #ebedf0; --h1: #9be9a8; --h2: #40c463; --h3: #30a14e; --h4: #216e39;
+    --dmm: var(--h4); --nc: var(--h2); /* monthly bars: DMM is the darker green in both themes */
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
       --bg: #0d1117; --fg: #e6edf3; --muted: #8d96a0; --line: #30363d; --card: #161b22;
-      --h0: #161b22; --h1: #0e4429; --h2: #006d32; --h3: #26a641; --h4: #39d353;
+      --h0: #161b22; --h1: #0e4429; --h2: #006d32; --h3: #26a641; --h4: #39d353; --dmm: var(--h2); --nc: var(--h4);
     }
   }
   :root[data-theme="dark"] {
     --bg: #0d1117; --fg: #e6edf3; --muted: #8d96a0; --line: #30363d; --card: #161b22;
-    --h0: #161b22; --h1: #0e4429; --h2: #006d32; --h3: #26a641; --h4: #39d353;
+    --h0: #161b22; --h1: #0e4429; --h2: #006d32; --h3: #26a641; --h4: #39d353; --dmm: var(--h2); --nc: var(--h4);
   }
   body { margin: 0; background: var(--bg); color: var(--fg);
     font: 15px/1.5 system-ui, -apple-system, "Hiragino Sans", sans-serif; }

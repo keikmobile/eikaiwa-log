@@ -173,8 +173,8 @@ export function monthlyChartSvg(byMonth) {
     const x = (pad.l + i * slotW).toFixed(1);
     const dmmH = maxC > 0 ? (byMonth[m].dmm / maxC) * plotH : 0;
     const ncH = maxC > 0 ? (byMonth[m].nc / maxC) * plotH : 0;
-    return `<rect x="${x}" y="${(H - pad.b - dmmH).toFixed(1)}" width="${barW.toFixed(1)}" height="${dmmH.toFixed(1)}" style="fill:var(--h4)"/>`
-      + `<rect x="${x}" y="${(H - pad.b - dmmH - ncH).toFixed(1)}" width="${barW.toFixed(1)}" height="${ncH.toFixed(1)}" style="fill:var(--h2)"/>`;
+    return `<rect x="${x}" y="${(H - pad.b - dmmH).toFixed(1)}" width="${barW.toFixed(1)}" height="${dmmH.toFixed(1)}" style="fill:var(--dmm)"/>`
+      + `<rect x="${x}" y="${(H - pad.b - dmmH - ncH).toFixed(1)}" width="${barW.toFixed(1)}" height="${ncH.toFixed(1)}" style="fill:var(--nc)"/>`;
   }).join('');
   const yCount = {}, yMin = {};
   months.forEach((m, i) => {
