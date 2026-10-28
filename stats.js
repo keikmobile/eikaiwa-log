@@ -149,7 +149,7 @@ const fmtMin = min => {
   return h > 0 ? `${h}h${m > 0 ? m + 'm' : ''}` : `${m}m`;
 };
 
-// One stacked bar per month that has lessons (DMM red, NC blue). Under each January: year and yearly total.
+// One stacked bar per month (DMM dark green, NC light green; heatmap colors). Under each January: year and yearly total.
 export function monthlyChartSvg(byMonth) {
   const keys = Object.keys(byMonth).sort();
   if (keys.length === 0) return '';
@@ -173,8 +173,8 @@ export function monthlyChartSvg(byMonth) {
     const x = (pad.l + i * slotW).toFixed(1);
     const dmmH = maxC > 0 ? (byMonth[m].dmm / maxC) * plotH : 0;
     const ncH = maxC > 0 ? (byMonth[m].nc / maxC) * plotH : 0;
-    return `<rect x="${x}" y="${(H - pad.b - dmmH).toFixed(1)}" width="${barW.toFixed(1)}" height="${dmmH.toFixed(1)}" fill="#d62b2b" opacity="0.8"/>`
-      + `<rect x="${x}" y="${(H - pad.b - dmmH - ncH).toFixed(1)}" width="${barW.toFixed(1)}" height="${ncH.toFixed(1)}" fill="#2b7ad6" opacity="0.8"/>`;
+    return `<rect x="${x}" y="${(H - pad.b - dmmH).toFixed(1)}" width="${barW.toFixed(1)}" height="${dmmH.toFixed(1)}" style="fill:var(--h4)"/>`
+      + `<rect x="${x}" y="${(H - pad.b - dmmH - ncH).toFixed(1)}" width="${barW.toFixed(1)}" height="${ncH.toFixed(1)}" style="fill:var(--h2)"/>`;
   }).join('');
   const yCount = {}, yMin = {};
   months.forEach((m, i) => {
