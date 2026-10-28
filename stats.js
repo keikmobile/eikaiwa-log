@@ -222,10 +222,10 @@ export function calendarMonthHtml(ym, mins, today) {
   const dowCells = DOW.map((d, i) =>
     `<div style="text-align:center;font-size:9px;color:${i === 0 ? '#e08080' : i === 6 ? '#8090d8' : '#bbb'};padding-bottom:2px;">${d}</div>`).join('');
   const totalLabel = total ? `<span style="font-weight:400;color:#bbb;margin-left:5px;">${fmtMin(total)}</span>` : '';
-  return `<div style="display:inline-block;vertical-align:top;margin:0 16px 16px 0;min-width:196px;">
+  return `<div style="margin-bottom:16px;">
     <div style="font-size:12px;color:#666;font-weight:600;text-align:center;margin-bottom:6px;">${yr}年${mo}月${totalLabel}</div>
-    <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:1px;margin-bottom:2px;">${dowCells}</div>
-    <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:1px;">${'<div></div>'.repeat(firstDow)}${dayCells}</div>
+    <div style="display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:1px;margin-bottom:2px;">${dowCells}</div>
+    <div style="display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:1px;">${'<div></div>'.repeat(firstDow)}${dayCells}</div>
   </div>`;
 }
 

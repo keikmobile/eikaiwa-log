@@ -36,6 +36,9 @@
   h3 { font-size: 13px; margin: 14px 0 4px; color: var(--muted); font-weight: 600; }
   summary { margin-top: 14px; font-size: 13px; color: var(--muted); cursor: pointer; }
   .heat-wrap { overflow-x: auto; }
+  .cal { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 16px; } /* 3 × 4 months */
+  @media (max-width: 640px) { .cal { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 420px) { .cal { grid-template-columns: minmax(0, 1fr); } }
   .heat { display: grid; grid-auto-flow: column; grid-template-rows: repeat(7, 11px); gap: 3px; width: max-content; }
   .heat i { width: 11px; height: 11px; border-radius: 2px; background: var(--h0); }
   .heat i.l1 { background: var(--h1); } .heat i.l2 { background: var(--h2); }
@@ -208,7 +211,7 @@ async function main() {
     const label = document.createElement('h3');
     label.textContent = y;
     const grid = document.createElement('div');
-    grid.style.cssText = 'display:flex;flex-wrap:wrap';
+    grid.className = 'cal';
     grid.innerHTML = months.map(ym => calendarMonthHtml(ym, s.minutes_by_date, calToday)).join('');
     $(Number(y) === year ? 'cal-years' : 'cal-older').append(label, grid);
   }
