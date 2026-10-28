@@ -144,11 +144,6 @@ const fmtMin = min => {
   return h > 0 ? `${h}h${m > 0 ? m + 'm' : ''}` : `${m}m`;
 };
 
-// Shown only when there is NC data.
-const legend = hasNc => hasNc
-  ? '<div style="font-size:10px;color:#888;margin-bottom:2px;"><span style="color:#d62b2b;">■</span> DMM　<span style="color:#2b7ad6;">■</span> NativeCamp</div>'
-  : '';
-
 // One stacked bar per month that has lessons (DMM red, NC blue). Under each January: year and yearly total.
 export function monthlyChartSvg(byMonth) {
   const months = Object.keys(byMonth).sort();
@@ -186,7 +181,7 @@ export function monthlyChartSvg(byMonth) {
   const wrap = W > 760
     ? `<div style="overflow-x:auto;direction:rtl;padding-bottom:4px;"><div style="direction:ltr;display:inline-block;">${svg}</div></div>`
     : svg;
-  return legend(months.some(m => byMonth[m].nc > 0)) + wrap;
+  return wrap;
 }
 
 const DOW = ['日', '月', '火', '水', '木', '金', '土'];

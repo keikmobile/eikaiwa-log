@@ -140,7 +140,6 @@ test('monthlyChartSvg: January gets year and yearly total', () => {
   const html = monthlyChartSvg({ '2026-01': { dmm: 3, nc: 0, min: 90 }, '2026-02': { dmm: 2, nc: 0, min: 60 } });
   assert.ok(html.includes('>2026<'));
   assert.ok(html.includes('5回 / 2h'));
-  assert.ok(!html.includes('NativeCamp')); // no NC → no legend
 });
 
 test('calendarMonthHtml: shows minutes and month total', () => {
