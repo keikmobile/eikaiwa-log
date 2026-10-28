@@ -168,7 +168,7 @@ async function main() {
     $(id + '-d').classList.toggle('up', diff >= 0);
   }
 
-  // Heatmap: one row per calendar year, newest first, back to the year of the first lesson. Years before 2 years ago are folded. Columns are weeks (Sun–Sat).
+  // Heatmap: one row per calendar year, newest first, back to the year of the first lesson. Years before this year are folded. Columns are weeks (Sun–Sat).
   const end = dayNum(today);
   const dow = n => new Date(n * 86400000).getUTCDay();
   const year = Number(today.slice(0, 4));
@@ -195,7 +195,7 @@ async function main() {
     }
     label.textContent = `${y} · ${(yearMin / 60).toFixed(1)} h`;
     wrap.appendChild(heat);
-    $(y >= year - 2 ? 'years' : 'older').append(label, wrap);
+    $(y === year ? 'years' : 'older').append(label, wrap);
     if (y === year) wrap.scrollLeft = wrap.scrollWidth; // show the latest weeks first on narrow screens
   }
 
