@@ -146,7 +146,7 @@ async function ranking() {
 async function main() {
   // Load stats.js for this exact page version. A cached old stats.js would break the page,
   // and a failed import here still reaches the error message below.
-  const { dmmToday, todayJst, dayNum, dateFromNum, streak, periodMinutes, monthlyChartSvg, calendarMonthHtml, calendarMonthsByYear } = await import(`./stats.js?v=${encodeURIComponent(document.lastModified)}`);
+  const { dmmToday, todayJst, dayNum, dateFromNum, streak, periodMinutes, heatLevel, monthlyChartSvg, calendarMonthHtml, calendarMonthsByYear } = await import(`./stats.js?v=${encodeURIComponent(document.lastModified)}`);
   dwm(todayJst).catch(() => {});
   ranking().catch(() => {});
   const res = await fetch('data/summary.json', { cache: 'no-cache' });
@@ -189,7 +189,7 @@ async function main() {
       const m = mins.get(date);
       if (n >= first && n <= last) yearMin += m ?? 0;
       if (n < first || n > last) cell.className = 'out';
-      else if (m != null) cell.className = m >= 75 ? 'l4' : m >= 50 ? 'l3' : m >= 25 ? 'l2' : 'l1';
+      else if (m != null) cell.className = `l${heatLevel(m)}`;
       cell.title = `${date}: ${m ?? 0} min`;
       heat.appendChild(cell);
     }

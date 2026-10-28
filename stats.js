@@ -133,6 +133,11 @@ export function topArticles(records, source, n = 15) {
     .map(([title, count]) => ({ title, count }));
 }
 
+// Heatmap color level 1–4 for a day's minutes (CSS --h1 … --h4).
+export function heatLevel(min) {
+  return min >= 75 ? 4 : min >= 50 ? 3 : min >= 25 ? 2 : 1;
+}
+
 // ---- Monthly trend and calendar. HTML strings for innerHTML; colors match the extension's report.
 
 const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -210,7 +215,7 @@ export function calendarMonthHtml(ym, mins, today) {
     const isPast = isCur ? d < todayD : today > ym; // future months: no "—"
     const bg = isToday ? 'background:#fff5f5;outline:1px solid #f0a0a0;' : '';
     let inner = `<div style="font-size:9px;color:${isToday ? '#d62b2b' : '#bbb'};">${d}</div>`;
-    if (m > 0) inner += `<div style="font-size:9px;color:#d62b2b;font-weight:600;line-height:1.2;">${fmtMin(m)}</div>`;
+    if (m > 0) inner += `<div style="font-size:9px;color:var(--h${heatLevel(m)});font-weight:600;line-height:1.2;">${fmtMin(m)}</div>`;
     else if (isPast) inner += '<div style="font-size:8px;color:#eee;line-height:1.2;">—</div>';
     return `<div style="text-align:center;padding:2px 1px;border-radius:3px;${bg}">${inner}</div>`;
   }).join('');

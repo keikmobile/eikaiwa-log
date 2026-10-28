@@ -1,7 +1,7 @@
 // Run: node --test
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { todayJst, dayNum, dateFromNum, totalMinutes, minutesByDate, summarize, lessonsFromHistory, lessonDate, dmmToday, streak, periodMinutes, dwmReview, topArticles, byMonth, monthlyChartSvg, calendarMonthHtml, calendarMonthsByYear } from './stats.js';
+import { todayJst, dayNum, dateFromNum, totalMinutes, minutesByDate, summarize, lessonsFromHistory, lessonDate, dmmToday, streak, periodMinutes, dwmReview, topArticles, byMonth, heatLevel, monthlyChartSvg, calendarMonthHtml, calendarMonthsByYear } from './stats.js';
 
 const L = (date, duration_min = 25) => ({ date, material_title: 't', material_title_ja: null, duration_min });
 
@@ -146,6 +146,14 @@ test('monthlyChartSvg: months without lessons keep their slot, across a year end
   const html = monthlyChartSvg({ '2025-11': { dmm: 1, nc: 0, min: 25 }, '2026-02': { dmm: 1, nc: 0, min: 25 } });
   assert.equal(html.split('<rect').length - 1, 4 * 2); // Nov, Dec, Jan, Feb × (DMM + NC)
   assert.ok(html.includes('>2026<')); // the empty January still gets its label
+});
+
+test('heatLevel: same steps as the heatmap', () => {
+  assert.deepEqual([0, 24, 25, 49, 50, 74, 75, 200].map(heatLevel), [1, 1, 2, 2, 3, 3, 4, 4]);
+});
+
+test('calendarMonthHtml: minutes use the heatmap color', () => {
+  assert.ok(calendarMonthHtml('2026-03', { '2026-03-09': 90 }, '2026-10-27').includes('color:var(--h4)'));
 });
 
 test('calendarMonthHtml: shows minutes and month total', () => {
