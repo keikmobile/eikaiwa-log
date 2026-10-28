@@ -201,7 +201,7 @@ async function main() {
 
   $('monthly').innerHTML = monthlyChartSvg(s.by_month ?? {}); // by_month is missing until publish.sh runs again
 
-  // Calendar: same year folding as the heatmap. "Today" is the JST date.
+  // Calendar: only this year is open; last year and older are folded. "Today" is the JST date.
   const calToday = todayJst();
   for (const [y, months] of Object.entries(calendarMonthsByYear(s.minutes_by_date)).reverse()) {
     const label = document.createElement('h3');
@@ -209,7 +209,7 @@ async function main() {
     const grid = document.createElement('div');
     grid.style.cssText = 'display:flex;flex-wrap:wrap';
     grid.innerHTML = months.map(ym => calendarMonthHtml(ym, s.minutes_by_date, calToday)).join('');
-    $(Number(y) >= year - 2 ? 'cal-years' : 'cal-older').append(label, grid);
+    $(Number(y) === year ? 'cal-years' : 'cal-older').append(label, grid);
   }
 
   for (const l of s.recent) {
