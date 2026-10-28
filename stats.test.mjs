@@ -1,7 +1,7 @@
 // Run: node --test
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { todayJst, dayNum, dateFromNum, totalMinutes, minutesByDate, summarize, lessonsFromHistory, lessonDate, dmmToday, streak, periodMinutes, dwmReview, topArticles } from './stats.js';
+import { todayJst, dayNum, dateFromNum, totalMinutes, minutesByDate, summarize, lessonsFromHistory, lessonDate, dmmToday, streak, periodMinutes, dwmReview, topArticles, byMonth, heatLevel, monthlyChartSvg, calendarMonthHtml, calendarMonthsByYear } from './stats.js';
 
 const L = (date, duration_min = 25) => ({ date, material_title: 't', material_title_ja: null, duration_min });
 
@@ -112,4 +112,63 @@ test('topArticles counts Daily News per source, most first, ties by title, top n
   ];
   assert.deepEqual(topArticles(records, 'dmm', 3), [{ title: 'A', count: 2 }, { title: 'B', count: 2 }, { title: 'C', count: 1 }]);
   assert.deepEqual(topArticles(records, 'nativecamp'), [{ title: 'B', count: 1 }]);
+});
+
+const LS = (date, source = 'dmm', duration_min = 25) => ({ date, source, duration_min });
+
+test('byMonth: splits DMM and NC, sums minutes', () => {
+  assert.deepEqual(byMonth([LS('2026-10-01'), LS('2026-10-02', 'nativecamp', 20), LS('2026-11-01')]), {
+    '2026-10': { dmm: 1, nc: 1, min: 45 },
+    '2026-11': { dmm: 1, nc: 0, min: 25 },
+  });
+});
+
+test('byMonth: null minutes count as a lesson with 0 minutes', () => {
+  assert.deepEqual(byMonth([LS('2026-10-01', 'dmm', null)]), { '2026-10': { dmm: 1, nc: 0, min: 0 } });
+});
+
+test('byMonth: DMM 10-01 00:30 counts in September (01:30 rule)', () => {
+  const lessons = lessonsFromHistory({ schema_version: 1, records: [{ timestamp: '2026-10-01T00:30:00', source: 'dmm', duration_min: 25 }] });
+  assert.deepEqual(Object.keys(byMonth(lessons)), ['2026-09']);
+});
+
+test('monthlyChartSvg: empty → ""', () => {
+  assert.equal(monthlyChartSvg({}), '');
+});
+
+test('monthlyChartSvg: January gets year and yearly total', () => {
+  const html = monthlyChartSvg({ '2026-01': { dmm: 3, nc: 0, min: 90 }, '2026-02': { dmm: 2, nc: 0, min: 60 } });
+  assert.ok(html.includes('>2026<'));
+  assert.ok(html.includes('5回 / 2h'));
+  assert.ok(html.includes('fill:var(--dmm)') && html.includes('fill:var(--nc)')); // DMM dark, NC light green
+});
+
+test('monthlyChartSvg: months without lessons keep their slot, across a year end', () => {
+  const html = monthlyChartSvg({ '2025-11': { dmm: 1, nc: 0, min: 25 }, '2026-02': { dmm: 1, nc: 0, min: 25 } });
+  assert.equal(html.split('<rect').length - 1, 4 * 2); // Nov, Dec, Jan, Feb × (DMM + NC)
+  assert.ok(html.includes('>2026<')); // the empty January still gets its label
+});
+
+test('heatLevel: same steps as the heatmap', () => {
+  assert.deepEqual([0, 24, 25, 49, 50, 74, 75, 200].map(heatLevel), [1, 1, 2, 2, 3, 3, 4, 4]);
+});
+
+test('calendarMonthHtml: minutes use the heatmap color', () => {
+  assert.ok(calendarMonthHtml('2026-03', { '2026-03-09': 90 }, '2026-10-27').includes('color:var(--h4)'));
+});
+
+test('calendarMonthHtml: shows minutes and month total', () => {
+  const html = calendarMonthHtml('2026-03', { '2026-03-09': 90 }, '2026-10-27');
+  assert.ok(html.includes('2026年3月'));
+  assert.ok(html.includes('1h30m'));
+});
+
+test('calendarMonthHtml: no "—" after today in the current month', () => {
+  const html = calendarMonthHtml('2026-10', {}, '2026-10-02');
+  assert.equal(html.split('—').length - 1, 1); // only 10-01
+});
+
+test('calendarMonthsByYear: groups months by year', () => {
+  assert.deepEqual(calendarMonthsByYear({ '2025-03-01': 25, '2026-03-09': 25, '2026-01-02': 25 }),
+    { 2025: ['2025-03'], 2026: ['2026-01', '2026-03'] });
 });

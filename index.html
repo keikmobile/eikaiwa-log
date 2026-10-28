@@ -11,16 +11,17 @@
   :root {
     --bg: #ffffff; --fg: #1f2328; --muted: #656d76; --line: #d0d7de; --card: #f6f8fa;
     --h0: #ebedf0; --h1: #9be9a8; --h2: #40c463; --h3: #30a14e; --h4: #216e39;
+    --dmm: var(--h4); --nc: var(--h2); /* monthly bars: DMM is the darker green in both themes */
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
       --bg: #0d1117; --fg: #e6edf3; --muted: #8d96a0; --line: #30363d; --card: #161b22;
-      --h0: #161b22; --h1: #0e4429; --h2: #006d32; --h3: #26a641; --h4: #39d353;
+      --h0: #161b22; --h1: #0e4429; --h2: #006d32; --h3: #26a641; --h4: #39d353; --dmm: var(--h2); --nc: var(--h4);
     }
   }
   :root[data-theme="dark"] {
     --bg: #0d1117; --fg: #e6edf3; --muted: #8d96a0; --line: #30363d; --card: #161b22;
-    --h0: #161b22; --h1: #0e4429; --h2: #006d32; --h3: #26a641; --h4: #39d353;
+    --h0: #161b22; --h1: #0e4429; --h2: #006d32; --h3: #26a641; --h4: #39d353; --dmm: var(--h2); --nc: var(--h4);
   }
   body { margin: 0; background: var(--bg); color: var(--fg);
     font: 15px/1.5 system-ui, -apple-system, "Hiragino Sans", sans-serif; }
@@ -71,6 +72,13 @@
   <h2>By year / 年ごと</h2>
   <div id="years"></div>
   <details id="older"><summary>Show older years / それ以前を表示</summary></details>
+
+  <h2>Monthly / 月別推移</h2>
+  <div id="monthly"></div>
+
+  <h2>Calendar / カレンダー</h2>
+  <div id="cal-years"></div>
+  <details id="cal-older"><summary>Show older years / それ以前を表示</summary></details>
 
   <section id="dwm" hidden>
     <h2>Review / 復習 (Day-Week-Month)</h2>
@@ -139,7 +147,7 @@ async function ranking() {
 async function main() {
   // Load stats.js for this exact page version. A cached old stats.js would break the page,
   // and a failed import here still reaches the error message below.
-  const { dmmToday, todayJst, dayNum, dateFromNum, streak, periodMinutes } = await import(`./stats.js?v=${encodeURIComponent(document.lastModified)}`);
+  const { dmmToday, todayJst, dayNum, dateFromNum, streak, periodMinutes, heatLevel, monthlyChartSvg, calendarMonthHtml, calendarMonthsByYear } = await import(`./stats.js?v=${encodeURIComponent(document.lastModified)}`);
   dwm(todayJst).catch(() => {});
   ranking().catch(() => {});
   const res = await fetch('data/summary.json', { cache: 'no-cache' });
@@ -161,7 +169,7 @@ async function main() {
     $(id + '-d').classList.toggle('up', diff >= 0);
   }
 
-  // Heatmap: one row per calendar year, newest first, back to the year of the first lesson. Years before 2 years ago are folded. Columns are weeks (Sun–Sat).
+  // Heatmap: one row per calendar year, newest first, back to the year of the first lesson. Years before this year are folded. Columns are weeks (Sun–Sat).
   const end = dayNum(today);
   const dow = n => new Date(n * 86400000).getUTCDay();
   const year = Number(today.slice(0, 4));
@@ -182,14 +190,27 @@ async function main() {
       const m = mins.get(date);
       if (n >= first && n <= last) yearMin += m ?? 0;
       if (n < first || n > last) cell.className = 'out';
-      else if (m != null) cell.className = m >= 75 ? 'l4' : m >= 50 ? 'l3' : m >= 25 ? 'l2' : 'l1';
+      else if (m != null) cell.className = `l${heatLevel(m)}`;
       cell.title = `${date}: ${m ?? 0} min`;
       heat.appendChild(cell);
     }
     label.textContent = `${y} · ${(yearMin / 60).toFixed(1)} h`;
     wrap.appendChild(heat);
-    $(y >= year - 2 ? 'years' : 'older').append(label, wrap);
+    $(y === year ? 'years' : 'older').append(label, wrap);
     if (y === year) wrap.scrollLeft = wrap.scrollWidth; // show the latest weeks first on narrow screens
+  }
+
+  $('monthly').innerHTML = monthlyChartSvg(s.by_month ?? {}); // by_month is missing until publish.sh runs again
+
+  // Calendar: only this year is open; last year and older are folded. "Today" is the JST date.
+  const calToday = todayJst();
+  for (const [y, months] of Object.entries(calendarMonthsByYear(s.minutes_by_date)).reverse()) {
+    const label = document.createElement('h3');
+    label.textContent = y;
+    const grid = document.createElement('div');
+    grid.style.cssText = 'display:flex;flex-wrap:wrap';
+    grid.innerHTML = months.map(ym => calendarMonthHtml(ym, s.minutes_by_date, calToday)).join('');
+    $(Number(y) === year ? 'cal-years' : 'cal-older').append(label, grid);
   }
 
   for (const l of s.recent) {

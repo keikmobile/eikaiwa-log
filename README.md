@@ -1,8 +1,8 @@
 # eikaiwa-log
 
-My public English lesson log. It shows total hours, lesson count, the day streak (with its start date), hours this week / month / year (compared with the same span of the previous period), a heatmap by year with hours per year (the last 3 years open, older years back to the first lesson folded), Daily News to review (Day-Week-Month), the top 15 Daily News articles for DMM and NC, and the last 20 lessons.
+My public English lesson log. It shows total hours, lesson count, the day streak (with its start date), hours this week / month / year (compared with the same span of the previous period), a heatmap by year with hours per year, lessons per month (DMM / NC), a calendar with minutes per day (for the heatmap and the calendar, only this year is open; older years back to the first lesson are folded), Daily News to review (Day-Week-Month), the top 15 Daily News articles for DMM and NC, and the last 20 lessons.
 
-英会話レッスンの公開ログ。合計時間・レッスン数・連続日数（開始日つき）・今週／今月／今年の時間（前の期間の同じ時点と比較）・年ごとのヒートマップと年間時間（直近3年を表示、最初のレッスンの年までのそれ以前は折りたたみ）・復習するデイリーニュース（Day-Week-Month）・DMM／NC 別のよく受けた記事トップ15・直近20件を表示する。
+英会話レッスンの公開ログ。合計時間・レッスン数・連続日数（開始日つき）・今週／今月／今年の時間（前の期間の同じ時点と比較）・年ごとのヒートマップと年間時間・月別のレッスン数（DMM／NC）・日ごとの時間のカレンダー（ヒートマップとカレンダーは今年だけ表示、最初のレッスンの年までの去年以前は折りたたみ）・復習するデイリーニュース（Day-Week-Month）・DMM／NC 別のよく受けた記事トップ15・直近20件を表示する。
 
 Live page / 公開ページ: https://keikmobile.github.io/eikaiwa-log/
 
@@ -14,8 +14,8 @@ It writes only 3 files under `data/`. The raw file has teacher names, so it is n
 `publish.sh` は Mac 上で最新の `lesson-history-*.json`（dmm-lesson-tracker の自動エクスポート）を読む。
 書き出すのは `data/` の3ファイルだけ。生ファイルは講師名を含むので、コミットしない。
 
-- `data/summary.json`: export day (`as_of`), total minutes, lesson count, minutes per day, last 20 lessons with date, title and minutes.
-  エクスポート日（`as_of`）・合計分数・レッスン数・日ごとの分数・直近20件の日付・教材名・分数。
+- `data/summary.json`: export day (`as_of`), total minutes, lesson count, minutes per day, lessons (DMM / NC) and minutes per month (`by_month`), last 20 lessons with date, title and minutes.
+  エクスポート日（`as_of`）・合計分数・レッスン数・日ごとの分数・月別のレッスン数（DMM／NC）と分数（`by_month`）・直近20件の日付・教材名・分数。
 - `data/dwm.json`: Daily News lessons from exactly 1 day, 1 week and 30 days before today (JST), for review. Each item has `label`, `date`, `source` and `title` (the lesson type if there is no title); `items` is empty when nothing matches. It uses the plain JST date (no 25:30 rule). If the file is not from today, the page shows "as of".
   今日（JST）からちょうど1日前・1週間前・30日前のデイリーニュース（復習用）。各項目は `label`・`date`・`source`・`title`（教材名がなければレッスン種別）。該当なしなら `items` は空。日付は JST の日付そのまま（25:30 ルールなし）。今日のファイルでなければページに「as of」を表示する。
 - `data/ranking.json`: the 15 Daily News articles you took most often, for DMM (`dmm`) and NC (`nativecamp`) separately. Each item has `title` and `count`. Lessons without a title are skipped; ties go by title order.
