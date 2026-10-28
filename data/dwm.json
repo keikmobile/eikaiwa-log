@@ -1,65 +1,83 @@
 {
- "today": "2026-10-27",
+ "today": "2026-10-28",
  "items": [
   {
    "label": "1ヶ月前",
-   "date": "2026-09-27",
+   "date": "2026-09-28",
+   "source": "dmm",
+   "title": "More Workers Are Using AI — But Many Don't Know Why"
+  },
+  {
+   "label": "1ヶ月前",
+   "date": "2026-09-28",
    "source": "dmm",
    "title": "Reading for Pleasure Improves Well-being"
   },
   {
    "label": "1ヶ月前",
-   "date": "2026-09-27",
-   "source": "dmm",
-   "title": "88% of Young Americans Admit to Doomscrolling"
-  },
-  {
-   "label": "1ヶ月前",
-   "date": "2026-09-27",
+   "date": "2026-09-28",
    "source": "nativecamp",
    "title": "Why Do Unfinished Tasks Make You Feel Constantly Tired?"
   },
   {
    "label": "1週間前",
-   "date": "2026-10-20",
+   "date": "2026-10-21",
    "source": "dmm",
    "title": "Procrastination Tops Academic Struggles, Study Finds"
   },
   {
    "label": "1週間前",
-   "date": "2026-10-20",
+   "date": "2026-10-21",
+   "source": "dmm",
+   "title": "Why 'Dopamine Detox' Doesn't Really Work"
+  },
+  {
+   "label": "1週間前",
+   "date": "2026-10-21",
+   "source": "nativecamp",
+   "title": "Why Workers Do Personal Tasks During Office Hours"
+  },
+  {
+   "label": "1週間前",
+   "date": "2026-10-21",
+   "source": "nativecamp",
+   "title": "Why Workers Do Personal Tasks During Office Hours"
+  },
+  {
+   "label": "1日前",
+   "date": "2026-10-27",
    "source": "dmm",
    "title": "Phone Habits May Reveal Stress Levels, Study Says"
   },
   {
-   "label": "1週間前",
-   "date": "2026-10-20",
-   "source": "nativecamp",
-   "title": "Why Do Unfinished Tasks Make You Feel Constantly Tired?"
-  },
-  {
    "label": "1日前",
-   "date": "2026-10-26",
+   "date": "2026-10-27",
    "source": "dmm",
-   "title": "Procrastination Tops Academic Struggles, Study Finds"
+   "title": "Forget Detox Diets — Let the Body Detox Itself"
   },
   {
    "label": "1日前",
-   "date": "2026-10-26",
-   "source": "dmm",
-   "title": "Strong Sense of Identity Linked to Mental Well-Being"
-  },
-  {
-   "label": "1日前",
-   "date": "2026-10-26",
+   "date": "2026-10-27",
    "source": "nativecamp",
-   "title": "How to Get Better at Living With Uncertainty"
+   "title": "Rising ADHD Diagnoses in Kids: What’s Behind the Surge?"
   },
   {
    "label": "1日前",
-   "date": "2026-10-26",
+   "date": "2026-10-27",
    "source": "nativecamp",
-   "title": "How to Get Better at Living With Uncertainty"
+   "title": "Tokyo Survey Finds Interest in Two-Place Living"
+  },
+  {
+   "label": "1日前",
+   "date": "2026-10-27",
+   "source": "nativecamp",
+   "title": "Tokyo Survey Finds Interest in Two-Place Living"
+  },
+  {
+   "label": "1日前",
+   "date": "2026-10-27",
+   "source": "nativecamp",
+   "title": "Is Making Daily Tasks Harder Actually Good for Us?"
   }
  ]
 }
