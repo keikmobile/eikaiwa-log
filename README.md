@@ -14,7 +14,7 @@ It writes only 3 files under `data/`. The raw file has teacher names, so it is n
 `publish.sh` は Mac 上で最新の `lesson-history-*.json`（dmm-lesson-tracker の自動エクスポート）を読む。
 書き出すのは `data/` の3ファイルだけ。生ファイルは講師名を含むので、コミットしない。
 
-- `data/summary.json`: export day (`as_of`), total minutes, lesson count, minutes per day, last 20 lessons with date, title and minutes.
+- `data/summary.json`: export day (`as_of`), total minutes, lesson count, minutes per day, lessons (DMM / NC) and minutes per month (`by_month`), last 20 lessons with date, title and minutes.
   エクスポート日（`as_of`）・合計分数・レッスン数・日ごとの分数・直近20件の日付・教材名・分数。
 - `data/dwm.json`: Daily News lessons from exactly 1 day, 1 week and 30 days before today (JST), for review. Each item has `label`, `date`, `source` and `title` (the lesson type if there is no title); `items` is empty when nothing matches. It uses the plain JST date (no 25:30 rule). If the file is not from today, the page shows "as of".
   今日（JST）からちょうど1日前・1週間前・30日前のデイリーニュース（復習用）。各項目は `label`・`date`・`source`・`title`（教材名がなければレッスン種別）。該当なしなら `items` は空。日付は JST の日付そのまま（25:30 ルールなし）。今日のファイルでなければページに「as of」を表示する。

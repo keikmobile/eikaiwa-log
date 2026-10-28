@@ -72,6 +72,13 @@
   <div id="years"></div>
   <details id="older"><summary>Show older years / それ以前を表示</summary></details>
 
+  <h2>Monthly / 月別推移</h2>
+  <div id="monthly"></div>
+
+  <h2>Calendar / カレンダー</h2>
+  <div id="cal-years"></div>
+  <details id="cal-older"><summary>Show older years / それ以前を表示</summary></details>
+
   <section id="dwm" hidden>
     <h2>Review / 復習 (Day-Week-Month)</h2>
     <p class="k" id="dwm-asof" hidden></p>
@@ -139,7 +146,7 @@ async function ranking() {
 async function main() {
   // Load stats.js for this exact page version. A cached old stats.js would break the page,
   // and a failed import here still reaches the error message below.
-  const { dmmToday, todayJst, dayNum, dateFromNum, streak, periodMinutes } = await import(`./stats.js?v=${encodeURIComponent(document.lastModified)}`);
+  const { dmmToday, todayJst, dayNum, dateFromNum, streak, periodMinutes, monthlyChartSvg, calendarMonthHtml, calendarMonthsByYear } = await import(`./stats.js?v=${encodeURIComponent(document.lastModified)}`);
   dwm(todayJst).catch(() => {});
   ranking().catch(() => {});
   const res = await fetch('data/summary.json', { cache: 'no-cache' });
@@ -190,6 +197,19 @@ async function main() {
     wrap.appendChild(heat);
     $(y >= year - 2 ? 'years' : 'older').append(label, wrap);
     if (y === year) wrap.scrollLeft = wrap.scrollWidth; // show the latest weeks first on narrow screens
+  }
+
+  $('monthly').innerHTML = monthlyChartSvg(s.by_month ?? {}); // by_month is missing until publish.sh runs again
+
+  // Calendar: same year folding as the heatmap. "Today" is the JST date.
+  const calToday = todayJst();
+  for (const [y, months] of Object.entries(calendarMonthsByYear(s.minutes_by_date)).reverse()) {
+    const label = document.createElement('h3');
+    label.textContent = y;
+    const grid = document.createElement('div');
+    grid.style.cssText = 'display:flex;flex-wrap:wrap';
+    grid.innerHTML = months.map(ym => calendarMonthHtml(ym, s.minutes_by_date, calToday)).join('');
+    $(Number(y) >= year - 2 ? 'cal-years' : 'cal-older').append(label, grid);
   }
 
   for (const l of s.recent) {
