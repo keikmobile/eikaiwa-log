@@ -146,8 +146,16 @@ const fmtMin = min => {
 
 // One stacked bar per month that has lessons (DMM red, NC blue). Under each January: year and yearly total.
 export function monthlyChartSvg(byMonth) {
-  const months = Object.keys(byMonth).sort();
-  if (months.length === 0) return '';
+  const keys = Object.keys(byMonth).sort();
+  if (keys.length === 0) return '';
+  // Every month from the first to the last, so a month without lessons keeps its slot as a 0 bar.
+  const months = [];
+  let [y, m] = keys[0].split('-').map(Number);
+  for (let ym = keys[0]; ym <= keys.at(-1); ym = `${y}-${String(m).padStart(2, '0')}`) {
+    months.push(ym);
+    if (++m > 12) { y++; m = 1; }
+  }
+  byMonth = Object.fromEntries(months.map(ym => [ym, byMonth[ym] ?? { dmm: 0, nc: 0, min: 0 }]));
   const counts = months.map(m => byMonth[m].dmm + byMonth[m].nc);
   const H = 100;
   const pad = { l: 4, r: 4, t: 8, b: 22 };

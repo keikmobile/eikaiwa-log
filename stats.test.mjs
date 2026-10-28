@@ -142,6 +142,12 @@ test('monthlyChartSvg: January gets year and yearly total', () => {
   assert.ok(html.includes('5回 / 2h'));
 });
 
+test('monthlyChartSvg: months without lessons keep their slot, across a year end', () => {
+  const html = monthlyChartSvg({ '2025-11': { dmm: 1, nc: 0, min: 25 }, '2026-02': { dmm: 1, nc: 0, min: 25 } });
+  assert.equal(html.split('<rect').length - 1, 4 * 2); // Nov, Dec, Jan, Feb × (DMM + NC)
+  assert.ok(html.includes('>2026<')); // the empty January still gets its label
+});
+
 test('calendarMonthHtml: shows minutes and month total', () => {
   const html = calendarMonthHtml('2026-03', { '2026-03-09': 90 }, '2026-10-27');
   assert.ok(html.includes('2026年3月'));
