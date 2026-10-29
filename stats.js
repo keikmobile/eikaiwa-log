@@ -253,7 +253,15 @@ const JA = `フィリピン=Philippines,セルビア=Serbia,ボスニア・ヘ�
 チュニジア=Tunisia,オーストラリア=Australia,ニュージーランド=New Zealand,日本=Japan,韓国=South Korea,中国=China,台湾=Taiwan,香港=Hong Kong,
 モンゴル=Mongolia,ベトナム=Vietnam,タイ=Thailand,マレーシア=Malaysia,シンガポール=Singapore,インドネシア=Indonesia,インド=India,
 パキスタン=Pakistan,バングラデシュ=Bangladesh,スリランカ=Sri Lanka,ネパール=Nepal,カザフスタン=Kazakhstan,ウズベキスタン=Uzbekistan,
-キルギス=Kyrgyzstan,イラン=Iran,イスラエル=Israel,レバノン=Lebanon,ヨルダン=Jordan`;
+キルギス=Kyrgyzstan,イラン=Iran,イスラエル=Israel,レバノン=Lebanon,ヨルダン=Jordan,
+ベネズエラ・ボリバル共和国=Venezuela,北マケドニア共和国=North Macedonia,モルドバ共和国=Moldova,ロシア連邦=Russia,アメリカ合衆国=United States,
+ボリビア多民族国=Bolivia,エスワティニ王国=Eswatini,レソト=Lesotho,スリナム=Suriname,ベリーズ=Belize,マラウイ=Malawi,ガイアナ=Guyana,
+コンゴ民主共和国=DR Congo,タジキスタン=Tajikistan,セントルシア=Saint Lucia,バルバドス=Barbados,アルジェリア=Algeria,エクアドル=Ecuador,
+ホンジュラス=Honduras,アフガニスタン=Afghanistan,アンゴラ=Angola,シエラレオネ=Sierra Leone,チャド=Chad,ドミニカ共和国=Dominican Republic,
+ニカラグア=Nicaragua,パナマ=Panama,パプアニューギニア=Papua New Guinea,ブルンジ=Burundi,ミャンマー=Myanmar,リベリア=Liberia,
+アラブ首長国連邦=United Arab Emirates,ウルグアイ=Uruguay,エルサルバドル=El Salvador,カーボベルデ=Cape Verde,カタール=Qatar,カンボジア=Cambodia,
+グレナダ=Grenada,コスタリカ=Costa Rica,サウジアラビア=Saudi Arabia,スーダン=Sudan,セネガル=Senegal,ソマリア=Somalia,ハイチ=Haiti,
+ブータン=Bhutan,ベナン=Benin`;
 const COUNTRY_EN = new Map(JA.split(',').map(p => p.trim().split('=')));
 
 // Lessons per teacher country, top n plus the rest. year: "2026" or null for all time. Records without a country are skipped.
