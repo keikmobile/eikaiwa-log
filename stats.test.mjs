@@ -1,7 +1,7 @@
 // Run: node --test
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { todayJst, dayNum, dateFromNum, totalMinutes, minutesByDate, summarize, lessonsFromHistory, lessonDate, dmmToday, streak, periodMinutes, dwmReview, topArticles, byMonth, heatLevel, monthlyChartSvg, calendarMonthHtml, calendarMonthsByYear } from './stats.js';
+import { todayJst, dayNum, dateFromNum, totalMinutes, minutesByDate, summarize, lessonsFromHistory, lessonDate, dmmToday, streak, periodMinutes, dwmReview, topArticles, byMonth, heatLevel, monthlyChartSvg, calendarMonthHtml, calendarMonthsByYear, countryCounts, countryPieSvg } from './stats.js';
 
 const L = (date, duration_min = 25) => ({ date, material_title: 't', material_title_ja: null, duration_min });
 
@@ -171,4 +171,23 @@ test('calendarMonthHtml: no "—" after today in the current month', () => {
 test('calendarMonthsByYear: groups months by year', () => {
   assert.deepEqual(calendarMonthsByYear({ '2025-03-01': 25, '2026-03-09': 25, '2026-01-02': 25 }),
     { 2025: ['2025-03'], 2026: ['2026-01', '2026-03'] });
+});
+
+test('countryCounts: top n, rest in other, year filter, no country skipped', () => {
+  const R = (timestamp, teacher_country) => ({ timestamp, teacher_country });
+  const rs = [R('2025-05-01T10:00:00', 'セルビア'), R('2026-01-01T10:00:00', 'フィリピン'), R('2026-01-02T10:00:00', 'フィリピン'),
+    R('2026-01-03T10:00:00', 'ケニア'), R('2026-01-04T10:00:00', null), R('2026-01-05T10:00:00', ' ')];
+  assert.deepEqual(countryCounts(rs, null, 2), { total: 4, top: [{ name: 'フィリピン', count: 2 }, { name: 'ケニア', count: 1 }], other: 1 });
+  assert.deepEqual(countryCounts(rs, '2025'), { total: 1, top: [{ name: 'セルビア', count: 1 }], other: 0 });
+});
+
+test('countryPieSvg: empty, one country, slices with other', () => {
+  assert.equal(countryPieSvg({ total: 0, top: [], other: 0 }), '');
+  const one = countryPieSvg({ total: 3, top: [{ name: 'A', count: 3 }], other: 0 });
+  assert.match(one, /<circle/);
+  assert.doesNotMatch(one, /<path/);
+  const many = countryPieSvg({ total: 10, top: [{ name: 'A', count: 6 }, { name: '<B>', count: 3 }], other: 1 });
+  assert.equal(many.match(/<path/g).length, 3);
+  assert.match(many, /A60,60 0 1 1/); // 60% slice uses the large arc
+  assert.match(many, /&lt;B&gt;/);
 });

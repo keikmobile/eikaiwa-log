@@ -9,10 +9,10 @@ Live page / 公開ページ: https://keikmobile.github.io/eikaiwa-log/
 ## Data / データ
 
 `publish.sh` reads the newest `lesson-history-*.json` (the dmm-lesson-tracker auto-export) on your Mac.
-It writes only 3 files under `data/`. The raw file has teacher names, so it is never committed.
+It writes only 4 files under `data/`. The raw file has teacher names, so it is never committed.
 
 `publish.sh` は Mac 上で最新の `lesson-history-*.json`（dmm-lesson-tracker の自動エクスポート）を読む。
-書き出すのは `data/` の3ファイルだけ。生ファイルは講師名を含むので、コミットしない。
+書き出すのは `data/` の4ファイルだけ。生ファイルは講師名を含むので、コミットしない。
 
 - `data/summary.json`: export day (`as_of`), total minutes, lesson count, minutes per day, lessons (DMM / NC) and minutes per month (`by_month`), last 20 lessons with date, title and minutes.
   エクスポート日（`as_of`）・合計分数・レッスン数・日ごとの分数・月別のレッスン数（DMM／NC）と分数（`by_month`）・直近20件の日付・教材名・分数。
@@ -21,8 +21,11 @@ It writes only 3 files under `data/`. The raw file has teacher names, so it is n
 - `data/ranking.json`: the 15 Daily News articles you took most often, for DMM (`dmm`) and NC (`nativecamp`) separately. Each item has `title` and `count`. Lessons without a title are skipped; ties go by title order.
   受講回数の多いデイリーニュース記事トップ15を DMM（`dmm`）と NC（`nativecamp`）別に。各項目は `title`・`count`。教材名のないレッスンは除外、同数なら教材名順。
 
-The page hides the review and ranking sections when their file is missing or empty.
-復習・ランキングのセクションは、ファイルがないか空なら表示しない。
+- `data/countries.json`: lessons per teacher country, for all time (`all`) and the export year (`this_year`, year in `year`). Each has `total`, the Top 10 (`top`: `name`, `count`) and the rest (`other`). Only country names, no teacher names. Lessons without a country are skipped.
+  講師の国ごとのレッスン数。全期間（`all`）とエクスポート年（`this_year`、年は `year`）。それぞれ `total`・Top10（`top`：`name`・`count`）・残り（`other`）。国名のみで講師名は含まない。国のないレッスンは除外。
+
+The page hides the review, ranking and country sections when their file is missing or empty.
+復習・ランキング・国籍のセクションは、ファイルがないか空なら表示しない。
 
 DMM lessons that start up to 25:30 (01:30) count as the previous day, like DMM does. / DMM と同じく、25:30（翌1:30）開始までのレッスンは前日扱い。
 Lessons without a title are counted and shown as "—". A file in an unknown format is rejected.

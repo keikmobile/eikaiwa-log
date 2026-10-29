@@ -26,12 +26,12 @@ if [ -z "$src" ]; then
 fi
 
 # The raw file has teacher names, so it never enters the repo.
-# summarize() writes only date, title and minutes.
-# 生ファイルは講師名を含むのでリポジトリに入れない。summarize() は日付・教材名・分数だけを書き出す。
+# summarize() writes only date, title and minutes. countryCounts() writes only country names, no teacher names.
+# 生ファイルは講師名を含むのでリポジトリに入れない。summarize() は日付・教材名・分数だけ、countryCounts() は国名だけ（講師名なし）を書き出す。
 mkdir -p data
 node --input-type=module -e '
 import { readFileSync, writeFileSync } from "fs";
-import { lessonsFromHistory, summarize, dmmToday, dwmReview, topArticles, todayJst } from "./stats.js";
+import { lessonsFromHistory, summarize, dmmToday, dwmReview, topArticles, countryCounts, todayJst } from "./stats.js";
 const payload = JSON.parse(readFileSync(process.argv[1], "utf8"));
 const asOf = dmmToday(new Date(payload.exported_at));
 writeFileSync("data/summary.json", JSON.stringify(summarize(lessonsFromHistory(payload), asOf), null, 1) + "\n");
@@ -39,12 +39,14 @@ const today = todayJst();
 writeFileSync("data/dwm.json", JSON.stringify({ today, items: dwmReview(payload.records, today) }, null, 1) + "\n");
 const top = s => topArticles(payload.records, s);
 writeFileSync("data/ranking.json", JSON.stringify({ dmm: top("dmm"), nativecamp: top("nativecamp") }, null, 1) + "\n");
+const year = asOf.slice(0, 4);
+writeFileSync("data/countries.json", JSON.stringify({ year, all: countryCounts(payload.records), this_year: countryCounts(payload.records, year) }, null, 1) + "\n");
 ' "$src"
 if [ -n "$nogit" ]; then
-  echo "Wrote data/summary.json, data/dwm.json and data/ranking.json (no git) / JSON を書き出しました（git なし）: $src"
+  echo "Wrote data/summary.json, data/dwm.json, data/ranking.json and data/countries.json (no git) / JSON を書き出しました（git なし）: $src"
   exit 0
 fi
-git add data/summary.json data/dwm.json data/ranking.json
+git add data/summary.json data/dwm.json data/ranking.json data/countries.json
 if git diff --cached --quiet; then
   echo "No changes / 変更なし"
   exit 0

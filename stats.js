@@ -237,3 +237,39 @@ export function calendarMonthsByYear(mins) {
   }
   return byYear;
 }
+
+// Lessons per teacher country, top n plus the rest. year: "2026" or null for all time. Records without a country are skipped.
+// Only country names go out; teacher names stay on the Mac.
+export function countryCounts(records, year = null, n = 10) {
+  const c = new Map();
+  for (const r of records) {
+    const k = r.teacher_country?.trim();
+    if (k && (!year || r.timestamp.startsWith(year))) c.set(k, (c.get(k) || 0) + 1);
+  }
+  const all = [...c].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])).map(([name, count]) => ({ name, count }));
+  const top = all.slice(0, n);
+  return { total: all.reduce((s, x) => s + x.count, 0), top, other: all.slice(n).reduce((s, x) => s + x.count, 0) };
+}
+
+// Slice colors in Top 10 order; the 11th (grey) is "Other".
+export const PIE_COLORS = ['#216e39', '#40c463', '#1f6feb', '#8250df', '#bf3989', '#cf222e', '#d4a72c', '#e16f24', '#1b7c83', '#6e7781', '#afb8c1'];
+
+// Pie chart of countryCounts(). Slices clockwise from 12 o'clock.
+export function countryPieSvg(c) {
+  if (!c?.total) return '';
+  const slices = c.top.map((x, i) => ({ ...x, color: PIE_COLORS[i] }));
+  if (c.other) slices.push({ name: 'Other / その他', count: c.other, color: PIE_COLORS[10] });
+  const R = 60, C = 64;
+  const pt = a => `${(C + R * Math.sin(a)).toFixed(2)},${(C - R * Math.cos(a)).toFixed(2)}`;
+  let a = 0;
+  const paths = slices.map(s => {
+    const title = `<title>${esc(s.name)}: ${s.count}</title>`;
+    // A single 100% slice has no arc to draw.
+    if (s.count === c.total) return `<circle cx="${C}" cy="${C}" r="${R}" style="fill:${s.color}">${title}</circle>`;
+    const b = a + (s.count / c.total) * 2 * Math.PI;
+    const d = `M${C},${C} L${pt(a)} A${R},${R} 0 ${b - a > Math.PI ? 1 : 0} 1 ${pt(b)} Z`;
+    a = b;
+    return `<path d="${d}" style="fill:${s.color};stroke:var(--bg);stroke-width:1">${title}</path>`;
+  }).join('');
+  return `<svg width="${C * 2}" height="${C * 2}" viewBox="0 0 ${C * 2} ${C * 2}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Lessons by teacher country">${paths}</svg>`;
+}

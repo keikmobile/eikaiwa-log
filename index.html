@@ -50,7 +50,11 @@
   li .m { color: var(--muted); white-space: nowrap; font-variant-numeric: tabular-nums; }
   li .t { flex: 1; min-width: 0; overflow-wrap: anywhere; }
   #dwm-list .d:first-child { min-width: 4.5em; } /* align the dates */
-  #ranking .d { min-width: 1.6em; text-align: right; } /* align the titles */
+  #ranking .d, #countries .d { min-width: 1.6em; text-align: right; } /* align the titles */
+  .countries { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 24px; }
+  @media (max-width: 560px) { .countries { grid-template-columns: minmax(0, 1fr); } }
+  .countries svg { display: block; margin: 8px auto; }
+  .countries .sw { width: 10px; height: 10px; border-radius: 2px; flex: none; align-self: center; }
   #dwm-asof { margin: 0 0 6px; font-size: 12px; color: var(--muted); }
   footer { margin-top: 24px; font-size: 12px; color: var(--muted); }
 </style>
@@ -95,6 +99,14 @@
     <ul id="rank-dmm"></ul>
     <h3 id="rank-nativecamp-h" hidden>NC</h3>
     <ul id="rank-nativecamp"></ul>
+  </section>
+
+  <section id="countries" hidden>
+    <h2>Teacher countries / 講師の国籍</h2>
+    <div class="countries">
+      <div id="ctry-all" hidden><h3>All time / 全期間</h3><div id="ctry-all-pie"></div><ul id="ctry-all-list"></ul></div>
+      <div id="ctry-year" hidden><h3 id="ctry-year-h"></h3><div id="ctry-year-pie"></div><ul id="ctry-year-list"></ul></div>
+    </div>
   </section>
 
   <h2>Recent lessons / 最近のレッスン</h2>
@@ -147,12 +159,37 @@ async function ranking() {
   }
 }
 
+// Lessons by teacher country: all time and this year. A missing data/countries.json never breaks the page.
+async function countries(countryPieSvg, PIE_COLORS) {
+  const res = await fetch('data/countries.json', { cache: 'no-cache' });
+  if (!res.ok) return;
+  const d = await res.json();
+  $('ctry-year-h').textContent = `${d.year} / 今年`;
+  for (const [key, c] of [['all', d.all], ['year', d.this_year]]) {
+    if (!c?.total) continue;
+    $(`ctry-${key}-pie`).innerHTML = countryPieSvg(c);
+    const items = c.top.map((it, i) => [`${i + 1}.`, it.name, it.count, PIE_COLORS[i]]);
+    if (c.other) items.push(['', 'Other / その他', c.other, PIE_COLORS[10]]);
+    for (const [rank, name, count, color] of items) {
+      const li = row([['d', rank], ['t', name], ['m', `${count}× · ${Math.round(count / c.total * 100)}%`]]);
+      const sw = document.createElement('span');
+      sw.className = 'sw';
+      sw.style.background = color;
+      li.prepend(sw);
+      $(`ctry-${key}-list`).appendChild(li);
+    }
+    $(`ctry-${key}`).hidden = false;
+    $('countries').hidden = false;
+  }
+}
+
 async function main() {
   // Load stats.js for this exact page version. A cached old stats.js would break the page,
   // and a failed import here still reaches the error message below.
-  const { dmmToday, todayJst, dayNum, dateFromNum, streak, periodMinutes, heatLevel, monthlyChartSvg, calendarMonthHtml, calendarMonthsByYear } = await import(`./stats.js?v=${encodeURIComponent(document.lastModified)}`);
+  const { dmmToday, todayJst, dayNum, dateFromNum, streak, periodMinutes, heatLevel, monthlyChartSvg, calendarMonthHtml, calendarMonthsByYear, countryPieSvg, PIE_COLORS } = await import(`./stats.js?v=${encodeURIComponent(document.lastModified)}`);
   dwm(todayJst).catch(() => {});
   ranking().catch(() => {});
+  countries(countryPieSvg, PIE_COLORS).catch(() => {});
   const res = await fetch('data/summary.json', { cache: 'no-cache' });
   const s = await res.json();
   const today = dmmToday();
