@@ -36,15 +36,15 @@
     "count": 44
    },
    {
-    "name": "Bosnia and Herzegovina",
-    "count": 41
+    "name": "Venezuela",
+    "count": 42
    },
    {
-    "name": "ベネズエラ・ボリバル共和国",
+    "name": "Bosnia and Herzegovina",
     "count": 41
    }
   ],
-  "other": 763
+  "other": 762
  },
  "this_year": {
   "total": 1026,
@@ -74,11 +74,11 @@
     "count": 17
    },
    {
-    "name": "Turkey",
-    "count": 13
+    "name": "Venezuela",
+    "count": 14
    },
    {
-    "name": "ベネズエラ・ボリバル共和国",
+    "name": "Turkey",
     "count": 13
    },
    {
@@ -90,6 +90,6 @@
     "count": 10
    }
   ],
-  "other": 133
+  "other": 132
  }
 }
