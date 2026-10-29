@@ -237,3 +237,58 @@ export function calendarMonthsByYear(mins) {
   }
   return byYear;
 }
+
+// DMM writes countries in Japanese, NC in English. Japanese names become English so one country is counted once.
+// shortcut: common DMM countries only; publish.sh warns about names still in Japanese, add them here.
+const JA = `フィリピン=Philippines,セルビア=Serbia,ボスニア・ヘルツェゴビナ=Bosnia and Herzegovina,モンテネグロ=Montenegro,クロアチア=Croatia,
+スロベニア=Slovenia,北マケドニア=North Macedonia,マケドニア=North Macedonia,アルバニア=Albania,コソボ=Kosovo,ブルガリア=Bulgaria,ルーマニア=Romania,
+モルドバ=Moldova,ウクライナ=Ukraine,ロシア=Russia,ベラルーシ=Belarus,ジョージア=Georgia,アルメニア=Armenia,アゼルバイジャン=Azerbaijan,
+ポーランド=Poland,チェコ=Czech Republic,スロバキア=Slovakia,ハンガリー=Hungary,ラトビア=Latvia,リトアニア=Lithuania,エストニア=Estonia,
+ギリシャ=Greece,トルコ=Turkey,イギリス=United Kingdom,アイルランド=Ireland,フランス=France,ドイツ=Germany,イタリア=Italy,スペイン=Spain,
+ポルトガル=Portugal,オランダ=Netherlands,ベルギー=Belgium,スイス=Switzerland,オーストリア=Austria,スウェーデン=Sweden,ノルウェー=Norway,
+デンマーク=Denmark,フィンランド=Finland,アメリカ=United States,カナダ=Canada,メキシコ=Mexico,ブラジル=Brazil,アルゼンチン=Argentina,
+ペルー=Peru,コロンビア=Colombia,チリ=Chile,ベネズエラ=Venezuela,ジャマイカ=Jamaica,トリニダード・トバゴ=Trinidad and Tobago,
+南アフリカ=South Africa,ジンバブエ=Zimbabwe,ケニア=Kenya,ナイジェリア=Nigeria,ウガンダ=Uganda,タンザニア=Tanzania,ガーナ=Ghana,
+カメルーン=Cameroon,ザンビア=Zambia,ボツワナ=Botswana,ナミビア=Namibia,エチオピア=Ethiopia,ルワンダ=Rwanda,エジプト=Egypt,モロッコ=Morocco,
+チュニジア=Tunisia,オーストラリア=Australia,ニュージーランド=New Zealand,日本=Japan,韓国=South Korea,中国=China,台湾=Taiwan,香港=Hong Kong,
+モンゴル=Mongolia,ベトナム=Vietnam,タイ=Thailand,マレーシア=Malaysia,シンガポール=Singapore,インドネシア=Indonesia,インド=India,
+パキスタン=Pakistan,バングラデシュ=Bangladesh,スリランカ=Sri Lanka,ネパール=Nepal,カザフスタン=Kazakhstan,ウズベキスタン=Uzbekistan,
+キルギス=Kyrgyzstan,イラン=Iran,イスラエル=Israel,レバノン=Lebanon,ヨルダン=Jordan`;
+const COUNTRY_EN = new Map(JA.split(',').map(p => p.trim().split('=')));
+
+// Lessons per teacher country, top n plus the rest. year: "2026" or null for all time. Records without a country are skipped.
+// Only country names go out; teacher names stay on the Mac.
+export function countryCounts(records, year = null, n = 10) {
+  const c = new Map();
+  for (const r of records) {
+    const raw = r.teacher_country?.trim();
+    const k = COUNTRY_EN.get(raw) ?? raw;
+    if (k && (!year || r.timestamp.startsWith(year))) c.set(k, (c.get(k) || 0) + 1);
+  }
+  const all = [...c].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])).map(([name, count]) => ({ name, count }));
+  const top = all.slice(0, n);
+  return { total: all.reduce((s, x) => s + x.count, 0), top, other: all.slice(n).reduce((s, x) => s + x.count, 0) };
+}
+
+// Slice colors in Top 10 order; the 11th (grey) is "Other".
+export const PIE_COLORS = ['#216e39', '#40c463', '#1f6feb', '#8250df', '#bf3989', '#cf222e', '#d4a72c', '#e16f24', '#1b7c83', '#6e7781', '#afb8c1'];
+
+// Pie chart of countryCounts(). Slices clockwise from 12 o'clock.
+export function countryPieSvg(c) {
+  if (!c?.total) return '';
+  const slices = c.top.map((x, i) => ({ ...x, color: PIE_COLORS[i] }));
+  if (c.other) slices.push({ name: 'Other / その他', count: c.other, color: PIE_COLORS[10] });
+  const R = 60, C = 64;
+  const pt = a => `${(C + R * Math.sin(a)).toFixed(2)},${(C - R * Math.cos(a)).toFixed(2)}`;
+  let a = 0;
+  const paths = slices.map(s => {
+    const title = `<title>${esc(s.name)}: ${s.count}</title>`;
+    // A single 100% slice has no arc to draw.
+    if (s.count === c.total) return `<circle cx="${C}" cy="${C}" r="${R}" style="fill:${s.color}">${title}</circle>`;
+    const b = a + (s.count / c.total) * 2 * Math.PI;
+    const d = `M${C},${C} L${pt(a)} A${R},${R} 0 ${b - a > Math.PI ? 1 : 0} 1 ${pt(b)} Z`;
+    a = b;
+    return `<path d="${d}" style="fill:${s.color};stroke:var(--bg);stroke-width:1">${title}</path>`;
+  }).join('');
+  return `<svg width="${C * 2}" height="${C * 2}" viewBox="0 0 ${C * 2} ${C * 2}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Lessons by teacher country">${paths}</svg>`;
+}
