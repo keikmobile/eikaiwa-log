@@ -40,6 +40,9 @@ writeFileSync("data/dwm.json", JSON.stringify({ today, items: dwmReview(payload.
 const top = s => topArticles(payload.records, s);
 writeFileSync("data/ranking.json", JSON.stringify({ dmm: top("dmm"), nativecamp: top("nativecamp") }, null, 1) + "\n");
 const year = asOf.slice(0, 4);
+const all = countryCounts(payload.records, null, Infinity).top.map(c => c.name);
+const ja = all.filter(n => /[^\x00-\x7F]/.test(n));
+if (ja.length) console.error("Countries without an English name (add to stats.js) / 英語名のない国（stats.js に追加）: " + ja.join(", "));
 writeFileSync("data/countries.json", JSON.stringify({ year, all: countryCounts(payload.records), this_year: countryCounts(payload.records, year) }, null, 1) + "\n");
 ' "$src"
 if [ -n "$nogit" ]; then

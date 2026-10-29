@@ -238,12 +238,31 @@ export function calendarMonthsByYear(mins) {
   return byYear;
 }
 
+// DMM writes countries in Japanese, NC in English. Japanese names become English so one country is counted once.
+// shortcut: common DMM countries only; publish.sh warns about names still in Japanese, add them here.
+const JA = `フィリピン=Philippines,セルビア=Serbia,ボスニア・ヘルツェゴビナ=Bosnia and Herzegovina,モンテネグロ=Montenegro,クロアチア=Croatia,
+スロベニア=Slovenia,北マケドニア=North Macedonia,マケドニア=North Macedonia,アルバニア=Albania,コソボ=Kosovo,ブルガリア=Bulgaria,ルーマニア=Romania,
+モルドバ=Moldova,ウクライナ=Ukraine,ロシア=Russia,ベラルーシ=Belarus,ジョージア=Georgia,アルメニア=Armenia,アゼルバイジャン=Azerbaijan,
+ポーランド=Poland,チェコ=Czech Republic,スロバキア=Slovakia,ハンガリー=Hungary,ラトビア=Latvia,リトアニア=Lithuania,エストニア=Estonia,
+ギリシャ=Greece,トルコ=Turkey,イギリス=United Kingdom,アイルランド=Ireland,フランス=France,ドイツ=Germany,イタリア=Italy,スペイン=Spain,
+ポルトガル=Portugal,オランダ=Netherlands,ベルギー=Belgium,スイス=Switzerland,オーストリア=Austria,スウェーデン=Sweden,ノルウェー=Norway,
+デンマーク=Denmark,フィンランド=Finland,アメリカ=United States,カナダ=Canada,メキシコ=Mexico,ブラジル=Brazil,アルゼンチン=Argentina,
+ペルー=Peru,コロンビア=Colombia,チリ=Chile,ベネズエラ=Venezuela,ジャマイカ=Jamaica,トリニダード・トバゴ=Trinidad and Tobago,
+南アフリカ=South Africa,ジンバブエ=Zimbabwe,ケニア=Kenya,ナイジェリア=Nigeria,ウガンダ=Uganda,タンザニア=Tanzania,ガーナ=Ghana,
+カメルーン=Cameroon,ザンビア=Zambia,ボツワナ=Botswana,ナミビア=Namibia,エチオピア=Ethiopia,ルワンダ=Rwanda,エジプト=Egypt,モロッコ=Morocco,
+チュニジア=Tunisia,オーストラリア=Australia,ニュージーランド=New Zealand,日本=Japan,韓国=South Korea,中国=China,台湾=Taiwan,香港=Hong Kong,
+モンゴル=Mongolia,ベトナム=Vietnam,タイ=Thailand,マレーシア=Malaysia,シンガポール=Singapore,インドネシア=Indonesia,インド=India,
+パキスタン=Pakistan,バングラデシュ=Bangladesh,スリランカ=Sri Lanka,ネパール=Nepal,カザフスタン=Kazakhstan,ウズベキスタン=Uzbekistan,
+キルギス=Kyrgyzstan,イラン=Iran,イスラエル=Israel,レバノン=Lebanon,ヨルダン=Jordan`;
+const COUNTRY_EN = new Map(JA.split(',').map(p => p.trim().split('=')));
+
 // Lessons per teacher country, top n plus the rest. year: "2026" or null for all time. Records without a country are skipped.
 // Only country names go out; teacher names stay on the Mac.
 export function countryCounts(records, year = null, n = 10) {
   const c = new Map();
   for (const r of records) {
-    const k = r.teacher_country?.trim();
+    const raw = r.teacher_country?.trim();
+    const k = COUNTRY_EN.get(raw) ?? raw;
     if (k && (!year || r.timestamp.startsWith(year))) c.set(k, (c.get(k) || 0) + 1);
   }
   const all = [...c].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])).map(([name, count]) => ({ name, count }));

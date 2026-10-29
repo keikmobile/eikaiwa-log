@@ -21,8 +21,8 @@ It writes only 4 files under `data/`. The raw file has teacher names, so it is n
 - `data/ranking.json`: the 15 Daily News articles you took most often, for DMM (`dmm`) and NC (`nativecamp`) separately. Each item has `title` and `count`. Lessons without a title are skipped; ties go by title order.
   受講回数の多いデイリーニュース記事トップ15を DMM（`dmm`）と NC（`nativecamp`）別に。各項目は `title`・`count`。教材名のないレッスンは除外、同数なら教材名順。
 
-- `data/countries.json`: lessons per teacher country, for all time (`all`) and the export year (`this_year`, year in `year`). Each has `total`, the Top 10 (`top`: `name`, `count`) and the rest (`other`). Only country names, no teacher names. Lessons without a country are skipped.
-  講師の国ごとのレッスン数。全期間（`all`）とエクスポート年（`this_year`、年は `year`）。それぞれ `total`・Top10（`top`：`name`・`count`）・残り（`other`）。国名のみで講師名は含まない。国のないレッスンは除外。
+- `data/countries.json`: lessons per teacher country, for all time (`all`) and the export year (`this_year`, year in `year`). Each has `total`, the Top 10 (`top`: `name`, `count`) and the rest (`other`). Only country names, no teacher names. Lessons without a country are skipped. Japanese names (DMM) become English (same as NC); `publish.sh` warns about names it cannot convert.
+  講師の国ごとのレッスン数。全期間（`all`）とエクスポート年（`this_year`、年は `year`）。それぞれ `total`・Top10（`top`：`name`・`count`）・残り（`other`）。国名のみで講師名は含まない。国のないレッスンは除外。日本語の国名（DMM）は英語（NC と同じ）に変換。変換できない名前は `publish.sh` が警告する。
 
 The page hides the review, ranking and country sections when their file is missing or empty.
 復習・ランキング・国籍のセクションは、ファイルがないか空なら表示しない。

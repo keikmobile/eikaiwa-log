@@ -177,8 +177,14 @@ test('countryCounts: top n, rest in other, year filter, no country skipped', () 
   const R = (timestamp, teacher_country) => ({ timestamp, teacher_country });
   const rs = [R('2025-05-01T10:00:00', 'セルビア'), R('2026-01-01T10:00:00', 'フィリピン'), R('2026-01-02T10:00:00', 'フィリピン'),
     R('2026-01-03T10:00:00', 'ケニア'), R('2026-01-04T10:00:00', null), R('2026-01-05T10:00:00', ' ')];
-  assert.deepEqual(countryCounts(rs, null, 2), { total: 4, top: [{ name: 'フィリピン', count: 2 }, { name: 'ケニア', count: 1 }], other: 1 });
-  assert.deepEqual(countryCounts(rs, '2025'), { total: 1, top: [{ name: 'セルビア', count: 1 }], other: 0 });
+  assert.deepEqual(countryCounts(rs, null, 2), { total: 4, top: [{ name: 'Philippines', count: 2 }, { name: 'Kenya', count: 1 }], other: 1 });
+  assert.deepEqual(countryCounts(rs, '2025'), { total: 1, top: [{ name: 'Serbia', count: 1 }], other: 0 });
+});
+
+test('countryCounts: Japanese names become English, unknown names stay', () => {
+  const R = teacher_country => ({ timestamp: '2026-01-01T10:00:00', teacher_country });
+  assert.deepEqual(countryCounts([R('フィリピン'), R('Philippines'), R('ボスニア・ヘルツェゴビナ'), R('どこか')]).top,
+    [{ name: 'Philippines', count: 2 }, { name: 'Bosnia and Herzegovina', count: 1 }, { name: 'どこか', count: 1 }]);
 });
 
 test('countryPieSvg: empty, one country, slices with other', () => {
