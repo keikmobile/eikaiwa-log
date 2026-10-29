@@ -1,8 +1,9 @@
 {
- "as_of": "2026-10-28",
- "total_min": 144752,
- "count": 5856,
+ "as_of": "2026-10-29",
+ "total_min": 144828,
+ "count": 5859,
  "minutes_by_date": {
+  "2026-10-29": 76,
   "2026-10-28": 128,
   "2026-10-27": 154,
   "2026-10-26": 98,
@@ -2450,9 +2451,9 @@
  },
  "by_month": {
   "2026-10": {
-   "dmm": 57,
-   "nc": 51,
-   "min": 2670
+   "dmm": 59,
+   "nc": 52,
+   "min": 2746
   },
   "2026-09": {
    "dmm": 60,
@@ -2967,6 +2968,21 @@
  },
  "recent": [
   {
+   "date": "2026-10-29",
+   "material_title": "Greenspace May Help Kids with ADHD",
+   "duration_min": 26
+  },
+  {
+   "date": "2026-10-29",
+   "material_title": "Americans May Eat More Processed Food than They Think",
+   "duration_min": 25
+  },
+  {
+   "date": "2026-10-29",
+   "material_title": "The Science of Fear: Why We Love to Be Scared",
+   "duration_min": 25
+  },
+  {
    "date": "2026-10-28",
    "material_title": "Is Making Daily Tasks Harder Actually Good for Us?",
    "duration_min": 26
@@ -3050,21 +3066,6 @@
    "date": "2026-10-25",
    "material_title": "Norway Seeks Temporary Ban on Smart Glasses",
    "duration_min": 25
-  },
-  {
-   "date": "2026-10-25",
-   "material_title": "Norway Seeks Temporary Ban on Smart Glasses",
-   "duration_min": 25
-  },
-  {
-   "date": "2026-10-24",
-   "material_title": "How to Get Better at Living With Uncertainty",
-   "duration_min": 26
-  },
-  {
-   "date": "2026-10-24",
-   "material_title": "Study Links Screen Time to ADHD Symptoms",
-   "duration_min": 26
   }
  ]
 }
