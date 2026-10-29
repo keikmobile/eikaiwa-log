@@ -1,9 +1,9 @@
 {
  "as_of": "2026-10-29",
- "total_min": 144828,
- "count": 5859,
+ "total_min": 144880,
+ "count": 5861,
  "minutes_by_date": {
-  "2026-10-29": 76,
+  "2026-10-29": 128,
   "2026-10-28": 128,
   "2026-10-27": 154,
   "2026-10-26": 98,
@@ -2452,8 +2452,8 @@
  "by_month": {
   "2026-10": {
    "dmm": 59,
-   "nc": 52,
-   "min": 2746
+   "nc": 54,
+   "min": 2798
   },
   "2026-09": {
    "dmm": 60,
@@ -2969,6 +2969,16 @@
  "recent": [
   {
    "date": "2026-10-29",
+   "material_title": "Tech's Consequence: Adult ADHD Rise",
+   "duration_min": 26
+  },
+  {
+   "date": "2026-10-29",
+   "material_title": "Greenspace May Help Kids with ADHD",
+   "duration_min": 26
+  },
+  {
+   "date": "2026-10-29",
    "material_title": "Greenspace May Help Kids with ADHD",
    "duration_min": 26
   },
@@ -3055,16 +3065,6 @@
   {
    "date": "2026-10-26",
    "material_title": "Procrastination Tops Academic Struggles, Study Finds",
-   "duration_min": 25
-  },
-  {
-   "date": "2026-10-25",
-   "material_title": "How to Get Better at Living With Uncertainty",
-   "duration_min": 26
-  },
-  {
-   "date": "2026-10-25",
-   "material_title": "Norway Seeks Temporary Ban on Smart Glasses",
    "duration_min": 25
   }
  ]
