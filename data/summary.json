@@ -1,9 +1,10 @@
 {
- "as_of": "2026-10-29",
- "total_min": 144880,
- "count": 5861,
+ "as_of": "2026-10-30",
+ "total_min": 144956,
+ "count": 5864,
  "minutes_by_date": {
-  "2026-10-29": 128,
+  "2026-10-30": 50,
+  "2026-10-29": 154,
   "2026-10-28": 128,
   "2026-10-27": 154,
   "2026-10-26": 98,
@@ -2451,9 +2452,9 @@
  },
  "by_month": {
   "2026-10": {
-   "dmm": 59,
-   "nc": 54,
-   "min": 2798
+   "dmm": 61,
+   "nc": 55,
+   "min": 2874
   },
   "2026-09": {
    "dmm": 60,
@@ -2968,6 +2969,21 @@
  },
  "recent": [
   {
+   "date": "2026-10-30",
+   "material_title": "Norway May Restrict Online Games for Under-16s",
+   "duration_min": 25
+  },
+  {
+   "date": "2026-10-30",
+   "material_title": "Norway May Restrict Online Games for Under-16s",
+   "duration_min": 25
+  },
+  {
+   "date": "2026-10-29",
+   "material_title": "Tech's Consequence: Adult ADHD Rise",
+   "duration_min": 26
+  },
+  {
    "date": "2026-10-29",
    "material_title": "Tech's Consequence: Adult ADHD Rise",
    "duration_min": 26
@@ -3051,21 +3067,6 @@
    "date": "2026-10-26",
    "material_title": "How to Get Better at Living With Uncertainty",
    "duration_min": 22
-  },
-  {
-   "date": "2026-10-26",
-   "material_title": "How to Get Better at Living With Uncertainty",
-   "duration_min": 26
-  },
-  {
-   "date": "2026-10-26",
-   "material_title": "Strong Sense of Identity Linked to Mental Well-Being",
-   "duration_min": 25
-  },
-  {
-   "date": "2026-10-26",
-   "material_title": "Procrastination Tops Academic Struggles, Study Finds",
-   "duration_min": 25
   }
  ]
 }

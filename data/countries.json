@@ -1,11 +1,11 @@
 {
  "year": "2026",
  "all": {
-  "total": 5861,
+  "total": 5864,
   "top": [
    {
     "name": "Philippines",
-    "count": 4362
+    "count": 4364
    },
    {
     "name": "Serbia",
@@ -21,7 +21,7 @@
    },
    {
     "name": "Pakistan",
-    "count": 78
+    "count": 79
    },
    {
     "name": "India",
@@ -47,11 +47,11 @@
   "other": 762
  },
  "this_year": {
-  "total": 1026,
+  "total": 1029,
   "top": [
    {
     "name": "Philippines",
-    "count": 725
+    "count": 727
    },
    {
     "name": "Nigeria",
@@ -62,12 +62,12 @@
     "count": 23
    },
    {
-    "name": "Serbia",
+    "name": "Pakistan",
     "count": 20
    },
    {
-    "name": "Pakistan",
-    "count": 19
+    "name": "Serbia",
+    "count": 20
    },
    {
     "name": "South Africa",
