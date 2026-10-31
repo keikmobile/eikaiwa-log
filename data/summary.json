@@ -1,9 +1,10 @@
 {
- "as_of": "2026-10-30",
- "total_min": 144956,
- "count": 5864,
+ "as_of": "2026-10-31",
+ "total_min": 145084,
+ "count": 5869,
  "minutes_by_date": {
-  "2026-10-30": 50,
+  "2026-10-31": 76,
+  "2026-10-30": 102,
   "2026-10-29": 154,
   "2026-10-28": 128,
   "2026-10-27": 154,
@@ -2452,9 +2453,9 @@
  },
  "by_month": {
   "2026-10": {
-   "dmm": 61,
-   "nc": 55,
-   "min": 2874
+   "dmm": 63,
+   "nc": 58,
+   "min": 3002
   },
   "2026-09": {
    "dmm": 60,
@@ -2969,6 +2970,31 @@
  },
  "recent": [
   {
+   "date": "2026-10-31",
+   "material_title": "Tech's Consequence: Adult ADHD Rise",
+   "duration_min": 26
+  },
+  {
+   "date": "2026-10-31",
+   "material_title": "The Science of Fear: Why We Love to Be Scared",
+   "duration_min": 25
+  },
+  {
+   "date": "2026-10-31",
+   "material_title": "Norway May Restrict Online Games for Under-16s",
+   "duration_min": 25
+  },
+  {
+   "date": "2026-10-30",
+   "material_title": "Tech's Consequence: Adult ADHD Rise",
+   "duration_min": 26
+  },
+  {
+   "date": "2026-10-30",
+   "material_title": "Tech's Consequence: Adult ADHD Rise",
+   "duration_min": 26
+  },
+  {
    "date": "2026-10-30",
    "material_title": "Norway May Restrict Online Games for Under-16s",
    "duration_min": 25
@@ -3042,31 +3068,6 @@
    "date": "2026-10-27",
    "material_title": "Tokyo Survey Finds Interest in Two-Place Living",
    "duration_min": 26
-  },
-  {
-   "date": "2026-10-27",
-   "material_title": "Tokyo Survey Finds Interest in Two-Place Living",
-   "duration_min": 26
-  },
-  {
-   "date": "2026-10-27",
-   "material_title": "Rising ADHD Diagnoses in Kids: What’s Behind the Surge?",
-   "duration_min": 26
-  },
-  {
-   "date": "2026-10-27",
-   "material_title": "Forget Detox Diets — Let the Body Detox Itself",
-   "duration_min": 25
-  },
-  {
-   "date": "2026-10-27",
-   "material_title": "Phone Habits May Reveal Stress Levels, Study Says",
-   "duration_min": 25
-  },
-  {
-   "date": "2026-10-26",
-   "material_title": "How to Get Better at Living With Uncertainty",
-   "duration_min": 22
   }
  ]
 }

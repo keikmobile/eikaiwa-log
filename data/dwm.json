@@ -1,75 +1,75 @@
 {
- "today": "2026-10-30",
+ "today": "2026-10-31",
  "items": [
   {
    "label": "1ヶ月前",
-   "date": "2026-09-30",
+   "date": "2026-10-01",
+   "source": "dmm",
+   "title": "'Dopamine Sites' Let You Shop Without Spending Money"
+  },
+  {
+   "label": "1ヶ月前",
+   "date": "2026-10-01",
    "source": "dmm",
    "title": "How Can You Spot Fake News? Talk to Others!"
   },
   {
    "label": "1ヶ月前",
-   "date": "2026-09-30",
-   "source": "dmm",
-   "title": "How Can You Spot Fake News? Talk to Others!"
-  },
-  {
-   "label": "1ヶ月前",
-   "date": "2026-09-30",
+   "date": "2026-10-01",
    "source": "nativecamp",
    "title": "How Should Families Guide Children Who Use AI?"
   },
   {
    "label": "1週間前",
-   "date": "2026-10-23",
+   "date": "2026-10-24",
    "source": "dmm",
-   "title": "9% of UK Workers Got No Job Onboarding — Survey"
+   "title": "Phone Habits May Reveal Stress Levels, Study Says"
   },
   {
    "label": "1週間前",
-   "date": "2026-10-23",
+   "date": "2026-10-24",
    "source": "dmm",
-   "title": "Screenshots Are Bad for Your Memory — Here's Why"
+   "title": "We Procrastinate Less with Age — Study"
   },
   {
    "label": "1週間前",
-   "date": "2026-10-23",
+   "date": "2026-10-24",
    "source": "nativecamp",
-   "title": "Is Your Problem Time or Something Else?"
+   "title": "Study Links Screen Time to ADHD Symptoms"
+  },
+  {
+   "label": "1週間前",
+   "date": "2026-10-24",
+   "source": "nativecamp",
+   "title": "Study Links Screen Time to ADHD Symptoms"
+  },
+  {
+   "label": "1週間前",
+   "date": "2026-10-24",
+   "source": "nativecamp",
+   "title": "How to Get Better at Living With Uncertainty"
   },
   {
    "label": "1日前",
-   "date": "2026-10-29",
+   "date": "2026-10-30",
    "source": "dmm",
-   "title": "The Science of Fear: Why We Love to Be Scared"
+   "title": "Norway May Restrict Online Games for Under-16s"
   },
   {
    "label": "1日前",
-   "date": "2026-10-29",
+   "date": "2026-10-30",
    "source": "dmm",
-   "title": "Americans May Eat More Processed Food than They Think"
+   "title": "Norway May Restrict Online Games for Under-16s"
   },
   {
    "label": "1日前",
-   "date": "2026-10-29",
-   "source": "nativecamp",
-   "title": "Greenspace May Help Kids with ADHD"
-  },
-  {
-   "label": "1日前",
-   "date": "2026-10-29",
-   "source": "nativecamp",
-   "title": "Greenspace May Help Kids with ADHD"
-  },
-  {
-   "label": "1日前",
-   "date": "2026-10-29",
+   "date": "2026-10-30",
    "source": "nativecamp",
    "title": "Tech's Consequence: Adult ADHD Rise"
   },
   {
    "label": "1日前",
-   "date": "2026-10-29",
+   "date": "2026-10-30",
    "source": "nativecamp",
    "title": "Tech's Consequence: Adult ADHD Rise"
   }

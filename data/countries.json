@@ -1,11 +1,11 @@
 {
  "year": "2026",
  "all": {
-  "total": 5864,
+  "total": 5869,
   "top": [
    {
     "name": "Philippines",
-    "count": 4364
+    "count": 4365
    },
    {
     "name": "Serbia",
@@ -21,11 +21,11 @@
    },
    {
     "name": "Pakistan",
-    "count": 79
+    "count": 80
    },
    {
     "name": "India",
-    "count": 58
+    "count": 59
    },
    {
     "name": "Zimbabwe",
@@ -44,14 +44,14 @@
     "count": 41
    }
   ],
-  "other": 762
+  "other": 764
  },
  "this_year": {
-  "total": 1029,
+  "total": 1034,
   "top": [
    {
     "name": "Philippines",
-    "count": 727
+    "count": 728
    },
    {
     "name": "Nigeria",
@@ -63,7 +63,7 @@
    },
    {
     "name": "Pakistan",
-    "count": 20
+    "count": 21
    },
    {
     "name": "Serbia",
@@ -82,14 +82,14 @@
     "count": 13
    },
    {
-    "name": "Mexico",
+    "name": "India",
     "count": 11
    },
    {
-    "name": "India",
-    "count": 10
+    "name": "Mexico",
+    "count": 11
    }
   ],
-  "other": 132
+  "other": 134
  }
 }
