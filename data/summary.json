@@ -1,8 +1,9 @@
 {
- "as_of": "2026-10-31",
- "total_min": 145084,
- "count": 5869,
+ "as_of": "2026-11-01",
+ "total_min": 145160,
+ "count": 5872,
  "minutes_by_date": {
+  "2026-11-01": 76,
   "2026-10-31": 76,
   "2026-10-30": 102,
   "2026-10-29": 154,
@@ -2452,6 +2453,11 @@
   "2016-12-23": 25
  },
  "by_month": {
+  "2026-11": {
+   "dmm": 2,
+   "nc": 1,
+   "min": 76
+  },
   "2026-10": {
    "dmm": 63,
    "nc": 58,
@@ -2970,6 +2976,21 @@
  },
  "recent": [
   {
+   "date": "2026-11-01",
+   "material_title": "Tea May Benefit Heart Health — If It's Not Too Hot",
+   "duration_min": 25
+  },
+  {
+   "date": "2026-11-01",
+   "material_title": "The Science of Fear: Why We Love to Be Scared",
+   "duration_min": 25
+  },
+  {
+   "date": "2026-11-01",
+   "material_title": "Mice Daydream Effect: Unlocking Memory Potential",
+   "duration_min": 26
+  },
+  {
    "date": "2026-10-31",
    "material_title": "Tech's Consequence: Adult ADHD Rise",
    "duration_min": 26
@@ -3053,21 +3074,6 @@
    "date": "2026-10-28",
    "material_title": "The Science of Fear: Why We Love to Be Scared",
    "duration_min": 25
-  },
-  {
-   "date": "2026-10-28",
-   "material_title": "The Science of Fear: Why We Love to Be Scared",
-   "duration_min": 25
-  },
-  {
-   "date": "2026-10-27",
-   "material_title": "Is Making Daily Tasks Harder Actually Good for Us?",
-   "duration_min": 26
-  },
-  {
-   "date": "2026-10-27",
-   "material_title": "Tokyo Survey Finds Interest in Two-Place Living",
-   "duration_min": 26
   }
  ]
 }

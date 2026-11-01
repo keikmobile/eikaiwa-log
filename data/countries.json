@@ -1,7 +1,7 @@
 {
  "year": "2026",
  "all": {
-  "total": 5869,
+  "total": 5872,
   "top": [
    {
     "name": "Philippines",
@@ -13,7 +13,7 @@
    },
    {
     "name": "Nigeria",
-    "count": 96
+    "count": 97
    },
    {
     "name": "Indonesia",
@@ -44,10 +44,10 @@
     "count": 41
    }
   ],
-  "other": 764
+  "other": 766
  },
  "this_year": {
-  "total": 1034,
+  "total": 1037,
   "top": [
    {
     "name": "Philippines",
@@ -55,7 +55,7 @@
    },
    {
     "name": "Nigeria",
-    "count": 42
+    "count": 43
    },
    {
     "name": "Indonesia",
@@ -90,6 +90,6 @@
     "count": 11
    }
   ],
-  "other": 134
+  "other": 136
  }
 }
