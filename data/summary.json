@@ -1,9 +1,9 @@
 {
  "as_of": "2026-11-01",
- "total_min": 145160,
- "count": 5872,
+ "total_min": 145238,
+ "count": 5875,
  "minutes_by_date": {
-  "2026-11-01": 76,
+  "2026-11-01": 154,
   "2026-10-31": 76,
   "2026-10-30": 102,
   "2026-10-29": 154,
@@ -2455,8 +2455,8 @@
  "by_month": {
   "2026-11": {
    "dmm": 2,
-   "nc": 1,
-   "min": 76
+   "nc": 4,
+   "min": 154
   },
   "2026-10": {
    "dmm": 63,
@@ -2977,6 +2977,21 @@
  "recent": [
   {
    "date": "2026-11-01",
+   "material_title": "Five Habits That May Keep Your Brain 8 Years Younger",
+   "duration_min": 26
+  },
+  {
+   "date": "2026-11-01",
+   "material_title": "Why Is It So Hard to Say \"I Was Wrong\"?",
+   "duration_min": 26
+  },
+  {
+   "date": "2026-11-01",
+   "material_title": "Mice Daydream Effect: Unlocking Memory Potential",
+   "duration_min": 26
+  },
+  {
+   "date": "2026-11-01",
    "material_title": "Tea May Benefit Heart Health — If It's Not Too Hot",
    "duration_min": 25
   },
@@ -3059,21 +3074,6 @@
    "date": "2026-10-28",
    "material_title": "Is Making Daily Tasks Harder Actually Good for Us?",
    "duration_min": 26
-  },
-  {
-   "date": "2026-10-28",
-   "material_title": "Is Making Daily Tasks Harder Actually Good for Us?",
-   "duration_min": 26
-  },
-  {
-   "date": "2026-10-28",
-   "material_title": "Is Making Daily Tasks Harder Actually Good for Us?",
-   "duration_min": 26
-  },
-  {
-   "date": "2026-10-28",
-   "material_title": "The Science of Fear: Why We Love to Be Scared",
-   "duration_min": 25
   }
  ]
 }
