@@ -1,9 +1,9 @@
 {
  "as_of": "2026-11-02",
- "total_min": 145314,
- "count": 5878,
+ "total_min": 145366,
+ "count": 5880,
  "minutes_by_date": {
-  "2026-11-02": 76,
+  "2026-11-02": 128,
   "2026-11-01": 154,
   "2026-10-31": 76,
   "2026-10-30": 102,
@@ -2456,8 +2456,8 @@
  "by_month": {
   "2026-11": {
    "dmm": 4,
-   "nc": 5,
-   "min": 230
+   "nc": 7,
+   "min": 282
   },
   "2026-10": {
    "dmm": 63,
@@ -2978,6 +2978,16 @@
  "recent": [
   {
    "date": "2026-11-02",
+   "material_title": "Simple Habits for a Sharper Brain",
+   "duration_min": 26
+  },
+  {
+   "date": "2026-11-02",
+   "material_title": "Simple Habits for a Sharper Brain",
+   "duration_min": 26
+  },
+  {
+   "date": "2026-11-02",
    "material_title": "Five Habits That May Keep Your Brain 8 Years Younger",
    "duration_min": 26
   },
@@ -3064,16 +3074,6 @@
   {
    "date": "2026-10-29",
    "material_title": "Tech's Consequence: Adult ADHD Rise",
-   "duration_min": 26
-  },
-  {
-   "date": "2026-10-29",
-   "material_title": "Greenspace May Help Kids with ADHD",
-   "duration_min": 26
-  },
-  {
-   "date": "2026-10-29",
-   "material_title": "Greenspace May Help Kids with ADHD",
    "duration_min": 26
   }
  ]

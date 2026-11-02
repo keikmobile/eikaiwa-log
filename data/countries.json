@@ -1,7 +1,7 @@
 {
  "year": "2026",
  "all": {
-  "total": 5878,
+  "total": 5880,
   "top": [
    {
     "name": "Philippines",
@@ -44,10 +44,10 @@
     "count": 41
    }
   ],
-  "other": 767
+  "other": 769
  },
  "this_year": {
-  "total": 1043,
+  "total": 1045,
   "top": [
    {
     "name": "Philippines",
@@ -71,7 +71,7 @@
    },
    {
     "name": "South Africa",
-    "count": 17
+    "count": 18
    },
    {
     "name": "Venezuela",
@@ -90,6 +90,6 @@
     "count": 11
    }
   ],
-  "other": 137
+  "other": 138
  }
 }
