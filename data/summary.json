@@ -1,9 +1,9 @@
 {
  "as_of": "2026-11-03",
- "total_min": 145442,
- "count": 5883,
+ "total_min": 145493,
+ "count": 5885,
  "minutes_by_date": {
-  "2026-11-03": 50,
+  "2026-11-03": 101,
   "2026-11-02": 154,
   "2026-11-01": 154,
   "2026-10-31": 76,
@@ -2456,9 +2456,9 @@
  },
  "by_month": {
   "2026-11": {
-   "dmm": 6,
-   "nc": 8,
-   "min": 358
+   "dmm": 7,
+   "nc": 9,
+   "min": 409
   },
   "2026-10": {
    "dmm": 63,
@@ -2984,6 +2984,16 @@
   },
   {
    "date": "2026-11-03",
+   "material_title": "Simple Habits for a Sharper Brain",
+   "duration_min": 26
+  },
+  {
+   "date": "2026-11-03",
+   "material_title": "The Story of Mexico's Dia de los Muertos",
+   "duration_min": 25
+  },
+  {
+   "date": "2026-11-03",
    "material_title": "Most People Expect AI to Reduce Jobs for Humans",
    "duration_min": 25
   },
@@ -3066,16 +3076,6 @@
    "date": "2026-10-30",
    "material_title": "Tech's Consequence: Adult ADHD Rise",
    "duration_min": 26
-  },
-  {
-   "date": "2026-10-30",
-   "material_title": "Tech's Consequence: Adult ADHD Rise",
-   "duration_min": 26
-  },
-  {
-   "date": "2026-10-30",
-   "material_title": "Norway May Restrict Online Games for Under-16s",
-   "duration_min": 25
   }
  ]
 }
