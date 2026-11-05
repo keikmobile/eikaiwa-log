@@ -1,9 +1,9 @@
 {
  "as_of": "2026-11-05",
- "total_min": 145672,
- "count": 5892,
+ "total_min": 145697,
+ "count": 5893,
  "minutes_by_date": {
-  "2026-11-05": 51,
+  "2026-11-05": 76,
   "2026-11-04": 128,
   "2026-11-03": 101,
   "2026-11-02": 154,
@@ -2458,9 +2458,9 @@
  },
  "by_month": {
   "2026-11": {
-   "dmm": 10,
+   "dmm": 11,
    "nc": 13,
-   "min": 588
+   "min": 613
   },
   "2026-10": {
    "dmm": 63,
@@ -2981,6 +2981,11 @@
  "recent": [
   {
    "date": "2026-11-05",
+   "material_title": null,
+   "duration_min": 25
+  },
+  {
+   "date": "2026-11-05",
    "material_title": "How to Protect Yourself from AI Scams",
    "duration_min": 26
   },
@@ -3072,11 +3077,6 @@
   {
    "date": "2026-11-01",
    "material_title": "Why Is It So Hard to Say \"I Was Wrong\"?",
-   "duration_min": 26
-  },
-  {
-   "date": "2026-11-01",
-   "material_title": "Mice Daydream Effect: Unlocking Memory Potential",
    "duration_min": 26
   }
  ]
