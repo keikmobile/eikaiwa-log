@@ -1,77 +1,101 @@
 {
- "today": "2026-11-04",
+ "today": "2026-11-05",
  "items": [
   {
    "label": "1ヶ月前",
-   "date": "2026-10-05",
+   "date": "2026-10-06",
+   "source": "dmm",
+   "title": "How Can You Spot Fake News? Talk to Others!"
+  },
+  {
+   "label": "1ヶ月前",
+   "date": "2026-10-06",
    "source": "dmm",
    "title": "67% of Americans Change Their Personality at Work"
   },
   {
    "label": "1ヶ月前",
-   "date": "2026-10-05",
-   "source": "dmm",
-   "title": "Reading for Pleasure Improves Well-being"
-  },
-  {
-   "label": "1ヶ月前",
-   "date": "2026-10-05",
+   "date": "2026-10-06",
    "source": "nativecamp",
    "title": "Study Shows Practice Rewires the Brain for Real Multitasking"
   },
   {
+   "label": "1ヶ月前",
+   "date": "2026-10-06",
+   "source": "nativecamp",
+   "title": "Why Is Fiber Becoming the Top Health Trend in 2026?"
+  },
+  {
+   "label": "1ヶ月前",
+   "date": "2026-10-06",
+   "source": "nativecamp",
+   "title": "Japan Faces a Shortage of Technology Teachers"
+  },
+  {
    "label": "1週間前",
-   "date": "2026-10-28",
+   "date": "2026-10-29",
    "source": "dmm",
    "title": "The Science of Fear: Why We Love to Be Scared"
   },
   {
    "label": "1週間前",
-   "date": "2026-10-28",
+   "date": "2026-10-29",
    "source": "dmm",
-   "title": "The Science of Fear: Why We Love to Be Scared"
+   "title": "Americans May Eat More Processed Food than They Think"
   },
   {
    "label": "1週間前",
-   "date": "2026-10-28",
+   "date": "2026-10-29",
    "source": "nativecamp",
-   "title": "Is Making Daily Tasks Harder Actually Good for Us?"
+   "title": "Greenspace May Help Kids with ADHD"
   },
   {
    "label": "1週間前",
-   "date": "2026-10-28",
+   "date": "2026-10-29",
    "source": "nativecamp",
-   "title": "Is Making Daily Tasks Harder Actually Good for Us?"
+   "title": "Greenspace May Help Kids with ADHD"
   },
   {
    "label": "1週間前",
-   "date": "2026-10-28",
+   "date": "2026-10-29",
    "source": "nativecamp",
-   "title": "Is Making Daily Tasks Harder Actually Good for Us?"
+   "title": "Tech's Consequence: Adult ADHD Rise"
+  },
+  {
+   "label": "1週間前",
+   "date": "2026-10-29",
+   "source": "nativecamp",
+   "title": "Tech's Consequence: Adult ADHD Rise"
   },
   {
    "label": "1日前",
-   "date": "2026-11-03",
+   "date": "2026-11-04",
    "source": "dmm",
    "title": "Most People Expect AI to Reduce Jobs for Humans"
   },
   {
    "label": "1日前",
-   "date": "2026-11-03",
-   "source": "dmm",
-   "title": "The Story of Mexico's Dia de los Muertos"
-  },
-  {
-   "label": "1日前",
-   "date": "2026-11-03",
+   "date": "2026-11-04",
    "source": "nativecamp",
-   "title": "Simple Habits for a Sharper Brain"
+   "title": "Why Do People Wake Up Earlier as They Get Older?"
   },
   {
    "label": "1日前",
-   "date": "2026-11-03",
+   "date": "2026-11-04",
    "source": "dmm",
-   "title": "The Story of Mexico's Dia de los Muertos"
+   "title": "Study Finds How a High-Calorie Diet May Affect the Brain"
+  },
+  {
+   "label": "1日前",
+   "date": "2026-11-04",
+   "source": "nativecamp",
+   "title": "Why Do People Wake Up Earlier as They Get Older?"
+  },
+  {
+   "label": "1日前",
+   "date": "2026-11-04",
+   "source": "nativecamp",
+   "title": "How to Protect Yourself from AI Scams"
   }
  ]
 }
