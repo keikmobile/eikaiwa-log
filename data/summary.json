@@ -1,8 +1,9 @@
 {
- "as_of": "2026-11-05",
- "total_min": 145697,
- "count": 5893,
+ "as_of": "2026-11-06",
+ "total_min": 145773,
+ "count": 5896,
  "minutes_by_date": {
+  "2026-11-06": 76,
   "2026-11-05": 76,
   "2026-11-04": 128,
   "2026-11-03": 101,
@@ -2458,9 +2459,9 @@
  },
  "by_month": {
   "2026-11": {
-   "dmm": 11,
-   "nc": 13,
-   "min": 613
+   "dmm": 13,
+   "nc": 14,
+   "min": 689
   },
   "2026-10": {
    "dmm": 63,
@@ -2980,8 +2981,23 @@
  },
  "recent": [
   {
+   "date": "2026-11-06",
+   "material_title": "How to Protect Yourself from AI Scams",
+   "duration_min": 26
+  },
+  {
+   "date": "2026-11-06",
+   "material_title": "70% of Japanese Kids Read Less than an Hour a Week",
+   "duration_min": 25
+  },
+  {
+   "date": "2026-11-06",
+   "material_title": "Study Finds How a High-Calorie Diet May Affect the Brain",
+   "duration_min": 25
+  },
+  {
    "date": "2026-11-05",
-   "material_title": null,
+   "material_title": "Most People Expect AI to Reduce Jobs for Humans",
    "duration_min": 25
   },
   {
@@ -3063,21 +3079,6 @@
    "date": "2026-11-02",
    "material_title": "Norway May Restrict Online Games for Under-16s",
    "duration_min": 25
-  },
-  {
-   "date": "2026-11-02",
-   "material_title": "Norway May Restrict Online Games for Under-16s",
-   "duration_min": 25
-  },
-  {
-   "date": "2026-11-01",
-   "material_title": "Five Habits That May Keep Your Brain 8 Years Younger",
-   "duration_min": 26
-  },
-  {
-   "date": "2026-11-01",
-   "material_title": "Why Is It So Hard to Say \"I Was Wrong\"?",
-   "duration_min": 26
   }
  ]
 }
