@@ -1,8 +1,9 @@
 {
- "as_of": "2026-11-06",
- "total_min": 145773,
- "count": 5896,
+ "as_of": "2026-11-07",
+ "total_min": 145849,
+ "count": 5899,
  "minutes_by_date": {
+  "2026-11-07": 76,
   "2026-11-06": 76,
   "2026-11-05": 76,
   "2026-11-04": 128,
@@ -2459,9 +2460,9 @@
  },
  "by_month": {
   "2026-11": {
-   "dmm": 13,
-   "nc": 14,
-   "min": 689
+   "dmm": 15,
+   "nc": 15,
+   "min": 765
   },
   "2026-10": {
    "dmm": 63,
@@ -2981,6 +2982,21 @@
  },
  "recent": [
   {
+   "date": "2026-11-07",
+   "material_title": "How Does Brain Pathway Help You Learn and Adapt",
+   "duration_min": 26
+  },
+  {
+   "date": "2026-11-07",
+   "material_title": "Most People Expect AI to Reduce Jobs for Humans",
+   "duration_min": 25
+  },
+  {
+   "date": "2026-11-07",
+   "material_title": "Study Finds How a High-Calorie Diet May Affect the Brain",
+   "duration_min": 25
+  },
+  {
    "date": "2026-11-06",
    "material_title": "How to Protect Yourself from AI Scams",
    "duration_min": 26
@@ -3064,21 +3080,6 @@
    "date": "2026-11-02",
    "material_title": "Simple Habits for a Sharper Brain",
    "duration_min": 26
-  },
-  {
-   "date": "2026-11-02",
-   "material_title": "Simple Habits for a Sharper Brain",
-   "duration_min": 26
-  },
-  {
-   "date": "2026-11-02",
-   "material_title": "Five Habits That May Keep Your Brain 8 Years Younger",
-   "duration_min": 26
-  },
-  {
-   "date": "2026-11-02",
-   "material_title": "Norway May Restrict Online Games for Under-16s",
-   "duration_min": 25
   }
  ]
 }

@@ -1,77 +1,59 @@
 {
- "today": "2026-11-06",
+ "today": "2026-11-07",
  "items": [
   {
    "label": "1ヶ月前",
-   "date": "2026-10-07",
+   "date": "2026-10-08",
    "source": "dmm",
-   "title": "Reading for Pleasure Improves Well-being"
+   "title": "Most People in Japan Still Value Handwriting"
   },
   {
    "label": "1ヶ月前",
-   "date": "2026-10-07",
+   "date": "2026-10-08",
+   "source": "nativecamp",
+   "title": "How Can You Improve Your Memory with Podcasts?"
+  },
+  {
+   "label": "1ヶ月前",
+   "date": "2026-10-08",
    "source": "dmm",
-   "title": "Social Media Changes Whom We Trust for News"
-  },
-  {
-   "label": "1ヶ月前",
-   "date": "2026-10-07",
-   "source": "nativecamp",
-   "title": "How Can You Improve Your Memory with Podcasts?"
-  },
-  {
-   "label": "1ヶ月前",
-   "date": "2026-10-07",
-   "source": "nativecamp",
-   "title": "How Can You Improve Your Memory with Podcasts?"
-  },
-  {
-   "label": "1ヶ月前",
-   "date": "2026-10-07",
-   "source": "nativecamp",
-   "title": "How Can You Improve Your Memory with Podcasts?"
+   "title": "Most People in Japan Still Value Handwriting"
   },
   {
    "label": "1週間前",
-   "date": "2026-10-30",
+   "date": "2026-10-31",
    "source": "dmm",
    "title": "Norway May Restrict Online Games for Under-16s"
   },
   {
    "label": "1週間前",
-   "date": "2026-10-30",
+   "date": "2026-10-31",
    "source": "dmm",
-   "title": "Norway May Restrict Online Games for Under-16s"
+   "title": "The Science of Fear: Why We Love to Be Scared"
   },
   {
    "label": "1週間前",
-   "date": "2026-10-30",
-   "source": "nativecamp",
-   "title": "Tech's Consequence: Adult ADHD Rise"
-  },
-  {
-   "label": "1週間前",
-   "date": "2026-10-30",
+   "date": "2026-10-31",
    "source": "nativecamp",
    "title": "Tech's Consequence: Adult ADHD Rise"
   },
   {
    "label": "1日前",
-   "date": "2026-11-05",
+   "date": "2026-11-06",
    "source": "dmm",
    "title": "Study Finds How a High-Calorie Diet May Affect the Brain"
   },
   {
    "label": "1日前",
-   "date": "2026-11-05",
-   "source": "nativecamp",
-   "title": "How to Protect Yourself from AI Scams"
+   "date": "2026-11-06",
+   "source": "dmm",
+   "title": "70% of Japanese Kids Read Less than an Hour a Week"
   },
   {
    "label": "1日前",
-   "date": "2026-11-05",
-   "source": "dmm",
-   "title": "Most People Expect AI to Reduce Jobs for Humans"
+   "date": "2026-11-06",
+   "source": "nativecamp",
+   "title": "How to Protect Yourself from AI Scams"
   }
  ]
 }
