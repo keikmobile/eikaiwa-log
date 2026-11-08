@@ -1,8 +1,9 @@
 {
- "as_of": "2026-11-07",
- "total_min": 145849,
- "count": 5899,
+ "as_of": "2026-11-08",
+ "total_min": 145925,
+ "count": 5902,
  "minutes_by_date": {
+  "2026-11-08": 76,
   "2026-11-07": 76,
   "2026-11-06": 76,
   "2026-11-05": 76,
@@ -2460,9 +2461,9 @@
  },
  "by_month": {
   "2026-11": {
-   "dmm": 15,
-   "nc": 15,
-   "min": 765
+   "dmm": 17,
+   "nc": 16,
+   "min": 841
   },
   "2026-10": {
    "dmm": 63,
@@ -2982,6 +2983,21 @@
  },
  "recent": [
   {
+   "date": "2026-11-08",
+   "material_title": "How Does Brain Pathway Help You Learn and Adapt",
+   "duration_min": 26
+  },
+  {
+   "date": "2026-11-08",
+   "material_title": "Most People Expect AI to Reduce Jobs for Humans",
+   "duration_min": 25
+  },
+  {
+   "date": "2026-11-08",
+   "material_title": "Study Finds How a High-Calorie Diet May Affect the Brain",
+   "duration_min": 25
+  },
+  {
    "date": "2026-11-07",
    "material_title": "How Does Brain Pathway Help You Learn and Adapt",
    "duration_min": 26
@@ -3065,21 +3081,6 @@
    "date": "2026-11-03",
    "material_title": "The Story of Mexico's Dia de los Muertos",
    "duration_min": 25
-  },
-  {
-   "date": "2026-11-03",
-   "material_title": "Most People Expect AI to Reduce Jobs for Humans",
-   "duration_min": 25
-  },
-  {
-   "date": "2026-11-02",
-   "material_title": "Simple Habits for a Sharper Brain",
-   "duration_min": 26
-  },
-  {
-   "date": "2026-11-02",
-   "material_title": "Simple Habits for a Sharper Brain",
-   "duration_min": 26
   }
  ]
 }

@@ -1,59 +1,89 @@
 {
- "today": "2026-11-07",
+ "today": "2026-11-08",
  "items": [
   {
    "label": "1ヶ月前",
-   "date": "2026-10-08",
+   "date": "2026-10-09",
    "source": "dmm",
-   "title": "Most People in Japan Still Value Handwriting"
+   "title": "Japanese Art of Ikebana Draws Those Seeking Calm"
   },
   {
    "label": "1ヶ月前",
-   "date": "2026-10-08",
+   "date": "2026-10-09",
+   "source": "dmm",
+   "title": "Reading for Pleasure Improves Well-being"
+  },
+  {
+   "label": "1ヶ月前",
+   "date": "2026-10-09",
    "source": "nativecamp",
    "title": "How Can You Improve Your Memory with Podcasts?"
   },
   {
    "label": "1ヶ月前",
-   "date": "2026-10-08",
-   "source": "dmm",
-   "title": "Most People in Japan Still Value Handwriting"
+   "date": "2026-10-09",
+   "source": "nativecamp",
+   "title": "AI Tools May Help Learn, But Google Wins for Memory"
+  },
+  {
+   "label": "1ヶ月前",
+   "date": "2026-10-09",
+   "source": "nativecamp",
+   "title": "AI Tools May Help Learn, But Google Wins for Memory"
   },
   {
    "label": "1週間前",
-   "date": "2026-10-31",
-   "source": "dmm",
-   "title": "Norway May Restrict Online Games for Under-16s"
+   "date": "2026-11-01",
+   "source": "nativecamp",
+   "title": "Mice Daydream Effect: Unlocking Memory Potential"
   },
   {
    "label": "1週間前",
-   "date": "2026-10-31",
+   "date": "2026-11-01",
    "source": "dmm",
    "title": "The Science of Fear: Why We Love to Be Scared"
   },
   {
    "label": "1週間前",
-   "date": "2026-10-31",
+   "date": "2026-11-01",
+   "source": "dmm",
+   "title": "Tea May Benefit Heart Health — If It's Not Too Hot"
+  },
+  {
+   "label": "1週間前",
+   "date": "2026-11-01",
    "source": "nativecamp",
-   "title": "Tech's Consequence: Adult ADHD Rise"
+   "title": "Mice Daydream Effect: Unlocking Memory Potential"
+  },
+  {
+   "label": "1週間前",
+   "date": "2026-11-01",
+   "source": "nativecamp",
+   "title": "Why Is It So Hard to Say \"I Was Wrong\"?"
+  },
+  {
+   "label": "1週間前",
+   "date": "2026-11-01",
+   "source": "nativecamp",
+   "title": "Five Habits That May Keep Your Brain 8 Years Younger"
   },
   {
    "label": "1日前",
-   "date": "2026-11-06",
+   "date": "2026-11-07",
    "source": "dmm",
    "title": "Study Finds How a High-Calorie Diet May Affect the Brain"
   },
   {
    "label": "1日前",
-   "date": "2026-11-06",
+   "date": "2026-11-07",
    "source": "dmm",
-   "title": "70% of Japanese Kids Read Less than an Hour a Week"
+   "title": "Most People Expect AI to Reduce Jobs for Humans"
   },
   {
    "label": "1日前",
-   "date": "2026-11-06",
+   "date": "2026-11-07",
    "source": "nativecamp",
-   "title": "How to Protect Yourself from AI Scams"
+   "title": "How Does Brain Pathway Help You Learn and Adapt"
   }
  ]
 }
