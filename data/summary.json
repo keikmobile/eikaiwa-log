@@ -1,8 +1,10 @@
 {
- "as_of": "2026-11-08",
- "total_min": 145925,
- "count": 5902,
+ "as_of": "2026-11-10",
+ "total_min": 146130,
+ "count": 5910,
  "minutes_by_date": {
+  "2026-11-10": 25,
+  "2026-11-09": 180,
   "2026-11-08": 76,
   "2026-11-07": 76,
   "2026-11-06": 76,
@@ -2461,9 +2463,9 @@
  },
  "by_month": {
   "2026-11": {
-   "dmm": 17,
-   "nc": 16,
-   "min": 841
+   "dmm": 20,
+   "nc": 21,
+   "min": 1046
   },
   "2026-10": {
    "dmm": 63,
@@ -2983,6 +2985,46 @@
  },
  "recent": [
   {
+   "date": "2026-11-10",
+   "material_title": "Many Americans 'Work Remotely' from the Office",
+   "duration_min": 25
+  },
+  {
+   "date": "2026-11-09",
+   "material_title": "How Healthy Habits Help People with Mild Cognitive Problems",
+   "duration_min": 26
+  },
+  {
+   "date": "2026-11-09",
+   "material_title": "How Healthy Habits Help People with Mild Cognitive Problems",
+   "duration_min": 26
+  },
+  {
+   "date": "2026-11-09",
+   "material_title": "How Does Brain Pathway Help You Learn and Adapt",
+   "duration_min": 26
+  },
+  {
+   "date": "2026-11-09",
+   "material_title": "How Does Brain Pathway Help You Learn and Adapt",
+   "duration_min": 26
+  },
+  {
+   "date": "2026-11-09",
+   "material_title": "How Does Brain Pathway Help You Learn and Adapt",
+   "duration_min": 26
+  },
+  {
+   "date": "2026-11-09",
+   "material_title": "Healthier Salt Could Save Millions of Lives",
+   "duration_min": 25
+  },
+  {
+   "date": "2026-11-09",
+   "material_title": "Healthier Salt Could Save Millions of Lives",
+   "duration_min": 25
+  },
+  {
    "date": "2026-11-08",
    "material_title": "How Does Brain Pathway Help You Learn and Adapt",
    "duration_min": 26
@@ -3040,46 +3082,6 @@
   {
    "date": "2026-11-05",
    "material_title": "Study Finds How a High-Calorie Diet May Affect the Brain",
-   "duration_min": 25
-  },
-  {
-   "date": "2026-11-04",
-   "material_title": "How to Protect Yourself from AI Scams",
-   "duration_min": 26
-  },
-  {
-   "date": "2026-11-04",
-   "material_title": "Why Do People Wake Up Earlier as They Get Older?",
-   "duration_min": 26
-  },
-  {
-   "date": "2026-11-04",
-   "material_title": "Study Finds How a High-Calorie Diet May Affect the Brain",
-   "duration_min": 25
-  },
-  {
-   "date": "2026-11-04",
-   "material_title": "Why Do People Wake Up Earlier as They Get Older?",
-   "duration_min": 26
-  },
-  {
-   "date": "2026-11-04",
-   "material_title": "Most People Expect AI to Reduce Jobs for Humans",
-   "duration_min": 25
-  },
-  {
-   "date": "2026-11-03",
-   "material_title": "The Story of Mexico's Dia de los Muertos",
-   "duration_min": 25
-  },
-  {
-   "date": "2026-11-03",
-   "material_title": "Simple Habits for a Sharper Brain",
-   "duration_min": 26
-  },
-  {
-   "date": "2026-11-03",
-   "material_title": "The Story of Mexico's Dia de los Muertos",
    "duration_min": 25
   }
  ]
