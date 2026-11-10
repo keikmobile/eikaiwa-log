@@ -1,9 +1,9 @@
 {
  "as_of": "2026-11-10",
- "total_min": 146130,
- "count": 5910,
+ "total_min": 146181,
+ "count": 5912,
  "minutes_by_date": {
-  "2026-11-10": 25,
+  "2026-11-10": 76,
   "2026-11-09": 180,
   "2026-11-08": 76,
   "2026-11-07": 76,
@@ -2463,9 +2463,9 @@
  },
  "by_month": {
   "2026-11": {
-   "dmm": 20,
-   "nc": 21,
-   "min": 1046
+   "dmm": 21,
+   "nc": 22,
+   "min": 1097
   },
   "2026-10": {
    "dmm": 63,
@@ -2986,6 +2986,16 @@
  "recent": [
   {
    "date": "2026-11-10",
+   "material_title": "How to Protect Your Privacy When Using Apps",
+   "duration_min": 26
+  },
+  {
+   "date": "2026-11-10",
+   "material_title": "4 in 10 UK Teens Want More Work Experience at School",
+   "duration_min": 25
+  },
+  {
+   "date": "2026-11-10",
    "material_title": "Many Americans 'Work Remotely' from the Office",
    "duration_min": 25
   },
@@ -3072,16 +3082,6 @@
   {
    "date": "2026-11-05",
    "material_title": "Most People Expect AI to Reduce Jobs for Humans",
-   "duration_min": 25
-  },
-  {
-   "date": "2026-11-05",
-   "material_title": "How to Protect Yourself from AI Scams",
-   "duration_min": 26
-  },
-  {
-   "date": "2026-11-05",
-   "material_title": "Study Finds How a High-Calorie Diet May Affect the Brain",
    "duration_min": 25
   }
  ]
