@@ -1,9 +1,10 @@
 {
- "as_of": "2026-11-10",
- "total_min": 146181,
- "count": 5912,
+ "as_of": "2026-11-11",
+ "total_min": 146309,
+ "count": 5917,
  "minutes_by_date": {
-  "2026-11-10": 76,
+  "2026-11-11": 76,
+  "2026-11-10": 128,
   "2026-11-09": 180,
   "2026-11-08": 76,
   "2026-11-07": 76,
@@ -2463,9 +2464,9 @@
  },
  "by_month": {
   "2026-11": {
-   "dmm": 21,
-   "nc": 22,
-   "min": 1097
+   "dmm": 23,
+   "nc": 25,
+   "min": 1225
   },
   "2026-10": {
    "dmm": 63,
@@ -2985,6 +2986,31 @@
  },
  "recent": [
   {
+   "date": "2026-11-11",
+   "material_title": "How to Protect Your Privacy When Using Apps",
+   "duration_min": 26
+  },
+  {
+   "date": "2026-11-11",
+   "material_title": "Healthier Salt Could Save Millions of Lives",
+   "duration_min": 25
+  },
+  {
+   "date": "2026-11-11",
+   "material_title": "AI Gives 19% Less Diverse Answers than Web Searches",
+   "duration_min": 25
+  },
+  {
+   "date": "2026-11-10",
+   "material_title": "How to Protect Your Privacy When Using Apps",
+   "duration_min": 26
+  },
+  {
+   "date": "2026-11-10",
+   "material_title": "How to Protect Your Privacy When Using Apps",
+   "duration_min": 26
+  },
+  {
    "date": "2026-11-10",
    "material_title": "How to Protect Your Privacy When Using Apps",
    "duration_min": 26
@@ -3056,31 +3082,6 @@
   },
   {
    "date": "2026-11-07",
-   "material_title": "Most People Expect AI to Reduce Jobs for Humans",
-   "duration_min": 25
-  },
-  {
-   "date": "2026-11-07",
-   "material_title": "Study Finds How a High-Calorie Diet May Affect the Brain",
-   "duration_min": 25
-  },
-  {
-   "date": "2026-11-06",
-   "material_title": "How to Protect Yourself from AI Scams",
-   "duration_min": 26
-  },
-  {
-   "date": "2026-11-06",
-   "material_title": "70% of Japanese Kids Read Less than an Hour a Week",
-   "duration_min": 25
-  },
-  {
-   "date": "2026-11-06",
-   "material_title": "Study Finds How a High-Calorie Diet May Affect the Brain",
-   "duration_min": 25
-  },
-  {
-   "date": "2026-11-05",
    "material_title": "Most People Expect AI to Reduce Jobs for Humans",
    "duration_min": 25
   }
