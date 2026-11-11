@@ -249,7 +249,7 @@ async function main() {
     label.textContent = y;
     const grid = document.createElement('div');
     grid.className = 'cal';
-    grid.innerHTML = months.map(ym => calendarMonthHtml(ym, s.minutes_by_date, calToday)).join('');
+    grid.innerHTML = months.toReversed().map(ym => calendarMonthHtml(ym, s.minutes_by_date, calToday)).join('');
     $(Number(y) === year ? 'cal-years' : 'cal-older').append(label, grid);
   }
 
