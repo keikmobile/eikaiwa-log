@@ -54,6 +54,7 @@
   .countries { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 24px; }
   @media (max-width: 560px) { .countries { grid-template-columns: minmax(0, 1fr); } }
   .countries svg { display: block; margin: 8px auto; }
+  .countries p { margin: 0; font-size: 13px; }
   .countries .sw { width: 10px; height: 10px; border-radius: 2px; flex: none; align-self: center; }
   #monthly-zoom { display: flex; gap: 6px; margin-bottom: 6px; }
   #monthly-zoom button { font: inherit; font-size: 12px; padding: 2px 10px; border: 1px solid var(--line); border-radius: 999px;
@@ -111,8 +112,8 @@
   <section id="countries" hidden>
     <h2>Teacher countries / 講師の国籍</h2>
     <div class="countries">
-      <div id="ctry-all" hidden><h3>All time / 全期間</h3><div id="ctry-all-pie"></div><ul id="ctry-all-list"></ul></div>
-      <div id="ctry-year" hidden><h3 id="ctry-year-h"></h3><div id="ctry-year-pie"></div><ul id="ctry-year-list"></ul></div>
+      <div id="ctry-all" hidden><h3>All time / 全期間</h3><p id="ctry-all-n" class="m"></p><div id="ctry-all-pie"></div><ul id="ctry-all-list"></ul></div>
+      <div id="ctry-year" hidden><h3 id="ctry-year-h"></h3><p id="ctry-year-n" class="m"></p><div id="ctry-year-pie"></div><ul id="ctry-year-list"></ul></div>
     </div>
   </section>
 
@@ -174,6 +175,7 @@ async function countries(countryPieSvg, PIE_COLORS) {
   $('ctry-year-h').textContent = `${d.year} / 今年`;
   for (const [key, c] of [['all', d.all], ['year', d.this_year]]) {
     if (!c?.total) continue;
+    if (c.countries) $(`ctry-${key}-n`).textContent = `${c.countries} countries / ${c.countries} カ国`;
     $(`ctry-${key}-pie`).innerHTML = countryPieSvg(c);
     const items = c.top.map((it, i) => [`${i + 1}.`, it.name, it.count, PIE_COLORS[i]]);
     if (c.other) items.push(['', 'Other / その他', c.other, PIE_COLORS[10]]);
