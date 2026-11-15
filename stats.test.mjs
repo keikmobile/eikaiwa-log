@@ -188,8 +188,8 @@ test('countryCounts: top n, rest in other, year filter, no country skipped', () 
   const R = (timestamp, teacher_country) => ({ timestamp, teacher_country });
   const rs = [R('2025-05-01T10:00:00', 'セルビア'), R('2026-01-01T10:00:00', 'フィリピン'), R('2026-01-02T10:00:00', 'フィリピン'),
     R('2026-01-03T10:00:00', 'ケニア'), R('2026-01-04T10:00:00', null), R('2026-01-05T10:00:00', ' ')];
-  assert.deepEqual(countryCounts(rs, null, 2), { total: 4, top: [{ name: 'Philippines', count: 2 }, { name: 'Kenya', count: 1 }], other: 1 });
-  assert.deepEqual(countryCounts(rs, '2025'), { total: 1, top: [{ name: 'Serbia', count: 1 }], other: 0 });
+  assert.deepEqual(countryCounts(rs, null, 2), { total: 4, countries: 3, top: [{ name: 'Philippines', count: 2 }, { name: 'Kenya', count: 1 }], other: 1 });
+  assert.deepEqual(countryCounts(rs, '2025'), { total: 1, countries: 1, top: [{ name: 'Serbia', count: 1 }], other: 0 });
 });
 
 test('countryCounts: Japanese names become English, unknown names stay', () => {

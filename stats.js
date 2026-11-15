@@ -274,7 +274,7 @@ export function countryCounts(records, year = null, n = 10) {
   }
   const all = [...c].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])).map(([name, count]) => ({ name, count }));
   const top = all.slice(0, n);
-  return { total: all.reduce((s, x) => s + x.count, 0), top, other: all.slice(n).reduce((s, x) => s + x.count, 0) };
+  return { total: all.reduce((s, x) => s + x.count, 0), countries: all.length, top, other: all.slice(n).reduce((s, x) => s + x.count, 0) };
 }
 
 // Slice colors in Top 10 order; the 11th (grey) is "Other".
