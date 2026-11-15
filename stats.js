@@ -150,7 +150,15 @@ const fmtMin = min => {
 };
 
 // One stacked bar per month (DMM dark green, NC light green; heatmap colors). Under each January: year and yearly total.
-export function monthlyChartSvg(byMonth, last = 0) {
+// 'YYYY-MM' moved by n months (n can be negative).
+export function addMonths(ym, n) {
+  const [y, m] = ym.split('-').map(Number);
+  const t = y * 12 + (m - 1) + n;
+  return `${Math.floor(t / 12)}-${String((t % 12) + 1).padStart(2, '0')}`;
+}
+
+// from / to: 'YYYY-MM' range to show ('' = no limit). zoom: bar width multiplier (1 = fit ~720px).
+export function monthlyChartSvg(byMonth, { from = '', to = '', zoom = 1 } = {}) {
   const keys = Object.keys(byMonth).sort();
   if (keys.length === 0) return '';
   // Every month from the first to the last, so a month without lessons keeps its slot as a 0 bar.
@@ -168,11 +176,13 @@ export function monthlyChartSvg(byMonth, last = 0) {
     yCount[y] = (yCount[y] || 0) + byMonth[ym].dmm + byMonth[ym].nc;
     yMin[y] = (yMin[y] || 0) + byMonth[ym].min;
   }
-  const months = last > 0 ? all.slice(-last) : all; // zoom: only the latest `last` months
+  if (from && to && from > to) [from, to] = [to, from];
+  const months = all.filter(ym => (!from || ym >= from) && (!to || ym <= to));
+  if (months.length === 0) return '';
   const counts = months.map(m => byMonth[m].dmm + byMonth[m].nc);
   const H = 100;
   const pad = { l: 4, r: 4, t: 8, b: 22 };
-  const W = Math.max(240, months.length * Math.max(10, Math.floor(720 / months.length)) + pad.l + pad.r); // ≥10px per bar; fewer months → wider bars
+  const W = Math.max(240, months.length * Math.round(Math.max(10, Math.floor(720 / months.length)) * zoom) + pad.l + pad.r); // ≥10px per bar; fewer months → wider bars
   const maxC = Math.max(...counts);
   const slotW = (W - pad.l - pad.r) / months.length;
   const barW = Math.max(1, slotW - 2);
