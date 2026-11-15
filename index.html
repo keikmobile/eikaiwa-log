@@ -61,6 +61,12 @@
   #monthly-zoom input { font: inherit; vertical-align: middle; }
   #monthly-zoom button { font: inherit; font-size: 12px; padding: 2px 10px; border: 1px solid var(--line); border-radius: 999px;
     background: var(--card); color: var(--muted); cursor: pointer; }
+  #m-dialog { width: calc(100vw - 32px); max-width: none; height: calc(100vh - 32px); max-height: none; box-sizing: border-box;
+    padding: 12px 16px; border: 1px solid var(--line); border-radius: 12px; background: var(--bg); color: var(--fg); }
+  #m-dialog::backdrop { background: rgb(0 0 0 / 0.5); }
+  #m-dialog form { text-align: right; }
+  #m-dialog form button { font-size: 18px; border: 0; background: none; color: var(--muted); cursor: pointer; }
+  #m-dialog #m-expand { display: none; }
   #monthly-zoom button[aria-pressed="true"] { background: var(--h3); border-color: var(--h3); color: #fff; }
   #dwm-asof { margin: 0 0 6px; font-size: 12px; color: var(--muted); }
   footer { margin-top: 24px; font-size: 12px; color: var(--muted); }
@@ -87,15 +93,21 @@
   <div id="years"></div>
   <details id="older"><summary>Show older years / それ以前を表示</summary></details>
 
-  <h2>Monthly / 月別推移</h2>
+  <h2 id="monthly-h">Monthly / 月別推移</h2>
+  <dialog id="m-dialog" aria-label="Monthly / 月別推移">
+    <form method="dialog"><button aria-label="Close / 閉じる">✕</button></form>
+  </dialog>
+  <div id="m-card">
   <div id="monthly-zoom">
     <span id="m-presets" role="group" aria-label="Period / 期間">
       <button data-n="12">1y</button><button data-n="36">3y</button><button data-n="60">5y</button><button data-n="0" aria-pressed="true">All</button>
     </span>
     <label><input type="month" id="m-from" aria-label="From / 開始月"> – <input type="month" id="m-to" aria-label="To / 終了月"></label>
     <label>Zoom / 拡大 <input type="range" id="m-zoom" min="1" max="8" step="0.5" value="1"></label>
+    <button id="m-expand" aria-label="Expand / 大きく表示">⤢</button>
   </div>
   <div id="monthly"></div>
+  </div>
 
   <h2>Calendar / カレンダー</h2>
   <div id="cal-years"></div>
@@ -263,7 +275,10 @@ async function main() {
   Object.assign($('m-from'), { value: mFirst });
   Object.assign($('m-to'), { value: mLast });
   const renderMonthly = () => {
-    $('monthly').innerHTML = monthlyChartSvg(byMonth, { from: $('m-from').value, to: $('m-to').value, zoom: Number($('m-zoom').value) });
+    const d = $('m-dialog');
+    // In the dialog: fit its width and fill the height left under the controls.
+    const size = d.open ? { width: d.clientWidth - 48, height: Math.max(100, d.clientHeight - $('monthly').offsetTop - 40) } : {};
+    $('monthly').innerHTML = monthlyChartSvg(byMonth, { from: $('m-from').value, to: $('m-to').value, zoom: Number($('m-zoom').value), ...size });
   };
   const pressPreset = b => { for (const x of $('m-presets').children) x.setAttribute('aria-pressed', x === b); };
   renderMonthly();
@@ -279,6 +294,9 @@ async function main() {
   });
   for (const id of ['m-from', 'm-to']) $(id).addEventListener('change', () => { pressPreset(null); renderMonthly(); });
   $('m-zoom').addEventListener('input', renderMonthly);
+  // Expand: move the whole card (controls + chart) into the dialog, and back when it closes (✕ or Esc).
+  $('m-expand').addEventListener('click', () => { $('m-dialog').append($('m-card')); $('m-dialog').showModal(); renderMonthly(); });
+  $('m-dialog').addEventListener('close', () => { $('monthly-h').after($('m-card')); renderMonthly(); });
 
   // Calendar: only this year is open; last year and older are folded. "Today" is the JST date.
   const calToday = todayJst();
