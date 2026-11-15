@@ -1,9 +1,10 @@
 {
- "as_of": "2026-11-14",
- "total_min": 146563,
- "count": 5927,
+ "as_of": "2026-11-15",
+ "total_min": 146587,
+ "count": 5928,
  "minutes_by_date": {
-  "2026-11-14": 50,
+  "2026-11-15": 50,
+  "2026-11-14": 76,
   "2026-11-13": 102,
   "2026-11-12": 76,
   "2026-11-11": 102,
@@ -45,7 +46,7 @@
   "2026-10-06": 128,
   "2026-10-05": 76,
   "2026-10-04": 93,
-  "2026-10-03": 107,
+  "2026-10-03": 81,
   "2026-10-02": 102,
   "2026-10-01": 76,
   "2026-09-30": 76,
@@ -82,7 +83,7 @@
   "2026-08-30": 76,
   "2026-08-29": 104,
   "2026-08-28": 76,
-  "2026-08-27": 128,
+  "2026-08-27": 102,
   "2026-08-26": 102,
   "2026-08-25": 102,
   "2026-08-24": 94,
@@ -2467,14 +2468,14 @@
  },
  "by_month": {
   "2026-11": {
-   "dmm": 29,
-   "nc": 29,
-   "min": 1479
+   "dmm": 31,
+   "nc": 30,
+   "min": 1555
   },
   "2026-10": {
    "dmm": 63,
-   "nc": 58,
-   "min": 3002
+   "nc": 57,
+   "min": 2976
   },
   "2026-09": {
    "dmm": 60,
@@ -2483,8 +2484,8 @@
   },
   "2026-08": {
    "dmm": 63,
-   "nc": 38,
-   "min": 2526
+   "nc": 37,
+   "min": 2500
   },
   "2026-07": {
    "dmm": 63,
@@ -2989,6 +2990,21 @@
  },
  "recent": [
   {
+   "date": "2026-11-15",
+   "material_title": "How To-Do Lists Help Us Work Better",
+   "duration_min": 25
+  },
+  {
+   "date": "2026-11-15",
+   "material_title": "UK Job Satisfaction Is at an All-Time Low",
+   "duration_min": 25
+  },
+  {
+   "date": "2026-11-14",
+   "material_title": "Can a Reading Challenge Help a Busy Parent Read More?",
+   "duration_min": 26
+  },
+  {
    "date": "2026-11-14",
    "material_title": "DNA Study Tracks English Language's Ancient Origins",
    "duration_min": 25
@@ -3072,21 +3088,6 @@
    "date": "2026-11-10",
    "material_title": "4 in 10 UK Teens Want More Work Experience at School",
    "duration_min": 25
-  },
-  {
-   "date": "2026-11-10",
-   "material_title": "Many Americans 'Work Remotely' from the Office",
-   "duration_min": 25
-  },
-  {
-   "date": "2026-11-09",
-   "material_title": "How Healthy Habits Help People with Mild Cognitive Problems",
-   "duration_min": 26
-  },
-  {
-   "date": "2026-11-09",
-   "material_title": "How Healthy Habits Help People with Mild Cognitive Problems",
-   "duration_min": 26
   }
  ]
 }
