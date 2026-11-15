@@ -55,5 +55,8 @@ if git diff --cached --quiet; then
   exit 0
 fi
 git commit -m "log: update $(date +%Y-%m-%d)"
+# PRs merged on GitHub make origin/main move ahead; without this, push is rejected.
+# GitHub で PR をマージすると origin/main が先に進むので、先に取り込まないと push が拒否される。
+git pull --rebase --quiet
 git push
 echo "Published / 公開しました: $src"
