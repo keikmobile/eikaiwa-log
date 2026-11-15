@@ -1,77 +1,59 @@
 {
- "today": "2026-11-12",
+ "today": "2026-11-15",
  "items": [
   {
    "label": "1ヶ月前",
-   "date": "2026-10-13",
+   "date": "2026-10-16",
+   "source": "nativecamp",
+   "title": "Study Says Smartphone Reminders Could Improve Memory, Not Harm It"
+  },
+  {
+   "label": "1ヶ月前",
+   "date": "2026-10-16",
    "source": "dmm",
-   "title": "Staying in Work Best for Brain Health — Study"
+   "title": "Four Reasons to Add Beans to Your Diet"
   },
   {
    "label": "1ヶ月前",
-   "date": "2026-10-13",
+   "date": "2026-10-16",
    "source": "dmm",
-   "title": "Social Connections Make People More Likely to Protest"
+   "title": "Bored at Work? You May Be Feeling 'Rustout'"
   },
   {
    "label": "1ヶ月前",
-   "date": "2026-10-13",
+   "date": "2026-10-16",
    "source": "nativecamp",
-   "title": "AI Tools May Help Learn, But Google Wins for Memory"
-  },
-  {
-   "label": "1ヶ月前",
-   "date": "2026-10-13",
-   "source": "nativecamp",
-   "title": "An Expert Shares Small Steps for Staying Tidy at Work"
-  },
-  {
-   "label": "1ヶ月前",
-   "date": "2026-10-13",
-   "source": "nativecamp",
-   "title": "An Expert Shares Small Steps for Staying Tidy at Work"
+   "title": "Study Says Smartphone Reminders Could Improve Memory, Not Harm It"
   },
   {
    "label": "1週間前",
-   "date": "2026-11-05",
+   "date": "2026-11-08",
    "source": "dmm",
    "title": "Study Finds How a High-Calorie Diet May Affect the Brain"
   },
   {
    "label": "1週間前",
-   "date": "2026-11-05",
-   "source": "nativecamp",
-   "title": "How to Protect Yourself from AI Scams"
-  },
-  {
-   "label": "1週間前",
-   "date": "2026-11-05",
+   "date": "2026-11-08",
    "source": "dmm",
    "title": "Most People Expect AI to Reduce Jobs for Humans"
   },
   {
-   "label": "1日前",
-   "date": "2026-11-11",
-   "source": "dmm",
-   "title": "AI Gives 19% Less Diverse Answers than Web Searches"
-  },
-  {
-   "label": "1日前",
-   "date": "2026-11-11",
-   "source": "dmm",
-   "title": "Healthier Salt Could Save Millions of Lives"
-  },
-  {
-   "label": "1日前",
-   "date": "2026-11-11",
+   "label": "1週間前",
+   "date": "2026-11-08",
    "source": "nativecamp",
-   "title": "How to Protect Your Privacy When Using Apps"
+   "title": "How Does Brain Pathway Help You Learn and Adapt"
   },
   {
    "label": "1日前",
-   "date": "2026-11-11",
-   "source": "nativecamp",
-   "title": "How to Protect Your Privacy When Using Apps"
+   "date": "2026-11-14",
+   "source": "dmm",
+   "title": "Fruit and Vegetable Scraps Could Boost Health — Study"
+  },
+  {
+   "label": "1日前",
+   "date": "2026-11-14",
+   "source": "dmm",
+   "title": "DNA Study Tracks English Language's Ancient Origins"
   }
  ]
 }

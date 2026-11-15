@@ -1,8 +1,10 @@
 {
- "as_of": "2026-11-12",
- "total_min": 146411,
- "count": 5921,
+ "as_of": "2026-11-14",
+ "total_min": 146563,
+ "count": 5927,
  "minutes_by_date": {
+  "2026-11-14": 50,
+  "2026-11-13": 102,
   "2026-11-12": 76,
   "2026-11-11": 102,
   "2026-11-10": 128,
@@ -2465,9 +2467,9 @@
  },
  "by_month": {
   "2026-11": {
-   "dmm": 25,
-   "nc": 27,
-   "min": 1327
+   "dmm": 29,
+   "nc": 29,
+   "min": 1479
   },
   "2026-10": {
    "dmm": 63,
@@ -2987,6 +2989,36 @@
  },
  "recent": [
   {
+   "date": "2026-11-14",
+   "material_title": "DNA Study Tracks English Language's Ancient Origins",
+   "duration_min": 25
+  },
+  {
+   "date": "2026-11-14",
+   "material_title": "Fruit and Vegetable Scraps Could Boost Health — Study",
+   "duration_min": 25
+  },
+  {
+   "date": "2026-11-13",
+   "material_title": "Can a Reading Challenge Help a Busy Parent Read More?",
+   "duration_min": 26
+  },
+  {
+   "date": "2026-11-13",
+   "material_title": "Simple Habits for a Sharper Brain",
+   "duration_min": 26
+  },
+  {
+   "date": "2026-11-13",
+   "material_title": "Fruit and Vegetable Scraps Could Boost Health — Study",
+   "duration_min": 25
+  },
+  {
+   "date": "2026-11-13",
+   "material_title": "Healthier Salt Could Save Millions of Lives",
+   "duration_min": 25
+  },
+  {
    "date": "2026-11-12",
    "material_title": "Simple Habits for a Sharper Brain",
    "duration_min": 26
@@ -3054,36 +3086,6 @@
   {
    "date": "2026-11-09",
    "material_title": "How Healthy Habits Help People with Mild Cognitive Problems",
-   "duration_min": 26
-  },
-  {
-   "date": "2026-11-09",
-   "material_title": "How Does Brain Pathway Help You Learn and Adapt",
-   "duration_min": 26
-  },
-  {
-   "date": "2026-11-09",
-   "material_title": "How Does Brain Pathway Help You Learn and Adapt",
-   "duration_min": 26
-  },
-  {
-   "date": "2026-11-09",
-   "material_title": "How Does Brain Pathway Help You Learn and Adapt",
-   "duration_min": 26
-  },
-  {
-   "date": "2026-11-09",
-   "material_title": "Healthier Salt Could Save Millions of Lives",
-   "duration_min": 25
-  },
-  {
-   "date": "2026-11-09",
-   "material_title": "Healthier Salt Could Save Millions of Lives",
-   "duration_min": 25
-  },
-  {
-   "date": "2026-11-08",
-   "material_title": "How Does Brain Pathway Help You Learn and Adapt",
    "duration_min": 26
   }
  ]
