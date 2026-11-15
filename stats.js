@@ -157,8 +157,8 @@ export function addMonths(ym, n) {
   return `${Math.floor(t / 12)}-${String((t % 12) + 1).padStart(2, '0')}`;
 }
 
-// from / to: 'YYYY-MM' range to show ('' = no limit). zoom: bar width multiplier (1 = fit ~720px).
-export function monthlyChartSvg(byMonth, { from = '', to = '', zoom = 1 } = {}) {
+// from / to: 'YYYY-MM' range to show ('' = no limit). zoom: bar width multiplier (1 = fit `width`). height: chart height; text grows with it.
+export function monthlyChartSvg(byMonth, { from = '', to = '', zoom = 1, width = 720, height = 100 } = {}) {
   const keys = Object.keys(byMonth).sort();
   if (keys.length === 0) return '';
   // Every month from the first to the last, so a month without lessons keeps its slot as a 0 bar.
@@ -180,9 +180,10 @@ export function monthlyChartSvg(byMonth, { from = '', to = '', zoom = 1 } = {}) 
   const months = all.filter(ym => (!from || ym >= from) && (!to || ym <= to));
   if (months.length === 0) return '';
   const counts = months.map(m => byMonth[m].dmm + byMonth[m].nc);
-  const H = 100;
-  const pad = { l: 4, r: 4, t: 8, b: 22 };
-  const W = Math.max(240, months.length * Math.round(Math.max(10, Math.floor(720 / months.length)) * zoom) + pad.l + pad.r); // ≥10px per bar; fewer months → wider bars
+  const H = height;
+  const k = Math.min(2.5, H / 100); // text scale
+  const pad = { l: 4, r: 4, t: 8 * k, b: 22 * k };
+  const W = Math.max(240, months.length * Math.round(Math.max(10, Math.floor(width / months.length)) * zoom) + pad.l + pad.r); // ≥10px per bar; fewer months → wider bars
   const maxC = Math.max(...counts);
   const slotW = (W - pad.l - pad.r) / months.length;
   const barW = Math.max(1, slotW - 2);
@@ -198,8 +199,8 @@ export function monthlyChartSvg(byMonth, { from = '', to = '', zoom = 1 } = {}) 
     if (!m.endsWith('-01')) return '';
     const y = m.slice(0, 4);
     const x = (pad.l + i * slotW + slotW / 2).toFixed(1);
-    return `<text x="${x}" y="${H - 11}" text-anchor="middle" fill="#999" font-size="10" font-family="sans-serif">${esc(y)}</text>`
-      + `<text x="${x}" y="${H - 1}" text-anchor="middle" fill="#bbb" font-size="8" font-family="sans-serif">${esc(`${yCount[y]}回 / ${Math.floor(yMin[y] / 60)}h`)}</text>`;
+    return `<text x="${x}" y="${H - 11 * k}" text-anchor="middle" fill="#999" font-size="${10 * k}" font-family="sans-serif">${esc(y)}</text>`
+      + `<text x="${x}" y="${H - k}" text-anchor="middle" fill="#bbb" font-size="${8 * k}" font-family="sans-serif">${esc(`${yCount[y]}回 / ${Math.floor(yMin[y] / 60)}h`)}</text>`;
   }).join('');
   const svg = `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Lessons per month">${bars}${labels}</svg>`;
   // Always a scroll box (charts are ~730px+, wider than a phone); direction:rtl starts it at the right end (newest month).
