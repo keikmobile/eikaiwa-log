@@ -149,6 +149,17 @@ test('monthlyChartSvg: months without lessons keep their slot, across a year end
   assert.ok(html.includes('>2026<')); // the empty January still gets its label
 });
 
+test('monthlyChartSvg: zoom shows only the latest N months, labels keep the full-year total', () => {
+  const data = {};
+  for (let m = 1; m <= 12; m++) data[`2025-${String(m).padStart(2, '0')}`] = { dmm: 1, nc: 0, min: 60 };
+  for (let m = 1; m <= 3; m++) data[`2026-0${m}`] = { dmm: 1, nc: 0, min: 60 };
+  data['2026-03'].dmm = 5; // 2026 total: 1 + 1 + 5 = 7 lessons, 3h
+  const html = monthlyChartSvg(data, 6); // 2025-10 .. 2026-03
+  assert.equal(html.split('<rect').length - 1, 6 * 2);
+  assert.ok(html.includes('7回 / 3h'));
+  assert.ok(!html.includes('>2025<')); // 2025-01 is out of view
+});
+
 test('heatLevel: same steps as the heatmap', () => {
   assert.deepEqual([0, 24, 25, 49, 50, 74, 75, 200].map(heatLevel), [1, 1, 2, 2, 3, 3, 4, 4]);
 });
