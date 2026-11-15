@@ -1,7 +1,7 @@
 // Run: node --test
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { todayJst, dayNum, dateFromNum, totalMinutes, minutesByDate, summarize, lessonsFromHistory, lessonDate, dmmToday, streak, periodMinutes, dwmReview, topArticles, byMonth, heatLevel, monthlyChartSvg, calendarMonthHtml, calendarMonthsByYear, countryCounts, countryPieSvg } from './stats.js';
+import { todayJst, dayNum, dateFromNum, totalMinutes, minutesByDate, summarize, lessonsFromHistory, lessonDate, dmmToday, streak, periodMinutes, dwmReview, topArticles, byMonth, heatLevel, monthlyChartSvg, addMonths, calendarMonthHtml, calendarMonthsByYear, countryCounts, countryPieSvg } from './stats.js';
 
 const L = (date, duration_min = 25) => ({ date, material_title: 't', material_title_ja: null, duration_min });
 
@@ -154,10 +154,20 @@ test('monthlyChartSvg: zoom shows only the latest N months, labels keep the full
   for (let m = 1; m <= 12; m++) data[`2025-${String(m).padStart(2, '0')}`] = { dmm: 1, nc: 0, min: 60 };
   for (let m = 1; m <= 3; m++) data[`2026-0${m}`] = { dmm: 1, nc: 0, min: 60 };
   data['2026-03'].dmm = 5; // 2026 total: 1 + 1 + 5 = 7 lessons, 3h
-  const html = monthlyChartSvg(data, 6); // 2025-10 .. 2026-03
+  const html = monthlyChartSvg(data, { from: '2025-10' }); // 2025-10 .. 2026-03
   assert.equal(html.split('<rect').length - 1, 6 * 2);
   assert.ok(html.includes('7回 / 3h'));
   assert.ok(!html.includes('>2025<')); // 2025-01 is out of view
+  assert.equal(monthlyChartSvg(data, { from: '2026-02', to: '2025-12' }).split('<rect').length - 1, 3 * 2); // reversed range is swapped
+  assert.equal(monthlyChartSvg(data, { from: '2030-01' }), ''); // nothing in range
+  const w = h => Number(h.match(/<svg width="(\d+)"/)[1]);
+  assert.ok(w(monthlyChartSvg(data, { zoom: 3 })) > w(monthlyChartSvg(data)) * 2.5); // slider widens the chart
+});
+
+test('addMonths: across year ends, both directions', () => {
+  assert.equal(addMonths('2026-11', -11), '2025-12');
+  assert.equal(addMonths('2025-12', 1), '2026-01');
+  assert.equal(addMonths('2026-01', -1), '2025-12');
 });
 
 test('heatLevel: same steps as the heatmap', () => {
