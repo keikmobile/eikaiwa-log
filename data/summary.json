@@ -1,9 +1,9 @@
 {
  "as_of": "2026-11-15",
- "total_min": 146587,
- "count": 5928,
+ "total_min": 146691,
+ "count": 5932,
  "minutes_by_date": {
-  "2026-11-15": 50,
+  "2026-11-15": 128,
   "2026-11-14": 76,
   "2026-11-13": 102,
   "2026-11-12": 76,
@@ -46,7 +46,7 @@
   "2026-10-06": 128,
   "2026-10-05": 76,
   "2026-10-04": 93,
-  "2026-10-03": 81,
+  "2026-10-03": 107,
   "2026-10-02": 102,
   "2026-10-01": 76,
   "2026-09-30": 76,
@@ -2469,13 +2469,13 @@
  "by_month": {
   "2026-11": {
    "dmm": 31,
-   "nc": 30,
-   "min": 1555
+   "nc": 33,
+   "min": 1633
   },
   "2026-10": {
    "dmm": 63,
-   "nc": 57,
-   "min": 2976
+   "nc": 58,
+   "min": 3002
   },
   "2026-09": {
    "dmm": 60,
@@ -2991,6 +2991,21 @@
  "recent": [
   {
    "date": "2026-11-15",
+   "material_title": "The Hidden Strength in Failure",
+   "duration_min": 26
+  },
+  {
+   "date": "2026-11-15",
+   "material_title": "Can a Reading Challenge Help a Busy Parent Read More?",
+   "duration_min": 26
+  },
+  {
+   "date": "2026-11-15",
+   "material_title": "Can a Reading Challenge Help a Busy Parent Read More?",
+   "duration_min": 26
+  },
+  {
+   "date": "2026-11-15",
    "material_title": "How To-Do Lists Help Us Work Better",
    "duration_min": 25
   },
@@ -3073,21 +3088,6 @@
    "date": "2026-11-10",
    "material_title": "How to Protect Your Privacy When Using Apps",
    "duration_min": 26
-  },
-  {
-   "date": "2026-11-10",
-   "material_title": "How to Protect Your Privacy When Using Apps",
-   "duration_min": 26
-  },
-  {
-   "date": "2026-11-10",
-   "material_title": "How to Protect Your Privacy When Using Apps",
-   "duration_min": 26
-  },
-  {
-   "date": "2026-11-10",
-   "material_title": "4 in 10 UK Teens Want More Work Experience at School",
-   "duration_min": 25
   }
  ]
 }

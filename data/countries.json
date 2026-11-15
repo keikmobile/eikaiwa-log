@@ -1,7 +1,8 @@
 {
  "year": "2026",
  "all": {
-  "total": 5928,
+  "total": 5932,
+  "countries": 112,
   "top": [
    {
     "name": "Philippines",
@@ -44,10 +45,11 @@
     "count": 41
    }
   ],
-  "other": 783
+  "other": 787
  },
  "this_year": {
-  "total": 1093,
+  "total": 1097,
+  "countries": 72,
   "top": [
    {
     "name": "Philippines",
@@ -75,7 +77,7 @@
    },
    {
     "name": "Turkey",
-    "count": 14
+    "count": 15
    },
    {
     "name": "Venezuela",
@@ -90,6 +92,6 @@
     "count": 11
    }
   ],
-  "other": 150
+  "other": 153
  }
 }
