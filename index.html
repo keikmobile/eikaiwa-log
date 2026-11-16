@@ -59,7 +59,7 @@
   #monthly-zoom { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; margin-bottom: 6px; font-size: 12px; color: var(--muted); }
   #monthly-zoom[hidden] { display: none; }
   #m-presets { display: flex; gap: 6px; }
-  #monthly-zoom input { font: inherit; vertical-align: middle; }
+  #monthly-zoom input, #monthly-zoom select { font: inherit; vertical-align: middle; }
   #monthly-zoom button { font: inherit; font-size: 12px; padding: 2px 10px; border: 1px solid var(--line); border-radius: 999px;
     background: var(--card); color: var(--muted); cursor: pointer; }
   #m-dialog { width: calc(100vw - 32px); max-width: none; height: calc(100vh - 32px); max-height: none; box-sizing: border-box;
@@ -103,7 +103,11 @@
     <span id="m-presets" role="group" aria-label="Period / 期間">
       <button data-n="12">1y</button><button data-n="36">3y</button><button data-n="60">5y</button><button data-n="0" aria-pressed="true">All</button>
     </span>
-    <label><input type="month" id="m-from" aria-label="From / 開始月"> – <input type="month" id="m-to" aria-label="To / 終了月"></label>
+    <span id="m-range">From / いつから
+      <select id="m-from-y" aria-label="From year / 開始年"></select><select id="m-from-m" aria-label="From month / 開始月"></select>
+      – To / いつまで
+      <select id="m-to-y" aria-label="To year / 終了年"></select><select id="m-to-m" aria-label="To month / 終了月"></select>
+    </span>
     <label>Zoom / 拡大 <input type="range" id="m-zoom" min="1" max="8" step="0.5" value="1"></label>
     <button id="m-expand" aria-label="Expand / 大きく表示">⤢</button>
   </div>
@@ -273,14 +277,21 @@ async function main() {
   const mKeys = Object.keys(byMonth).sort();
   const [mFirst, mLast] = [mKeys[0] ?? '', mKeys.at(-1) ?? ''];
   $('monthly-zoom').hidden = !mKeys.length;
-  for (const id of ['m-from', 'm-to']) Object.assign($(id), { min: mFirst, max: mLast });
-  Object.assign($('m-from'), { value: mFirst });
-  Object.assign($('m-to'), { value: mLast });
+  // From–To: a year select + a month select per side (Safari / Firefox desktop have no <input type="month"> picker).
+  const years = [];
+  for (let y = Number(mFirst.slice(0, 4)); y <= Number(mLast.slice(0, 4)); y++) years.push(y);
+  for (const side of ['from', 'to']) {
+    $(`m-${side}-y`).innerHTML = years.map(y => `<option value="${y}">${y}年</option>`).join('');
+    $(`m-${side}-m`).innerHTML = Array.from({ length: 12 }, (_, i) => `<option value="${String(i + 1).padStart(2, '0')}">${i + 1}月</option>`).join('');
+  }
+  const getYm = side => `${$(`m-${side}-y`).value}-${$(`m-${side}-m`).value}`;
+  const setYm = (side, ym) => { [$(`m-${side}-y`).value, $(`m-${side}-m`).value] = ym.split('-'); };
+  if (mKeys.length) { setYm('from', mFirst); setYm('to', mLast); }
   const renderMonthly = () => {
     const d = $('m-dialog');
     // In the dialog: fit its width and fill the height left under the controls.
     const size = d.open ? { width: d.clientWidth - 48, height: Math.max(100, d.clientHeight - $('monthly').offsetTop - 40) } : {};
-    $('monthly').innerHTML = monthlyChartSvg(byMonth, { from: $('m-from').value, to: $('m-to').value, zoom: Number($('m-zoom').value), ...size });
+    $('monthly').innerHTML = monthlyChartSvg(byMonth, { from: getYm('from'), to: getYm('to'), zoom: Number($('m-zoom').value), ...size });
   };
   const pressPreset = b => { for (const x of $('m-presets').children) x.setAttribute('aria-pressed', x === b); };
   renderMonthly();
@@ -289,12 +300,12 @@ async function main() {
     if (!b) return;
     const n = Number(b.dataset.n);
     const from = n ? addMonths(mLast, 1 - n) : mFirst;
-    $('m-from').value = from < mFirst ? mFirst : from;
-    $('m-to').value = mLast;
+    setYm('from', from < mFirst ? mFirst : from);
+    setYm('to', mLast);
     pressPreset(b);
     renderMonthly();
   });
-  for (const id of ['m-from', 'm-to']) $(id).addEventListener('change', () => { pressPreset(null); renderMonthly(); });
+  $('m-range').addEventListener('change', () => { pressPreset(null); renderMonthly(); });
   $('m-zoom').addEventListener('input', renderMonthly);
   // Expand: move the whole card (controls + chart) into the dialog, and back when it closes (✕ or Esc).
   $('m-expand').addEventListener('click', () => { $('m-dialog').append($('m-card')); $('m-dialog').showModal(); renderMonthly(); });

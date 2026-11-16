@@ -2,7 +2,7 @@
 
 My public English lesson log. It shows total hours, lesson count, the day streak (with its start date), hours this week / month / year (compared with the same span of the previous period), a heatmap by year with hours per year, lessons per month (DMM / NC), a calendar with minutes per day (for the heatmap and the calendar, only this year is open; older years back to the first lesson are folded), Daily News to review (Day-Week-Month), the top 15 Daily News articles for DMM and NC, and the last 20 lessons.
 
-英会話レッスンの公開ログ。合計時間・レッスン数・連続日数（開始日つき）・今週／今月／今年の時間（前の期間の同じ時点と比較）・年ごとのヒートマップと年間時間・月別のレッスン数（DMM／NC、1年／3年／5年／全期間・開始月〜終了月で期間指定、スライダーで拡大）・日ごとの時間のカレンダー（ヒートマップとカレンダーは今年だけ表示、最初のレッスンの年までの去年以前は折りたたみ）・復習するデイリーニュース（Day-Week-Month）・DMM／NC 別のよく受けた記事トップ15・直近20件を表示する。
+英会話レッスンの公開ログ。合計時間・レッスン数・連続日数（開始日つき）・今週／今月／今年の時間（前の期間の同じ時点と比較）・年ごとのヒートマップと年間時間・月別のレッスン数（DMM／NC、1年／3年／5年／全期間・いつから〜いつまで（年・月）で期間指定、スライダーで拡大）・日ごとの時間のカレンダー（ヒートマップとカレンダーは今年だけ表示、最初のレッスンの年までの去年以前は折りたたみ）・復習するデイリーニュース（Day-Week-Month）・DMM／NC 別のよく受けた記事トップ15・直近20件を表示する。
 
 Live page / 公開ページ: https://keikmobile.github.io/eikaiwa-log/
 
