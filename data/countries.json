@@ -1,7 +1,7 @@
 {
  "year": "2026",
  "all": {
-  "total": 5938,
+  "total": 5940,
   "countries": 112,
   "top": [
    {
@@ -26,7 +26,7 @@
    },
    {
     "name": "India",
-    "count": 60
+    "count": 61
    },
    {
     "name": "Zimbabwe",
@@ -45,10 +45,10 @@
     "count": 41
    }
   ],
-  "other": 788
+  "other": 789
  },
  "this_year": {
-  "total": 1101,
+  "total": 1103,
   "countries": 72,
   "top": [
    {
@@ -85,13 +85,13 @@
    },
    {
     "name": "India",
-    "count": 12
+    "count": 13
    },
    {
     "name": "Mexico",
     "count": 11
    }
   ],
-  "other": 155
+  "other": 156
  }
 }
