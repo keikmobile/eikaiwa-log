@@ -1,6 +1,6 @@
 #!/bin/sh
-# Summarize the newest auto-export (lesson-history-*.json) from ~/Downloads, then commit and push.
-# 最新の自動エクスポート（lesson-history-*.json）を ~/Downloads から読んで集計し、commit・push する。
+# Summarize the newest auto-export (lesson-history-*.json) from ~/Downloads or ~/Downloads/dmm-lesson-tracker, then commit and push.
+# 最新の自動エクスポート（lesson-history-*.json）を ~/Downloads か ~/Downloads/dmm-lesson-tracker から読んで集計し、commit・push する。
 # -n / --no-git: only write the JSON files, no git at all. / JSON を書くだけで git は一切触らない。
 set -eu
 cd "$(dirname "$0")"
@@ -19,9 +19,9 @@ if [ -z "$nogit" ] && [ "$(git branch --show-current)" != main ]; then
   exit 1
 fi
 
-src=$(ls -t "$HOME"/Downloads/lesson-history-*.json 2>/dev/null | head -1 || true)
+src=$(ls -t "$HOME"/Downloads/lesson-history-*.json "$HOME"/Downloads/dmm-lesson-tracker/lesson-history-*.json 2>/dev/null | head -1 || true)
 if [ -z "$src" ]; then
-  echo "No lesson-history-*.json in ~/Downloads / ファイルが見つかりません" >&2
+  echo "No lesson-history-*.json in ~/Downloads or ~/Downloads/dmm-lesson-tracker / ファイルが見つかりません" >&2
   exit 1
 fi
 

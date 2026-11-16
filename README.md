@@ -33,7 +33,7 @@ Lessons without a title are counted and shown as "—". A file in an unknown for
 
 ## Update / 更新
 
-1. Turn on auto-export in the extension, or export the lesson history from the popup (saved to `~/Downloads`)
+1. Turn on auto-export in the extension, or export the lesson history from the popup (saved to `~/Downloads` or `~/Downloads/dmm-lesson-tracker`)
    拡張機能の自動エクスポートをオンにする（または popup から履歴をエクスポート）
 2. Run / 実行:
 
