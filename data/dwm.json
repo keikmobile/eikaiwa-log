@@ -1,65 +1,95 @@
 {
- "today": "2026-11-15",
+ "today": "2026-11-16",
  "items": [
   {
    "label": "1ヶ月前",
-   "date": "2026-10-16",
+   "date": "2026-10-17",
+   "source": "dmm",
+   "title": "Huge Study Links Screen Time to Developmental Issues"
+  },
+  {
+   "label": "1ヶ月前",
+   "date": "2026-10-17",
+   "source": "dmm",
+   "title": "59% of Americans Get Their News from Social Media"
+  },
+  {
+   "label": "1ヶ月前",
+   "date": "2026-10-17",
    "source": "nativecamp",
-   "title": "Study Says Smartphone Reminders Could Improve Memory, Not Harm It"
-  },
-  {
-   "label": "1ヶ月前",
-   "date": "2026-10-16",
-   "source": "dmm",
-   "title": "Four Reasons to Add Beans to Your Diet"
-  },
-  {
-   "label": "1ヶ月前",
-   "date": "2026-10-16",
-   "source": "dmm",
-   "title": "Bored at Work? You May Be Feeling 'Rustout'"
-  },
-  {
-   "label": "1ヶ月前",
-   "date": "2026-10-16",
-   "source": "nativecamp",
-   "title": "Study Says Smartphone Reminders Could Improve Memory, Not Harm It"
+   "title": "Can Daily Task Lists Give You a Sense of Control?"
   },
   {
    "label": "1週間前",
-   "date": "2026-11-08",
+   "date": "2026-11-09",
    "source": "dmm",
-   "title": "Study Finds How a High-Calorie Diet May Affect the Brain"
+   "title": "Healthier Salt Could Save Millions of Lives"
   },
   {
    "label": "1週間前",
-   "date": "2026-11-08",
+   "date": "2026-11-09",
    "source": "dmm",
-   "title": "Most People Expect AI to Reduce Jobs for Humans"
+   "title": "Healthier Salt Could Save Millions of Lives"
   },
   {
    "label": "1週間前",
-   "date": "2026-11-08",
+   "date": "2026-11-09",
    "source": "nativecamp",
    "title": "How Does Brain Pathway Help You Learn and Adapt"
   },
   {
-   "label": "1日前",
-   "date": "2026-11-14",
-   "source": "dmm",
-   "title": "Fruit and Vegetable Scraps Could Boost Health — Study"
+   "label": "1週間前",
+   "date": "2026-11-09",
+   "source": "nativecamp",
+   "title": "How Does Brain Pathway Help You Learn and Adapt"
+  },
+  {
+   "label": "1週間前",
+   "date": "2026-11-09",
+   "source": "nativecamp",
+   "title": "How Does Brain Pathway Help You Learn and Adapt"
+  },
+  {
+   "label": "1週間前",
+   "date": "2026-11-09",
+   "source": "nativecamp",
+   "title": "How Healthy Habits Help People with Mild Cognitive Problems"
+  },
+  {
+   "label": "1週間前",
+   "date": "2026-11-09",
+   "source": "nativecamp",
+   "title": "How Healthy Habits Help People with Mild Cognitive Problems"
   },
   {
    "label": "1日前",
-   "date": "2026-11-14",
+   "date": "2026-11-15",
    "source": "dmm",
-   "title": "DNA Study Tracks English Language's Ancient Origins"
+   "title": "UK Job Satisfaction Is at an All-Time Low"
   },
   {
    "label": "1日前",
-   "date": "2026-11-14",
+   "date": "2026-11-15",
+   "source": "dmm",
+   "title": "How To-Do Lists Help Us Work Better"
+  },
+  {
+   "label": "1日前",
+   "date": "2026-11-15",
    "source": "nativecamp",
    "title": "Can a Reading Challenge Help a Busy Parent Read More?"
+  },
+  {
+   "label": "1日前",
+   "date": "2026-11-15",
+   "source": "nativecamp",
+   "title": "Can a Reading Challenge Help a Busy Parent Read More?"
+  },
+  {
+   "label": "1日前",
+   "date": "2026-11-15",
+   "source": "nativecamp",
+   "title": "The Hidden Strength in Failure"
   }
  ]
 }
