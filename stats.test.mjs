@@ -164,6 +164,21 @@ test('monthlyChartSvg: zoom shows only the latest N months, labels keep the full
   assert.ok(w(monthlyChartSvg(data, { zoom: 3 })) > w(monthlyChartSvg(data)) * 2.5); // slider widens the chart
 });
 
+test('monthlyChartSvg: big view grows text, but yearly labels never overlap', () => {
+  const data = {};
+  for (let i = 0; i < 120; i++) data[addMonths('2016-01', i)] = { dmm: 30, nc: 30, min: 1500 }; // 10 years: "720回 / 300h"
+  const fonts = h => [...h.matchAll(/font-size="([\d.]+)"/g)].map(m => Number(m[1]));
+  const xs = h => [...h.matchAll(/<text x="([\d.]+)"[^>]*fill="#999"/g)].map(m => Number(m[1])); // year labels
+  assert.deepEqual([...new Set(fonts(monthlyChartSvg(data)))], [10, 8]); // normal view unchanged
+  for (const width of [400, 720, 1120]) {
+    const html = monthlyChartSvg(data, { width, height: 600 });
+    const label = Math.max(...fonts(html)) * 8; // ~80px wide at font 10
+    const x = xs(html);
+    assert.ok(x[1] - x[0] >= label, `width ${width}: labels ${x[1] - x[0]}px apart, label ~${label}px`);
+  }
+  assert.ok(Math.max(...fonts(monthlyChartSvg(data, { from: '2025-01', width: 1120, height: 600 }))) <= 16); // capped at 1.6×
+});
+
 test('addMonths: across year ends, both directions', () => {
   assert.equal(addMonths('2026-11', -11), '2025-12');
   assert.equal(addMonths('2025-12', 1), '2026-01');

@@ -181,11 +181,13 @@ export function monthlyChartSvg(byMonth, { from = '', to = '', zoom = 1, width =
   if (months.length === 0) return '';
   const counts = months.map(m => byMonth[m].dmm + byMonth[m].nc);
   const H = height;
-  const k = Math.min(2.5, H / 100); // text scale
-  const pad = { l: 4, r: 4, t: 8 * k, b: 22 * k };
+  const pad = { l: 4, r: 4 };
   const W = Math.max(240, months.length * Math.round(Math.max(10, Math.floor(width / months.length)) * zoom) + pad.l + pad.r); // ≥10px per bar; fewer months → wider bars
   const maxC = Math.max(...counts);
   const slotW = (W - pad.l - pad.r) / months.length;
+  // Text grows with the height, but a yearly label (~80px at k = 1) must fit in 12 month slots so neighbours never overlap.
+  const k = Math.min(1.6, H / 100, (slotW * 12) / 80);
+  Object.assign(pad, { t: 8 * k, b: 22 * k });
   const barW = Math.max(1, slotW - 2);
   const plotH = H - pad.t - pad.b;
   const bars = months.map((m, i) => {
