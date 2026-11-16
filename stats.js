@@ -150,7 +150,15 @@ const fmtMin = min => {
 };
 
 // One stacked bar per month (DMM dark green, NC light green; heatmap colors). Under each January: year and yearly total.
-export function monthlyChartSvg(byMonth, last = 0) {
+// 'YYYY-MM' moved by n months (n can be negative).
+export function addMonths(ym, n) {
+  const [y, m] = ym.split('-').map(Number);
+  const t = y * 12 + (m - 1) + n;
+  return `${Math.floor(t / 12)}-${String((t % 12) + 1).padStart(2, '0')}`;
+}
+
+// from / to: 'YYYY-MM' range to show ('' = no limit). zoom: bar width multiplier (1 = fit `width`). minBar: narrowest bar (px). height: chart height; text grows with it.
+export function monthlyChartSvg(byMonth, { from = '', to = '', zoom = 1, width = 720, height = 100, minBar = 10 } = {}) {
   const keys = Object.keys(byMonth).sort();
   if (keys.length === 0) return '';
   // Every month from the first to the last, so a month without lessons keeps its slot as a 0 bar.
@@ -168,13 +176,18 @@ export function monthlyChartSvg(byMonth, last = 0) {
     yCount[y] = (yCount[y] || 0) + byMonth[ym].dmm + byMonth[ym].nc;
     yMin[y] = (yMin[y] || 0) + byMonth[ym].min;
   }
-  const months = last > 0 ? all.slice(-last) : all; // zoom: only the latest `last` months
+  if (from && to && from > to) [from, to] = [to, from];
+  const months = all.filter(ym => (!from || ym >= from) && (!to || ym <= to));
+  if (months.length === 0) return '';
   const counts = months.map(m => byMonth[m].dmm + byMonth[m].nc);
-  const H = 100;
-  const pad = { l: 4, r: 4, t: 8, b: 22 };
-  const W = Math.max(240, months.length * Math.max(10, Math.floor(720 / months.length)) + pad.l + pad.r); // ≥10px per bar; fewer months → wider bars
+  const H = height;
+  const pad = { l: 4, r: 4 };
+  const W = Math.max(240, months.length * Math.round(Math.max(minBar, 1, Math.floor(width / months.length)) * zoom) + pad.l + pad.r); // ≥minBar px per bar; fewer months → wider bars
   const maxC = Math.max(...counts);
   const slotW = (W - pad.l - pad.r) / months.length;
+  // Text grows with the height, but a yearly label (~80px at k = 1) must fit in 12 month slots so neighbours never overlap.
+  const k = Math.min(1.6, H / 100, (slotW * 12) / 80);
+  Object.assign(pad, { t: 8 * k, b: 22 * k });
   const barW = Math.max(1, slotW - 2);
   const plotH = H - pad.t - pad.b;
   const bars = months.map((m, i) => {
@@ -188,8 +201,8 @@ export function monthlyChartSvg(byMonth, last = 0) {
     if (!m.endsWith('-01')) return '';
     const y = m.slice(0, 4);
     const x = (pad.l + i * slotW + slotW / 2).toFixed(1);
-    return `<text x="${x}" y="${H - 11}" text-anchor="middle" fill="#999" font-size="10" font-family="sans-serif">${esc(y)}</text>`
-      + `<text x="${x}" y="${H - 1}" text-anchor="middle" fill="#bbb" font-size="8" font-family="sans-serif">${esc(`${yCount[y]}回 / ${Math.floor(yMin[y] / 60)}h`)}</text>`;
+    return `<text x="${x}" y="${H - 11 * k}" text-anchor="middle" fill="#999" font-size="${10 * k}" font-family="sans-serif">${esc(y)}</text>`
+      + `<text x="${x}" y="${H - k}" text-anchor="middle" fill="#bbb" font-size="${8 * k}" font-family="sans-serif">${esc(`${yCount[y]}回 / ${Math.floor(yMin[y] / 60)}h`)}</text>`;
   }).join('');
   const svg = `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Lessons per month">${bars}${labels}</svg>`;
   // Always a scroll box (charts are ~730px+, wider than a phone); direction:rtl starts it at the right end (newest month).
