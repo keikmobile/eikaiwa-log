@@ -177,6 +177,9 @@ test('monthlyChartSvg: big view grows text, but yearly labels never overlap', ()
     assert.ok(x[1] - x[0] >= label, `width ${width}: labels ${x[1] - x[0]}px apart, label ~${label}px`);
   }
   assert.ok(Math.max(...fonts(monthlyChartSvg(data, { from: '2025-01', width: 1120, height: 600 }))) <= 16); // capped at 1.6×
+  const svgW = h => Number(h.match(/<svg width="(\d+)"/)[1]);
+  assert.equal(svgW(monthlyChartSvg(data, { width: 920 })), 1208); // default: 10px minimum per bar, so it scrolls
+  assert.ok(svgW(monthlyChartSvg(data, { width: 920, minBar: 1 })) <= 920 + 8); // big view: 120 months fit the dialog
 });
 
 test('addMonths: across year ends, both directions', () => {

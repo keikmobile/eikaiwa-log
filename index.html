@@ -290,7 +290,7 @@ async function main() {
   const renderMonthly = () => {
     const d = $('m-dialog');
     // In the dialog: fit its width and fill the height left under the controls.
-    const size = d.open ? { width: d.clientWidth - 48, height: Math.max(100, d.clientHeight - $('monthly').offsetTop - 40) } : {};
+    const size = d.open ? { width: d.clientWidth - 48, minBar: 1, height: Math.max(100, d.clientHeight - $('monthly').offsetTop - 40) } : {};
     $('monthly').innerHTML = monthlyChartSvg(byMonth, { from: getYm('from'), to: getYm('to'), zoom: Number($('m-zoom').value), ...size });
   };
   const pressPreset = b => { for (const x of $('m-presets').children) x.setAttribute('aria-pressed', x === b); };

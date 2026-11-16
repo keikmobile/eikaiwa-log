@@ -157,8 +157,8 @@ export function addMonths(ym, n) {
   return `${Math.floor(t / 12)}-${String((t % 12) + 1).padStart(2, '0')}`;
 }
 
-// from / to: 'YYYY-MM' range to show ('' = no limit). zoom: bar width multiplier (1 = fit `width`). height: chart height; text grows with it.
-export function monthlyChartSvg(byMonth, { from = '', to = '', zoom = 1, width = 720, height = 100 } = {}) {
+// from / to: 'YYYY-MM' range to show ('' = no limit). zoom: bar width multiplier (1 = fit `width`). minBar: narrowest bar (px). height: chart height; text grows with it.
+export function monthlyChartSvg(byMonth, { from = '', to = '', zoom = 1, width = 720, height = 100, minBar = 10 } = {}) {
   const keys = Object.keys(byMonth).sort();
   if (keys.length === 0) return '';
   // Every month from the first to the last, so a month without lessons keeps its slot as a 0 bar.
@@ -182,7 +182,7 @@ export function monthlyChartSvg(byMonth, { from = '', to = '', zoom = 1, width =
   const counts = months.map(m => byMonth[m].dmm + byMonth[m].nc);
   const H = height;
   const pad = { l: 4, r: 4 };
-  const W = Math.max(240, months.length * Math.round(Math.max(10, Math.floor(width / months.length)) * zoom) + pad.l + pad.r); // ≥10px per bar; fewer months → wider bars
+  const W = Math.max(240, months.length * Math.round(Math.max(minBar, 1, Math.floor(width / months.length)) * zoom) + pad.l + pad.r); // ≥minBar px per bar; fewer months → wider bars
   const maxC = Math.max(...counts);
   const slotW = (W - pad.l - pad.r) / months.length;
   // Text grows with the height, but a yearly label (~80px at k = 1) must fit in 12 month slots so neighbours never overlap.
