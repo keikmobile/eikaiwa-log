@@ -1,8 +1,9 @@
 {
- "as_of": "2026-11-16",
- "total_min": 146891,
- "count": 5940,
+ "as_of": "2026-11-17",
+ "total_min": 146967,
+ "count": 5943,
  "minutes_by_date": {
+  "2026-11-17": 76,
   "2026-11-16": 180,
   "2026-11-15": 128,
   "2026-11-14": 76,
@@ -2469,9 +2470,9 @@
  },
  "by_month": {
   "2026-11": {
-   "dmm": 33,
-   "nc": 38,
-   "min": 1813
+   "dmm": 35,
+   "nc": 39,
+   "min": 1889
   },
   "2026-10": {
    "dmm": 63,
@@ -2991,6 +2992,21 @@
  },
  "recent": [
   {
+   "date": "2026-11-17",
+   "material_title": "Can Reading for Fun Make Children Smarter?",
+   "duration_min": 26
+  },
+  {
+   "date": "2026-11-17",
+   "material_title": "43% of Workers Would Take a Pay Cut to Go Freelance",
+   "duration_min": 25
+  },
+  {
+   "date": "2026-11-17",
+   "material_title": "Paper Straws May Be Worse for Environment than Plastic",
+   "duration_min": 25
+  },
+  {
    "date": "2026-11-16",
    "material_title": "Can Reading for Fun Make Children Smarter?",
    "duration_min": 26
@@ -3072,21 +3088,6 @@
   },
   {
    "date": "2026-11-13",
-   "material_title": "Simple Habits for a Sharper Brain",
-   "duration_min": 26
-  },
-  {
-   "date": "2026-11-13",
-   "material_title": "Fruit and Vegetable Scraps Could Boost Health — Study",
-   "duration_min": 25
-  },
-  {
-   "date": "2026-11-13",
-   "material_title": "Healthier Salt Could Save Millions of Lives",
-   "duration_min": 25
-  },
-  {
-   "date": "2026-11-12",
    "material_title": "Simple Habits for a Sharper Brain",
    "duration_min": 26
   }
