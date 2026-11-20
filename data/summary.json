@@ -1,9 +1,12 @@
 {
- "as_of": "2026-11-17",
- "total_min": 146967,
- "count": 5943,
+ "as_of": "2026-11-20",
+ "total_min": 147325,
+ "count": 5957,
  "minutes_by_date": {
-  "2026-11-17": 76,
+  "2026-11-20": 50,
+  "2026-11-19": 154,
+  "2026-11-18": 76,
+  "2026-11-17": 128,
   "2026-11-16": 180,
   "2026-11-15": 128,
   "2026-11-14": 76,
@@ -48,7 +51,7 @@
   "2026-10-06": 128,
   "2026-10-05": 76,
   "2026-10-04": 93,
-  "2026-10-03": 81,
+  "2026-10-03": 107,
   "2026-10-02": 102,
   "2026-10-01": 76,
   "2026-09-30": 76,
@@ -2470,14 +2473,14 @@
  },
  "by_month": {
   "2026-11": {
-   "dmm": 35,
-   "nc": 39,
-   "min": 1889
+   "dmm": 41,
+   "nc": 46,
+   "min": 2221
   },
   "2026-10": {
    "dmm": 63,
-   "nc": 57,
-   "min": 2976
+   "nc": 58,
+   "min": 3002
   },
   "2026-09": {
    "dmm": 60,
@@ -2992,6 +2995,71 @@
  },
  "recent": [
   {
+   "date": "2026-11-20",
+   "material_title": "Being an Entrepreneur Linked to Longer Lifespan",
+   "duration_min": 25
+  },
+  {
+   "date": "2026-11-20",
+   "material_title": "How Your Morning Mood May Affect Your Workday",
+   "duration_min": 25
+  },
+  {
+   "date": "2026-11-19",
+   "material_title": "More than Half of People in Japan Use AI",
+   "duration_min": 25
+  },
+  {
+   "date": "2026-11-19",
+   "material_title": null,
+   "duration_min": 25
+  },
+  {
+   "date": "2026-11-19",
+   "material_title": "Why Do Unfinished Tasks Make You Feel Constantly Tired?",
+   "duration_min": 26
+  },
+  {
+   "date": "2026-11-19",
+   "material_title": "Why Do Unfinished Tasks Make You Feel Constantly Tired?",
+   "duration_min": 26
+  },
+  {
+   "date": "2026-11-19",
+   "material_title": "Why Do Unfinished Tasks Make You Feel Constantly Tired?",
+   "duration_min": 26
+  },
+  {
+   "date": "2026-11-19",
+   "material_title": "Why Do Unfinished Tasks Make You Feel Constantly Tired?",
+   "duration_min": 26
+  },
+  {
+   "date": "2026-11-18",
+   "material_title": "Why Do Unfinished Tasks Make You Feel Constantly Tired?",
+   "duration_min": 26
+  },
+  {
+   "date": "2026-11-18",
+   "material_title": "Being an Entrepreneur Linked to Longer Lifespan",
+   "duration_min": 25
+  },
+  {
+   "date": "2026-11-18",
+   "material_title": "Fruit and Vegetable Scraps Could Boost Health — Study",
+   "duration_min": 25
+  },
+  {
+   "date": "2026-11-17",
+   "material_title": "Why Do Unfinished Tasks Make You Feel Constantly Tired?",
+   "duration_min": 26
+  },
+  {
+   "date": "2026-11-17",
+   "material_title": "Decline in Reading Habits: How It Impacts Our Brain",
+   "duration_min": 26
+  },
+  {
    "date": "2026-11-17",
    "material_title": "Can Reading for Fun Make Children Smarter?",
    "duration_min": 26
@@ -3024,71 +3092,6 @@
   {
    "date": "2026-11-16",
    "material_title": "How the Brain's Language Capacity Shapes Learning and Memory?",
-   "duration_min": 26
-  },
-  {
-   "date": "2026-11-16",
-   "material_title": "How the Brain's Language Capacity Shapes Learning and Memory?",
-   "duration_min": 26
-  },
-  {
-   "date": "2026-11-16",
-   "material_title": "Japan's Teachers Struggling with Workloads",
-   "duration_min": 25
-  },
-  {
-   "date": "2026-11-16",
-   "material_title": "Paper Straws May Be Worse for Environment than Plastic",
-   "duration_min": 25
-  },
-  {
-   "date": "2026-11-15",
-   "material_title": "The Hidden Strength in Failure",
-   "duration_min": 26
-  },
-  {
-   "date": "2026-11-15",
-   "material_title": "Can a Reading Challenge Help a Busy Parent Read More?",
-   "duration_min": 26
-  },
-  {
-   "date": "2026-11-15",
-   "material_title": "Can a Reading Challenge Help a Busy Parent Read More?",
-   "duration_min": 26
-  },
-  {
-   "date": "2026-11-15",
-   "material_title": "How To-Do Lists Help Us Work Better",
-   "duration_min": 25
-  },
-  {
-   "date": "2026-11-15",
-   "material_title": "UK Job Satisfaction Is at an All-Time Low",
-   "duration_min": 25
-  },
-  {
-   "date": "2026-11-14",
-   "material_title": "Can a Reading Challenge Help a Busy Parent Read More?",
-   "duration_min": 26
-  },
-  {
-   "date": "2026-11-14",
-   "material_title": "DNA Study Tracks English Language's Ancient Origins",
-   "duration_min": 25
-  },
-  {
-   "date": "2026-11-14",
-   "material_title": "Fruit and Vegetable Scraps Could Boost Health — Study",
-   "duration_min": 25
-  },
-  {
-   "date": "2026-11-13",
-   "material_title": "Can a Reading Challenge Help a Busy Parent Read More?",
-   "duration_min": 26
-  },
-  {
-   "date": "2026-11-13",
-   "material_title": "Simple Habits for a Sharper Brain",
    "duration_min": 26
   }
  ]
