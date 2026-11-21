@@ -1,65 +1,71 @@
 {
- "today": "2026-11-21",
+ "today": "2026-11-22",
  "items": [
   {
    "label": "1ヶ月前",
-   "date": "2026-10-22",
-   "source": "nativecamp",
-   "title": "Why Workers Do Personal Tasks During Office Hours"
-  },
-  {
-   "label": "1ヶ月前",
-   "date": "2026-10-22",
+   "date": "2026-10-23",
    "source": "dmm",
-   "title": "Strong Sense of Identity Linked to Mental Well-Being"
+   "title": "9% of UK Workers Got No Job Onboarding — Survey"
   },
   {
    "label": "1ヶ月前",
-   "date": "2026-10-22",
+   "date": "2026-10-23",
+   "source": "dmm",
+   "title": "Screenshots Are Bad for Your Memory — Here's Why"
+  },
+  {
+   "label": "1ヶ月前",
+   "date": "2026-10-23",
+   "source": "nativecamp",
+   "title": "Is Your Problem Time or Something Else?"
+  },
+  {
+   "label": "1週間前",
+   "date": "2026-11-15",
+   "source": "dmm",
+   "title": "UK Job Satisfaction Is at an All-Time Low"
+  },
+  {
+   "label": "1週間前",
+   "date": "2026-11-15",
    "source": "dmm",
    "title": "How To-Do Lists Help Us Work Better"
   },
   {
    "label": "1週間前",
-   "date": "2026-11-14",
-   "source": "dmm",
-   "title": "Fruit and Vegetable Scraps Could Boost Health — Study"
-  },
-  {
-   "label": "1週間前",
-   "date": "2026-11-14",
-   "source": "dmm",
-   "title": "DNA Study Tracks English Language's Ancient Origins"
-  },
-  {
-   "label": "1週間前",
-   "date": "2026-11-14",
+   "date": "2026-11-15",
    "source": "nativecamp",
    "title": "Can a Reading Challenge Help a Busy Parent Read More?"
   },
   {
-   "label": "1日前",
-   "date": "2026-11-20",
-   "source": "dmm",
-   "title": "More than Half of People in Japan Use AI"
+   "label": "1週間前",
+   "date": "2026-11-15",
+   "source": "nativecamp",
+   "title": "Can a Reading Challenge Help a Busy Parent Read More?"
+  },
+  {
+   "label": "1週間前",
+   "date": "2026-11-15",
+   "source": "nativecamp",
+   "title": "The Hidden Strength in Failure"
   },
   {
    "label": "1日前",
-   "date": "2026-11-20",
+   "date": "2026-11-21",
    "source": "dmm",
    "title": "How Your Morning Mood May Affect Your Workday"
   },
   {
    "label": "1日前",
-   "date": "2026-11-20",
+   "date": "2026-11-21",
    "source": "dmm",
    "title": "Being an Entrepreneur Linked to Longer Lifespan"
   },
   {
    "label": "1日前",
-   "date": "2026-11-20",
+   "date": "2026-11-21",
    "source": "nativecamp",
-   "title": "Why Do Unfinished Tasks Make You Feel Constantly Tired?"
+   "title": "Unlocking Japanese Wisdom: Clean Homes, Healthy Habits, and Mindful Living"
   }
  ]
 }
