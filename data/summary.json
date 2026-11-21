@@ -1,9 +1,10 @@
 {
- "as_of": "2026-11-20",
- "total_min": 147325,
- "count": 5957,
+ "as_of": "2026-11-21",
+ "total_min": 147427,
+ "count": 5961,
  "minutes_by_date": {
-  "2026-11-20": 50,
+  "2026-11-21": 76,
+  "2026-11-20": 76,
   "2026-11-19": 154,
   "2026-11-18": 76,
   "2026-11-17": 128,
@@ -2473,9 +2474,9 @@
  },
  "by_month": {
   "2026-11": {
-   "dmm": 41,
-   "nc": 46,
-   "min": 2221
+   "dmm": 43,
+   "nc": 48,
+   "min": 2323
   },
   "2026-10": {
    "dmm": 63,
@@ -2995,6 +2996,26 @@
  },
  "recent": [
   {
+   "date": "2026-11-21",
+   "material_title": "Unlocking Japanese Wisdom: Clean Homes, Healthy Habits, and Mindful Living",
+   "duration_min": 26
+  },
+  {
+   "date": "2026-11-21",
+   "material_title": "Being an Entrepreneur Linked to Longer Lifespan",
+   "duration_min": 25
+  },
+  {
+   "date": "2026-11-21",
+   "material_title": "How Your Morning Mood May Affect Your Workday",
+   "duration_min": 25
+  },
+  {
+   "date": "2026-11-20",
+   "material_title": "Why Do Unfinished Tasks Make You Feel Constantly Tired?",
+   "duration_min": 26
+  },
+  {
    "date": "2026-11-20",
    "material_title": "Being an Entrepreneur Linked to Longer Lifespan",
    "duration_min": 25
@@ -3011,7 +3032,7 @@
   },
   {
    "date": "2026-11-19",
-   "material_title": null,
+   "material_title": "Being an Entrepreneur Linked to Longer Lifespan",
    "duration_min": 25
   },
   {
@@ -3073,26 +3094,6 @@
    "date": "2026-11-17",
    "material_title": "Paper Straws May Be Worse for Environment than Plastic",
    "duration_min": 25
-  },
-  {
-   "date": "2026-11-16",
-   "material_title": "Can Reading for Fun Make Children Smarter?",
-   "duration_min": 26
-  },
-  {
-   "date": "2026-11-16",
-   "material_title": "How the Brain's Language Capacity Shapes Learning and Memory?",
-   "duration_min": 26
-  },
-  {
-   "date": "2026-11-16",
-   "material_title": "How the Brain's Language Capacity Shapes Learning and Memory?",
-   "duration_min": 26
-  },
-  {
-   "date": "2026-11-16",
-   "material_title": "How the Brain's Language Capacity Shapes Learning and Memory?",
-   "duration_min": 26
   }
  ]
 }
