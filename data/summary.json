@@ -1,9 +1,9 @@
 {
  "as_of": "2026-11-22",
- "total_min": 147477,
- "count": 5963,
+ "total_min": 147503,
+ "count": 5964,
  "minutes_by_date": {
-  "2026-11-22": 50,
+  "2026-11-22": 76,
   "2026-11-21": 76,
   "2026-11-20": 76,
   "2026-11-19": 154,
@@ -2476,8 +2476,8 @@
  "by_month": {
   "2026-11": {
    "dmm": 45,
-   "nc": 48,
-   "min": 2373
+   "nc": 49,
+   "min": 2399
   },
   "2026-10": {
    "dmm": 63,
@@ -2998,6 +2998,11 @@
  "recent": [
   {
    "date": "2026-11-22",
+   "material_title": "Unlocking Japanese Wisdom: Clean Homes, Healthy Habits, and Mindful Living",
+   "duration_min": 26
+  },
+  {
+   "date": "2026-11-22",
    "material_title": "How Your Morning Mood May Affect Your Workday",
    "duration_min": 25
   },
@@ -3089,11 +3094,6 @@
   {
    "date": "2026-11-17",
    "material_title": "Decline in Reading Habits: How It Impacts Our Brain",
-   "duration_min": 26
-  },
-  {
-   "date": "2026-11-17",
-   "material_title": "Can Reading for Fun Make Children Smarter?",
    "duration_min": 26
   }
  ]
