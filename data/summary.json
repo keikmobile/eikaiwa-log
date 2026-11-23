@@ -1,8 +1,9 @@
 {
- "as_of": "2026-11-22",
- "total_min": 147503,
- "count": 5964,
+ "as_of": "2026-11-23",
+ "total_min": 147631,
+ "count": 5969,
  "minutes_by_date": {
+  "2026-11-23": 128,
   "2026-11-22": 76,
   "2026-11-21": 76,
   "2026-11-20": 76,
@@ -2475,9 +2476,9 @@
  },
  "by_month": {
   "2026-11": {
-   "dmm": 45,
-   "nc": 49,
-   "min": 2399
+   "dmm": 47,
+   "nc": 52,
+   "min": 2527
   },
   "2026-10": {
    "dmm": 63,
@@ -2997,6 +2998,31 @@
  },
  "recent": [
   {
+   "date": "2026-11-23",
+   "material_title": "Unlocking Japanese Wisdom: Clean Homes, Healthy Habits, and Mindful Living",
+   "duration_min": 26
+  },
+  {
+   "date": "2026-11-23",
+   "material_title": "Unlocking Japanese Wisdom: Clean Homes, Healthy Habits, and Mindful Living",
+   "duration_min": 26
+  },
+  {
+   "date": "2026-11-23",
+   "material_title": "Unlocking Japanese Wisdom: Clean Homes, Healthy Habits, and Mindful Living",
+   "duration_min": 26
+  },
+  {
+   "date": "2026-11-23",
+   "material_title": "Workplace Disputes Very Common in UK Companies",
+   "duration_min": 25
+  },
+  {
+   "date": "2026-11-23",
+   "material_title": "How Your Morning Mood May Affect Your Workday",
+   "duration_min": 25
+  },
+  {
    "date": "2026-11-22",
    "material_title": "Unlocking Japanese Wisdom: Clean Homes, Healthy Habits, and Mindful Living",
    "duration_min": 26
@@ -3069,31 +3095,6 @@
   {
    "date": "2026-11-19",
    "material_title": "Why Do Unfinished Tasks Make You Feel Constantly Tired?",
-   "duration_min": 26
-  },
-  {
-   "date": "2026-11-18",
-   "material_title": "Why Do Unfinished Tasks Make You Feel Constantly Tired?",
-   "duration_min": 26
-  },
-  {
-   "date": "2026-11-18",
-   "material_title": "Being an Entrepreneur Linked to Longer Lifespan",
-   "duration_min": 25
-  },
-  {
-   "date": "2026-11-18",
-   "material_title": "Fruit and Vegetable Scraps Could Boost Health — Study",
-   "duration_min": 25
-  },
-  {
-   "date": "2026-11-17",
-   "material_title": "Why Do Unfinished Tasks Make You Feel Constantly Tired?",
-   "duration_min": 26
-  },
-  {
-   "date": "2026-11-17",
-   "material_title": "Decline in Reading Habits: How It Impacts Our Brain",
    "duration_min": 26
   }
  ]
