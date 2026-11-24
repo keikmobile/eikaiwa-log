@@ -1,8 +1,9 @@
 {
- "as_of": "2026-11-23",
- "total_min": 147631,
- "count": 5969,
+ "as_of": "2026-11-24",
+ "total_min": 147656,
+ "count": 5970,
  "minutes_by_date": {
+  "2026-11-24": 25,
   "2026-11-23": 128,
   "2026-11-22": 76,
   "2026-11-21": 76,
@@ -2476,9 +2477,9 @@
  },
  "by_month": {
   "2026-11": {
-   "dmm": 47,
+   "dmm": 48,
    "nc": 52,
-   "min": 2527
+   "min": 2552
   },
   "2026-10": {
    "dmm": 63,
@@ -2998,6 +2999,11 @@
  },
  "recent": [
   {
+   "date": "2026-11-24",
+   "material_title": "Sit-Stand Desks Improve Productivity, Study Finds",
+   "duration_min": 25
+  },
+  {
    "date": "2026-11-23",
    "material_title": "Unlocking Japanese Wisdom: Clean Homes, Healthy Habits, and Mindful Living",
    "duration_min": 26
@@ -3076,11 +3082,6 @@
    "date": "2026-11-19",
    "material_title": "Being an Entrepreneur Linked to Longer Lifespan",
    "duration_min": 25
-  },
-  {
-   "date": "2026-11-19",
-   "material_title": "Why Do Unfinished Tasks Make You Feel Constantly Tired?",
-   "duration_min": 26
   },
   {
    "date": "2026-11-19",
