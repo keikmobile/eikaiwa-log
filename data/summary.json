@@ -1,9 +1,10 @@
 {
- "as_of": "2026-11-24",
- "total_min": 147656,
- "count": 5970,
+ "as_of": "2026-11-25",
+ "total_min": 147809,
+ "count": 5976,
  "minutes_by_date": {
-  "2026-11-24": 25,
+  "2026-11-25": 102,
+  "2026-11-24": 76,
   "2026-11-23": 128,
   "2026-11-22": 76,
   "2026-11-21": 76,
@@ -2477,9 +2478,9 @@
  },
  "by_month": {
   "2026-11": {
-   "dmm": 48,
-   "nc": 52,
-   "min": 2552
+   "dmm": 51,
+   "nc": 55,
+   "min": 2705
   },
   "2026-10": {
    "dmm": 63,
@@ -2999,6 +3000,36 @@
  },
  "recent": [
   {
+   "date": "2026-11-25",
+   "material_title": "Fall’s Secret Reading Habits: What Book Lovers Won’t Admit",
+   "duration_min": 26
+  },
+  {
+   "date": "2026-11-25",
+   "material_title": "Fall’s Secret Reading Habits: What Book Lovers Won’t Admit",
+   "duration_min": 26
+  },
+  {
+   "date": "2026-11-25",
+   "material_title": "Study Finds Greatest Predictors of Good Reading Skills",
+   "duration_min": 25
+  },
+  {
+   "date": "2026-11-25",
+   "material_title": "Cranberry Juice May Fight Tooth Decay — Study",
+   "duration_min": 25
+  },
+  {
+   "date": "2026-11-24",
+   "material_title": "Fall’s Secret Reading Habits: What Book Lovers Won’t Admit",
+   "duration_min": 26
+  },
+  {
+   "date": "2026-11-24",
+   "material_title": "Study Finds Greatest Predictors of Good Reading Skills",
+   "duration_min": 25
+  },
+  {
    "date": "2026-11-24",
    "material_title": "Sit-Stand Desks Improve Productivity, Study Finds",
    "duration_min": 25
@@ -3067,36 +3098,6 @@
    "date": "2026-11-20",
    "material_title": "Being an Entrepreneur Linked to Longer Lifespan",
    "duration_min": 25
-  },
-  {
-   "date": "2026-11-20",
-   "material_title": "How Your Morning Mood May Affect Your Workday",
-   "duration_min": 25
-  },
-  {
-   "date": "2026-11-19",
-   "material_title": "More than Half of People in Japan Use AI",
-   "duration_min": 25
-  },
-  {
-   "date": "2026-11-19",
-   "material_title": "Being an Entrepreneur Linked to Longer Lifespan",
-   "duration_min": 25
-  },
-  {
-   "date": "2026-11-19",
-   "material_title": "Why Do Unfinished Tasks Make You Feel Constantly Tired?",
-   "duration_min": 26
-  },
-  {
-   "date": "2026-11-19",
-   "material_title": "Why Do Unfinished Tasks Make You Feel Constantly Tired?",
-   "duration_min": 26
-  },
-  {
-   "date": "2026-11-19",
-   "material_title": "Why Do Unfinished Tasks Make You Feel Constantly Tired?",
-   "duration_min": 26
   }
  ]
 }
