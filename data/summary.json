@@ -1,8 +1,9 @@
 {
  "as_of": "2026-11-26",
- "total_min": 147809,
- "count": 5976,
+ "total_min": 147859,
+ "count": 5978,
  "minutes_by_date": {
+  "2026-11-26": 50,
   "2026-11-25": 102,
   "2026-11-24": 76,
   "2026-11-23": 128,
@@ -2478,9 +2479,9 @@
  },
  "by_month": {
   "2026-11": {
-   "dmm": 51,
+   "dmm": 53,
    "nc": 55,
-   "min": 2705
+   "min": 2755
   },
   "2026-10": {
    "dmm": 63,
@@ -3000,6 +3001,16 @@
  },
  "recent": [
   {
+   "date": "2026-11-26",
+   "material_title": "Study Finds Greatest Predictors of Good Reading Skills",
+   "duration_min": 25
+  },
+  {
+   "date": "2026-11-26",
+   "material_title": "More Time in Light Could Reduce Dementia Risk",
+   "duration_min": 25
+  },
+  {
    "date": "2026-11-25",
    "material_title": "Fall’s Secret Reading Habits: What Book Lovers Won’t Admit",
    "duration_min": 26
@@ -3087,16 +3098,6 @@
   {
    "date": "2026-11-21",
    "material_title": "How Your Morning Mood May Affect Your Workday",
-   "duration_min": 25
-  },
-  {
-   "date": "2026-11-20",
-   "material_title": "Why Do Unfinished Tasks Make You Feel Constantly Tired?",
-   "duration_min": 26
-  },
-  {
-   "date": "2026-11-20",
-   "material_title": "Being an Entrepreneur Linked to Longer Lifespan",
    "duration_min": 25
   }
  ]
