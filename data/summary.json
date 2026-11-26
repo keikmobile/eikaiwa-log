@@ -1,9 +1,9 @@
 {
  "as_of": "2026-11-26",
- "total_min": 147911,
- "count": 5980,
+ "total_min": 147937,
+ "count": 5981,
  "minutes_by_date": {
-  "2026-11-26": 102,
+  "2026-11-26": 128,
   "2026-11-25": 102,
   "2026-11-24": 76,
   "2026-11-23": 128,
@@ -2480,8 +2480,8 @@
  "by_month": {
   "2026-11": {
    "dmm": 53,
-   "nc": 57,
-   "min": 2807
+   "nc": 58,
+   "min": 2833
   },
   "2026-10": {
    "dmm": 63,
@@ -3002,6 +3002,11 @@
  "recent": [
   {
    "date": "2026-11-26",
+   "material_title": "Can We Reclaim the Joy of Reading in a Busy World?",
+   "duration_min": 26
+  },
+  {
+   "date": "2026-11-26",
    "material_title": "The Brain Benefits of Fasting",
    "duration_min": 26
   },
@@ -3094,11 +3099,6 @@
    "date": "2026-11-22",
    "material_title": "Can Playing Music Make Children Smarter?",
    "duration_min": 25
-  },
-  {
-   "date": "2026-11-21",
-   "material_title": "Unlocking Japanese Wisdom: Clean Homes, Healthy Habits, and Mindful Living",
-   "duration_min": 26
   }
  ]
 }

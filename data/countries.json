@@ -1,7 +1,7 @@
 {
  "year": "2026",
  "all": {
-  "total": 5980,
+  "total": 5981,
   "countries": 112,
   "top": [
    {
@@ -45,10 +45,10 @@
     "count": 41
    }
   ],
-  "other": 807
+  "other": 808
  },
  "this_year": {
-  "total": 1143,
+  "total": 1144,
   "countries": 74,
   "top": [
    {
@@ -76,11 +76,11 @@
     "count": 21
    },
    {
-    "name": "India",
-    "count": 16
+    "name": "Turkey",
+    "count": 17
    },
    {
-    "name": "Turkey",
+    "name": "India",
     "count": 16
    },
    {
