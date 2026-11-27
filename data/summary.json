@@ -1,9 +1,9 @@
 {
  "as_of": "2026-11-27",
- "total_min": 148012,
- "count": 5984,
+ "total_min": 148090,
+ "count": 5987,
  "minutes_by_date": {
-  "2026-11-27": 75,
+  "2026-11-27": 153,
   "2026-11-26": 128,
   "2026-11-25": 102,
   "2026-11-24": 76,
@@ -2481,8 +2481,8 @@
  "by_month": {
   "2026-11": {
    "dmm": 56,
-   "nc": 58,
-   "min": 2908
+   "nc": 61,
+   "min": 2986
   },
   "2026-10": {
    "dmm": 63,
@@ -3003,6 +3003,21 @@
  "recent": [
   {
    "date": "2026-11-27",
+   "material_title": "The Brain Benefits of Fasting",
+   "duration_min": 26
+  },
+  {
+   "date": "2026-11-27",
+   "material_title": "The Brain Benefits of Fasting",
+   "duration_min": 26
+  },
+  {
+   "date": "2026-11-27",
+   "material_title": "The Brain Benefits of Fasting",
+   "duration_min": 26
+  },
+  {
+   "date": "2026-11-27",
    "material_title": "Americans Are Stressed and Asking AI for Help",
    "duration_min": 25
   },
@@ -3085,21 +3100,6 @@
    "date": "2026-11-23",
    "material_title": "Unlocking Japanese Wisdom: Clean Homes, Healthy Habits, and Mindful Living",
    "duration_min": 26
-  },
-  {
-   "date": "2026-11-23",
-   "material_title": "Unlocking Japanese Wisdom: Clean Homes, Healthy Habits, and Mindful Living",
-   "duration_min": 26
-  },
-  {
-   "date": "2026-11-23",
-   "material_title": "Workplace Disputes Very Common in UK Companies",
-   "duration_min": 25
-  },
-  {
-   "date": "2026-11-23",
-   "material_title": "How Your Morning Mood May Affect Your Workday",
-   "duration_min": 25
   }
  ]
 }
