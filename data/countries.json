@@ -1,12 +1,12 @@
 {
  "year": "2026",
  "all": {
-  "total": 5981,
+  "total": 5984,
   "countries": 112,
   "top": [
    {
     "name": "Philippines",
-    "count": 4414
+    "count": 4417
    },
    {
     "name": "Serbia",
@@ -48,12 +48,12 @@
   "other": 808
  },
  "this_year": {
-  "total": 1144,
+  "total": 1147,
   "countries": 74,
   "top": [
    {
     "name": "Philippines",
-    "count": 775
+    "count": 778
    },
    {
     "name": "Nigeria",

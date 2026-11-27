@@ -1,8 +1,9 @@
 {
- "as_of": "2026-11-26",
- "total_min": 147937,
- "count": 5981,
+ "as_of": "2026-11-27",
+ "total_min": 148012,
+ "count": 5984,
  "minutes_by_date": {
+  "2026-11-27": 75,
   "2026-11-26": 128,
   "2026-11-25": 102,
   "2026-11-24": 76,
@@ -2479,9 +2480,9 @@
  },
  "by_month": {
   "2026-11": {
-   "dmm": 53,
+   "dmm": 56,
    "nc": 58,
-   "min": 2833
+   "min": 2908
   },
   "2026-10": {
    "dmm": 63,
@@ -3001,6 +3002,21 @@
  },
  "recent": [
   {
+   "date": "2026-11-27",
+   "material_title": "Americans Are Stressed and Asking AI for Help",
+   "duration_min": 25
+  },
+  {
+   "date": "2026-11-27",
+   "material_title": "Japan Plans to Make It Easier to Become a Teacher",
+   "duration_min": 25
+  },
+  {
+   "date": "2026-11-27",
+   "material_title": "Think You're a Perfectionist? You're Probably Right!",
+   "duration_min": 25
+  },
+  {
    "date": "2026-11-26",
    "material_title": "Can We Reclaim the Joy of Reading in a Busy World?",
    "duration_min": 26
@@ -3083,21 +3099,6 @@
   {
    "date": "2026-11-23",
    "material_title": "How Your Morning Mood May Affect Your Workday",
-   "duration_min": 25
-  },
-  {
-   "date": "2026-11-22",
-   "material_title": "Unlocking Japanese Wisdom: Clean Homes, Healthy Habits, and Mindful Living",
-   "duration_min": 26
-  },
-  {
-   "date": "2026-11-22",
-   "material_title": "How Your Morning Mood May Affect Your Workday",
-   "duration_min": 25
-  },
-  {
-   "date": "2026-11-22",
-   "material_title": "Can Playing Music Make Children Smarter?",
    "duration_min": 25
   }
  ]
