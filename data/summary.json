@@ -1,8 +1,9 @@
 {
- "as_of": "2026-11-27",
- "total_min": 148090,
- "count": 5987,
+ "as_of": "2026-11-28",
+ "total_min": 148135,
+ "count": 5989,
  "minutes_by_date": {
+  "2026-11-28": 45,
   "2026-11-27": 153,
   "2026-11-26": 128,
   "2026-11-25": 102,
@@ -2480,9 +2481,9 @@
  },
  "by_month": {
   "2026-11": {
-   "dmm": 56,
-   "nc": 61,
-   "min": 2986
+   "dmm": 57,
+   "nc": 62,
+   "min": 3031
   },
   "2026-10": {
    "dmm": 63,
@@ -3002,6 +3003,16 @@
  },
  "recent": [
   {
+   "date": "2026-11-28",
+   "material_title": "Japan's English Proficiency Improves in Global Ranking",
+   "duration_min": 25
+  },
+  {
+   "date": "2026-11-28",
+   "material_title": "バグを修正する",
+   "duration_min": 20
+  },
+  {
    "date": "2026-11-27",
    "material_title": "The Brain Benefits of Fasting",
    "duration_min": 26
@@ -3090,16 +3101,6 @@
    "date": "2026-11-24",
    "material_title": "Sit-Stand Desks Improve Productivity, Study Finds",
    "duration_min": 25
-  },
-  {
-   "date": "2026-11-23",
-   "material_title": "Unlocking Japanese Wisdom: Clean Homes, Healthy Habits, and Mindful Living",
-   "duration_min": 26
-  },
-  {
-   "date": "2026-11-23",
-   "material_title": "Unlocking Japanese Wisdom: Clean Homes, Healthy Habits, and Mindful Living",
-   "duration_min": 26
   }
  ]
 }
